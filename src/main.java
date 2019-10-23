@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 
 public class main {
@@ -914,65 +915,65 @@ public class main {
 		textField_34.setColumns(10);
 		
 		lblNewLabel_36 = new JLabel("Wi=");
-		lblNewLabel_36.setBounds(650, 11, 140, 14);
+		lblNewLabel_36.setBounds(700, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel_36);
 		
 		textField_35 = new JTextField();
-		textField_35.setBounds(650, 36, 140, 20);
+		textField_35.setBounds(700, 36, 140, 20);
 		frame.getContentPane().add(textField_35);
 		textField_35.setColumns(10);
 		
 		lblNewLabel_37 = new JLabel("W0");
-		lblNewLabel_37.setBounds(650, 67, 140, 14);
+		lblNewLabel_37.setBounds(700, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_37);
 		
 		textField_36 = new JTextField();
-		textField_36.setBounds(650, 92, 140, 20);
+		textField_36.setBounds(700, 92, 140, 20);
 		frame.getContentPane().add(textField_36);
 		textField_36.setColumns(10);
 		
 		JLabel lblNewLabel_38 = new JLabel("Vint");
-		lblNewLabel_38.setBounds(900, 11, 140, 14);
+		lblNewLabel_38.setBounds(960, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel_38);
 		
 		textField_37 = new JTextField();
-		textField_37.setBounds(900, 36, 140, 20);
+		textField_37.setBounds(960, 36, 140, 20);
 		frame.getContentPane().add(textField_37);
 		textField_37.setColumns(10);
 		
 		JLabel lblNewLabel_39 = new JLabel("Vvent ");
-		lblNewLabel_39.setBounds(900, 67, 140, 14);
+		lblNewLabel_39.setBounds(960, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_39);
 		
 		JLabel lblNewLabel_40 = new JLabel("Qsensible of people");
-		lblNewLabel_40.setBounds(900, 123, 140, 14);
+		lblNewLabel_40.setBounds(960, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_40);
 		
 		textField_38 = new JTextField();
-		textField_38.setBounds(900, 92, 140, 20);
+		textField_38.setBounds(960, 92, 140, 20);
 		frame.getContentPane().add(textField_38);
 		textField_38.setColumns(10);
 		
 		JLabel lblNewLabel_41 = new JLabel("Qlatent");
-		lblNewLabel_41.setBounds(900, 179, 140, 14);
+		lblNewLabel_41.setBounds(960, 179, 140, 14);
 		frame.getContentPane().add(lblNewLabel_41);
 		
 		textField_39 = new JTextField();
-		textField_39.setBounds(900, 148, 140, 20);
+		textField_39.setBounds(960, 148, 140, 20);
 		frame.getContentPane().add(textField_39);
 		textField_39.setColumns(10);
 		
 		JLabel lblNewLabel_42 = new JLabel("Ktotal wall");
-		lblNewLabel_42.setBounds(900, 235, 140, 14);
+		lblNewLabel_42.setBounds(960, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_42);
 		
 		textField_40 = new JTextField();
-		textField_40.setBounds(900, 204, 140, 20);
+		textField_40.setBounds(960, 204, 140, 20);
 		frame.getContentPane().add(textField_40);
 		textField_40.setColumns(10);
 		
 		textField_41 = new JTextField();
-		textField_41.setBounds(900, 260, 140, 20);
+		textField_41.setBounds(960, 260, 140, 20);
 		frame.getContentPane().add(textField_41);
 		textField_41.setColumns(10);
 		
@@ -981,139 +982,143 @@ public class main {
 		frame.getContentPane().add(label_1);
 		
 		JLabel lblNewLabel_43 = new JLabel("Qwall");
-		lblNewLabel_43.setBounds(900, 291, 140, 14);
+		lblNewLabel_43.setBounds(960, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_43);
 		
 		textField_42 = new JTextField();
-		textField_42.setBounds(900, 316, 140, 20);
+		textField_42.setBounds(960, 316, 140, 20);
 		frame.getContentPane().add(textField_42);
 		textField_42.setColumns(10);
 		
 		JLabel lblNewLabel_44 = new JLabel("Qwin");
-		lblNewLabel_44.setBounds(900, 347, 140, 14);
+		lblNewLabel_44.setBounds(960, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_44);
 		
 		textField_43 = new JTextField();
-		textField_43.setBounds(900, 372, 140, 20);
+		textField_43.setBounds(960, 372, 140, 20);
 		frame.getContentPane().add(textField_43);
 		textField_43.setColumns(10);
 		
 		JLabel lblNewLabel_45 = new JLabel("Qceitin");
-		lblNewLabel_45.setBounds(900, 403, 140, 14);
+		lblNewLabel_45.setBounds(960, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_45);
 		
 		textField_44 = new JTextField();
-		textField_44.setBounds(900, 428, 140, 20);
+		textField_44.setBounds(960, 428, 140, 20);
 		frame.getContentPane().add(textField_44);
 		textField_44.setColumns(10);
 		
 		JLabel lblNewLabel_46 = new JLabel("Qfloor");
-		lblNewLabel_46.setBounds(900, 459, 140, 14);
+		lblNewLabel_46.setBounds(960, 459, 140, 14);
 		frame.getContentPane().add(lblNewLabel_46);
 		
 		textField_45 = new JTextField();
-		textField_45.setBounds(900, 484, 140, 20);
+		textField_45.setBounds(960, 484, 140, 20);
 		frame.getContentPane().add(textField_45);
 		textField_45.setColumns(10);
 		
 		JLabel lblNewLabel_47 = new JLabel("Qbelor");
-		lblNewLabel_47.setBounds(900, 515, 140, 14);
+		lblNewLabel_47.setBounds(960, 515, 140, 14);
 		frame.getContentPane().add(lblNewLabel_47);
 		
 		textField_46 = new JTextField();
-		textField_46.setBounds(900, 540, 140, 20);
+		textField_46.setBounds(960, 540, 140, 20);
 		frame.getContentPane().add(textField_46);
 		textField_46.setColumns(10);
 		
 		JLabel lblNewLabel_48 = new JLabel("Qtotal");
-		lblNewLabel_48.setBounds(900, 627, 140, 14);
+		lblNewLabel_48.setBounds(960, 627, 140, 14);
 		frame.getContentPane().add(lblNewLabel_48);
 		
 		textField_47 = new JTextField();
-		textField_47.setBounds(900, 596, 140, 20);
+		textField_47.setBounds(960, 596, 140, 20);
 		frame.getContentPane().add(textField_47);
 		textField_47.setColumns(10);
 		
 		JLabel lblNewLabel_49 = new JLabel("Qdoor");
-		lblNewLabel_49.setBounds(900, 571, 140, 14);
+		lblNewLabel_49.setBounds(960, 571, 140, 14);
 		frame.getContentPane().add(lblNewLabel_49);
 		
 		textField_48 = new JTextField();
-		textField_48.setBounds(900, 652, 140, 20);
+		textField_48.setBounds(960, 652, 140, 20);
 		frame.getContentPane().add(textField_48);
 		textField_48.setColumns(10);
 		
 		JLabel lblNewLabel_50 = new JLabel("Rcap");
-		lblNewLabel_50.setBounds(1150, 11, 48, 14);
+		lblNewLabel_50.setBounds(1180, 11, 48, 14);
 		frame.getContentPane().add(lblNewLabel_50);
 		
 		textField_49 = new JTextField();
-		textField_49.setBounds(1150, 36, 140, 20);
+		textField_49.setBounds(1180, 36, 140, 20);
 		frame.getContentPane().add(textField_49);
 		textField_49.setColumns(10);
 		
 		JLabel lblNewLabel_51 = new JLabel("Tunconditioned");
-		lblNewLabel_51.setBounds(1150, 67, 140, 14);
+		lblNewLabel_51.setBounds(1180, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_51);
 		
 		textField_50 = new JTextField();
-		textField_50.setBounds(1150, 92, 140, 20);
+		textField_50.setBounds(1180, 92, 140, 20);
 		frame.getContentPane().add(textField_50);
 		textField_50.setColumns(10);
 		
 		JLabel lblNewLabel_52 = new JLabel("tanneated");
-		lblNewLabel_52.setBounds(1150, 123, 140, 14);
+		lblNewLabel_52.setBounds(1180, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_52);
 		
 		textField_51 = new JTextField();
-		textField_51.setBounds(1150, 148, 140, 20);
+		textField_51.setBounds(1180, 148, 140, 20);
 		frame.getContentPane().add(textField_51);
 		textField_51.setColumns(10);
 		
 		JLabel lblNewLabel_53 = new JLabel("Tauusaal");
-		lblNewLabel_53.setBounds(1150, 179, 140, 14);
+		lblNewLabel_53.setBounds(1180, 179, 140, 14);
 		frame.getContentPane().add(lblNewLabel_53);
 		
 		textField_52 = new JTextField();
-		textField_52.setBounds(1150, 204, 140, 20);
+		textField_52.setBounds(1180, 204, 140, 20);
 		frame.getContentPane().add(textField_52);
 		textField_52.setColumns(10);
 		
 		JLabel lblNewLabel_54 = new JLabel("QAttics");
-		lblNewLabel_54.setBounds(1150, 235, 140, 14);
+		lblNewLabel_54.setBounds(1180, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_54);
 		
 		textField_53 = new JTextField();
-		textField_53.setBounds(1150, 260, 140, 20);
+		textField_53.setBounds(1180, 260, 140, 20);
 		frame.getContentPane().add(textField_53);
 		textField_53.setColumns(10);
 		
 		JLabel lblNewLabel_55 = new JLabel("Qsensibel hentinn");
-		lblNewLabel_55.setBounds(1150, 291, 140, 14);
+		lblNewLabel_55.setBounds(1180, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_55);
 		
 		textField_54 = new JTextField();
-		textField_54.setBounds(1150, 316, 140, 20);
+		textField_54.setBounds(1180, 316, 140, 20);
 		frame.getContentPane().add(textField_54);
 		textField_54.setColumns(10);
 		
 		JLabel lblNewLabel_56 = new JLabel("Qlatent heatin");
-		lblNewLabel_56.setBounds(1150, 347, 140, 14);
+		lblNewLabel_56.setBounds(1180, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_56);
 		
 		textField_55 = new JTextField();
-		textField_55.setBounds(1150, 372, 140, 20);
+		textField_55.setBounds(1180, 372, 140, 20);
 		frame.getContentPane().add(textField_55);
 		textField_55.setColumns(10);
 		
 		JLabel lblNewLabel_57 = new JLabel("civc");
-		lblNewLabel_57.setBounds(1150, 403, 140, 14);
+		lblNewLabel_57.setBounds(1180, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_57);
 		
 		textField_56 = new JTextField();
-		textField_56.setBounds(1150, 428, 140, 20);
+		textField_56.setBounds(1180, 428, 140, 20);
 		frame.getContentPane().add(textField_56);
 		textField_56.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Calculation");
+		btnNewButton.setBounds(700, 147, 140, 46);
+		frame.getContentPane().add(btnNewButton);
 		 
 		 
 		//System.out.print("");
