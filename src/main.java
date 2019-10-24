@@ -10,35 +10,37 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class main {
  
 	private JFrame frame;
-	private JTextField a;
+	private JTextField Type_of_room_building;
 	private JLabel lblNewLabel_1;
-	private JTextField textField;
+	private JTextField Inside_volume;
 	private JTextField textField_1;
 	private JLabel lblNewLabel_3;
-	private JTextField textField_2;
+	private JTextField Type_of_activity;
 	private JLabel lblNewLabel_4;
-	private JTextField textField_3;
+	private JTextField Type_of_application;
 	private JLabel lblNewLabel_5;
-	private JTextField textField_4;
+	private JTextField IElement;
 	private JLabel lblNewLabel_6;
-	private JTextField textField_5;
+	private JTextField IHeat_direction;
 	private JLabel lblNewLabel_7;
-	private JTextField textField_6;
+	private JTextField IMaterial_type;
 	private JLabel lblNewLabel_8;
-	private JTextField textField_7;
+	private JTextField Element;
 	private JLabel lblNewLabel_9;
-	private JTextField textField_8;
+	private JTextField Material_type;
 	private JLabel lblNewLabel_10;
-	private JTextField textField_9;
+	private JTextField Speed;
 	private JLabel lblNewLabel_11;
-	private JTextField textField_10;
-	private JLabel lblNewLabel_12;
-	private JTextField textField_11;
+	private JTextField X_thichness;
+	private JLabel materia;
+	private JTextField material_number;
 	private JLabel lblNewLabel_13;
 	private JTextField textField_12;
 	private JLabel lblNewLabel_14;
@@ -60,11 +62,11 @@ public class main {
 	private JLabel lblNewLabel_22;
 	private JTextField textField_21;
 	private JLabel lblNewLabel_23;
-	private JTextField textField_22;
+	private JTextField gap_thichness;
 	private JLabel lblNewLabel_24;
-	private JTextField textField_23;
+	private JTextField gap_material;
 	private JLabel lblNewLabel_25;
-	private JTextField textField_24;
+	private JTextField Heat_flow_direction;
 	private JLabel lblNewLabel_26;
 	private JTextField textField_25;
 	private JLabel lblNewLabel_27;
@@ -89,11 +91,11 @@ public class main {
 	private JTextField textField_35;
 	private JLabel lblNewLabel_37;
 	private JTextField textField_36;
-	private JTextField textField_37;
-	private JTextField textField_38;
-	private JTextField textField_39;
-	private JTextField textField_40;
-	private JTextField textField_41;
+	private JTextField vint;
+	private JTextField Vvent;
+	private JTextField Qsensible;
+	private JTextField Qleatent;
+	private JTextField Rtotal;
 	private JTextField textField_42;
 	private JTextField textField_43;
 	private JTextField textField_44;
@@ -109,6 +111,11 @@ public class main {
 	private JTextField textField_54;
 	private JTextField textField_55;
 	private JTextField textField_56;
+	private JTextField application;
+	private JLabel lblNumberOfPersons;
+	private JTextField number_of_persons;
+	private JLabel lblNewLabel_12;
+	private JTextField Material;
 
 	/**
 	 * Launch the application.
@@ -133,6 +140,36 @@ public class main {
 	public main() {
 		initialize();
 		// table number one rady
+		
+		
+	 
+		 
+			
+		
+		 
+		//  System.out.println(array_table4[HR_wind_speed.get("walls", "metals")][HC_wind_speed.get("more then 0.5 m/s")]);
+
+// 	 table number 5
+		
+		 
+		
+		 
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+// 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+// 		frame.setVisible(true);
+// 		frame.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
+		 
+		Dimension size =  Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setBounds( 0, 0, size.width, size.height );
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
 		 Map<String, Float> type_room = new Hashtable<>(); 
 		 type_room.put("room with no windows or exterior doors",(float)  0.5); 
 		 type_room.put("room with no windows or exterior doors on one side only", (float) 1.0); 
@@ -146,7 +183,7 @@ public class main {
 		 type_room.put("stores public buidings",(float) 2.5);	
 		 type_room.put("toilets auditorium",(float) 3.0);	
 		 
-		 //table number 2
+		 //table number 2 ----------------------------------------
 		 Map<String, Integer> MC_table2 = new Hashtable<>();
 		 MC_table2.put("maximum occupany per 100m^2", 0);
 		 MC_table2.put("L/s/person", 1);
@@ -341,192 +378,6 @@ public class main {
 				 
 		 };
 		// System.out.println(array_tabe2[MR_table2.get("gambling casinos")][MC_table2.get("L/s/person")]);
-			
-		 // table number 3 
-		  Map<String,Double> map = new HashMap<String,Double>();
-		  
-		 Hash<String,String,Map<String,Double>> HR_element = new Hash<String,String,Map<String,Double>>();  
-		   map = new HashMap<String,Double>();
-		   map.put("construction materials",0.12);
-		   HR_element.put("walls" ,"horizonta",map); 
-			
-		   map = new HashMap<String,Double>();
-		   map.put("metals",0.31);
-		   HR_element.put("walls" ,"horizonta",map); 
-		
-		   map = new HashMap<String,Double>();
-		   map.put("construction materials",0.10);
-		   HR_element.put("callngs and floors ","upward",map); 
-		   
-		   map = new HashMap<String,Double>();
-		   map.put("metals",0.21);
-		   HR_element.put("callngs and floors","upward",map); 
-		   map = new HashMap<String,Double>();
-		   map.put("construction materials",0.15);
-		  HR_element.put("callngs and floors","downward",map); 
-		 
-		 
-		// System.out.println( HR_element.get("walls", "horizonta").get("metals"));
-	
-	 
-		 
-			
-		 //table number 4
-		 Hash<String,String,Integer> HR_wind_speed = new Hash<String,String,Integer>();
-	 
-		 HR_wind_speed.put("walls","construction materials",0); 
-		 HR_wind_speed.put("walls","metals",1); 
-		 HR_wind_speed.put("ceilings and floors","construction materials",2); 
-		 HR_wind_speed.put("ceilings and floors","metals",3); 
-		 HR_wind_speed.put("exposed floors","construction materials",4); 
-		 
-		 Map<String, Integer> HC_wind_speed = new Hashtable<>(); 
-	  
-		 HC_wind_speed.put("less then 0.5 m/s",0); 
-		 HC_wind_speed.put("0.5-5.0 m/s",1);
-		 HC_wind_speed.put("more then 0.5 m/s",2); 
-		  
-		 double array_table4[][]= {
-				 {0.08,0.06,0.03},
-				 {0.10,0.07,0.03},
-				 {0.09,0.05,0.02},
-				 {0.09,0,0},
-				 
-		 };
-		 
-		//  System.out.println(array_table4[HR_wind_speed.get("walls", "metals")][HC_wind_speed.get("more then 0.5 m/s")]);
-
-// 	 table number 5
-		 Map<String, Integer> HR_material = new Hashtable<>(); 
-		 HR_material.put("marble",0); 
-		 HR_material.put("hard stone",1); 
-		 HR_material.put("firm stone",2); 
-		 HR_material.put("semi firm ston",3); 
-		 HR_material.put("soft ston",4); 
-		 HR_material.put("granit",5); 
-		 HR_material.put("baslt and stqnes",6); 
-		 HR_material.put("lime stone",7); 
-		 HR_material.put("sand",8); 
-		 HR_material.put("soil",9); 
-		// HR_material.put("building brick",0); 
-		 HR_material.put("cement brick ,solid",10); 
-		 HR_material.put("cement brick , with air gaps",11); 
-		 HR_material.put("common brick (low density)",12); 
-		 HR_material.put("face brick (high density)",13); 
-		 HR_material.put("glass brick",14); 
-		 HR_material.put("fire-clay brick",15); 
-		 HR_material.put("clay",16); 
-		 HR_material.put("light concrete",17); 
-		 HR_material.put("foam concrete",18); 
-		 HR_material.put("mortar",20); 
-		 //---- 
-		 HR_material.put("terrazzo tiles",21); 
-		 HR_material.put("ceramic tiles",22); 
-		 HR_material.put("pvc tiles",23); 
-		 HR_material.put("rubber tiles",24); 
-		 HR_material.put("rubber flooring",25); 
-		 HR_material.put("plastic tiles",26); 
-		 HR_material.put("cement palaster",27);
-		 HR_material.put("gypasum plaster",28); 
-		 HR_material.put("oak",29); 
-		 HR_material.put("pine",30); 
-		 HR_material.put("beech",31); 
-		 HR_material.put("mahogay",32); 
-		 HR_material.put("teak",32); 
-		 HR_material.put("red wood",33); 
-		 HR_material.put("hard fiber boards",34); 
-		 HR_material.put("soft fiber boards",35); 
-		 HR_material.put("plywood boards",36); 
-		 HR_material.put("chip biards",37); 
-		 HR_material.put("parquet",38); 
-		 HR_material.put("gypsum boards",39); 
-		 HR_material.put("cork boards",40); 
-		 HR_material.put("reguular",41); 
-		 HR_material.put("thermal resisting",42); 
-		 //---
-		 HR_material.put("aluminuum",45); 
-		 HR_material.put("copper",46); 
-		 HR_material.put("brass",47); 
-		 HR_material.put("cast iron",48); 
-		 HR_material.put("mild steel",48); 
-		 HR_material.put("stainless steel",49); 
-		 HR_material.put("polystyrene boards",50); 
-		 HR_material.put("polyurethane boards",51); 
-		 HR_material.put("rock wool",52); 
-		 HR_material.put("glass wool",53); 
-		 HR_material.put("cork boards",54); 
-		 HR_material.put("cork particles",54); 
-		 HR_material.put("asphalt mix",55); 
-		 HR_material.put("asphalt",56); 
-		 HR_material.put("rool roofing",57);  
-		 
-	 
-		 
-		 Map<String, Integer> HC_material = new Hashtable<>(); 
-		 HC_material.put("densilty kg /m^2",0); 
-		 HC_material.put("thermal conductivity w / mc",1); 
-		  
-		 
-		 double array_table5[][]= {
-				 {2600 ,2.90 },
-				 { 2500, 2.20},
-				 { 2250, 1.70},
-				 { 2000, 1.40},
-				 { 1,750 , 1.05},
-				 { 2800, 3.75},
-				 {2800 ,3.50 },
-				 { 2500, 1.3},
-				 { 1800, 0.70},
-				 {1900 , 1.20},
-				 { 1600, 1.00},
-				 { 1400, 0.72 },
-				 { 1200, 1.27},
-				 { 1000, 0.65},
-				 { 2000, 1.00},			 
-				 { 2300, 1.75}, 
-				 {1600 , 0.68}, 
-				 //----
-				 { 1800,1 },
-				 { 2000, 1.40},
-				 { 2100, 1.10},
-				 { 2000, 1.20},
-				 { 1500, 0.23},
-				 { 0, 0.4},
-				 { 0, 3.5},
-				 { 2000,1.20 },
-				 { 720,0.8 },
-				 { 800,0.21 },
-				 { 600, 0.14},
-				 {800 , 0.17},
-				 { 700, 0.16},
-				 { 700, 0.17},
-				 { 0, 0.11},
-				 { 1000,0.14 },
-				 { 300, 0.06},
-				 {545 , 0.12},
-				 { 800, 0.15},
-				 {0,0.23},
-				 {0,0.17},
-				 {800 , 0.95},
-				 {2500 ,1.05 },
-				 { 2250, 1.10},
-				 //---
-				 { 2300,200 },
-				 { 8900, 250},
-				 {8400 , 130},
-				 {7000 , 40},
-				 {7000 , 45},
-				 { 7800, 15},
-				 {30 ,0.030 },
-				 { 30,0.030 },
-				 {140 ,0.040 },
-				 { 180,0.042 },
-				 {160 ,0.045 },
-				 { 80,0.042 },
-				 { 2300, 1.10},
-				 { 2100,0.80 },
-				 { 1100, 0.18},
-		 };
 		 // table number 6
 		 Map<String , Integer> HC_table6 = new Hashtable<>(); 
 		 HC_table6.put("total heat dissipation adult male", 0);
@@ -567,29 +418,281 @@ public class main {
 				 {428.5 , 414 , 166 , 248},
 				 {428.5 , 414 , 166 , 248},
 				 };
-		 
-		
-		 
-	}
+		 //----------------------------------------
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-// 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-// 		frame.setVisible(true);
-// 		frame.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
-		 
-		Dimension size =  Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setBounds( 0, 0, size.width, size.height );
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		 // table number 5-2
+		  Map<String,Double> map = new HashMap<String,Double>();
+		  
+		 Hash<String,String,Map<String,Double>> HR_element = new Hash<String,String,Map<String,Double>>();  
+		   map = new HashMap<String,Double>();
+		   map.put("construction materials",0.12);
+		   HR_element.put("walls" ,"horizonta",map); 
+			
+		   map = new HashMap<String,Double>();
+		   map.put("metals",0.31);
+		   HR_element.put("walls" ,"horizonta",map); 
 		
-		a = new JTextField();
-		a.setBounds(10, 36, 140, 20);
-		frame.getContentPane().add(a);
-		a.setColumns(10);
+		   map = new HashMap<String,Double>();
+		   map.put("construction materials",0.10);
+		   HR_element.put("callngs and floors ","upward",map); 
+		   
+		   map = new HashMap<String,Double>();
+		   map.put("metals",0.21);
+		   HR_element.put("callngs and floors","upward",map); 
+		   map = new HashMap<String,Double>();
+		   map.put("construction materials",0.15);
+		  HR_element.put("callngs and floors","downward",map); 
+		 
+		 
+		// System.out.println( HR_element.get("walls", "horizonta").get("metals"));
+	//---------------------------------------------------------------------------
+		  //table number 5-3
+			 Hash<String,String,Integer> HR_wind_speed = new Hash<String,String,Integer>();
+		 
+			 HR_wind_speed.put("walls","construction materials",0); 
+			 HR_wind_speed.put("walls","metals",1); 
+			 HR_wind_speed.put("ceilings and floors","construction materials",2); 
+			 HR_wind_speed.put("ceilings and floors","metals",3); 
+			 HR_wind_speed.put("exposed floors","construction materials",4); 
+			 
+			 Map<String, Integer> HC_wind_speed = new Hashtable<>(); 
+		  
+			 HC_wind_speed.put("less then 0.5 m/s",0); 
+			 HC_wind_speed.put("0.5-5.0 m/s",1);
+			 HC_wind_speed.put("more then 0.5 m/s",2); 
+			  
+			 double array_table4[][]= {
+					 {0.08,0.06,0.03},
+					 {0.10,0.07,0.03},
+					 {0.09,0.05,0.02},
+					 {0.09,0,0},
+					 
+			 };
+		 //------------------------------ 5-1
+			 Hash<Integer,String,Integer> HR_material = new Hash<Integer,String,Integer>(); 
+			 
+			 HR_material.put(1,"marble",0); 
+			  
+			 HR_material.put(1,"hard stone",1); 
+			 
+			 HR_material.put(1,"firm stone",2); 
+			 
+			 HR_material.put(1,"semi firm ston",3);
+			  
+			 HR_material.put(1,"soft ston",4); 
+			  
+			 HR_material.put(1,"granit",5); 
+			 
+			  
+			 HR_material.put(1,"baslt and stqnes",6); 
+			  
+			 HR_material.put(1,"lime stone",7); 
+			 
+		 
+			 HR_material.put(1,"sand",8); 
+			 
+			 // HR_material.put("building brick",0);
+			 
+			 HR_material.put(2,"soil",9); 
+			 //-----3
+			  
+			 HR_material.put(3,"cement brick ,solid",10); 
+			  
+			 HR_material.put(3,"cement brick , with air gaps",11); 
+			  
+			 HR_material.put(3,"common brick (low density)",12); 
+			  
+			 HR_material.put(3,"face brick (high density)",13); 
+			  
+			 HR_material.put(3,"glass brick",14); 
+			 
+			 HR_material.put(3,"fire-clay brick",15); 
+			  
+			 HR_material.put(3,"clay",16); 
+			 //---4
+			  
+			 HR_material.put(4,"light concrete",17); 
+			  
+			 HR_material.put(4,"foam concrete",18);
+			  
+			 HR_material.put(4,"mortar",20); 
+			 //---- 
+			  
+			 HR_material.put(5,"terrazzo tiles",21); 
+			  
+			 HR_material.put(5, "ceramic tiles",22); 
+			  
+			 HR_material.put(5, "pvc tiles",23); 
+			  
+			 HR_material.put(5, "rubber tiles",24); 
+			  
+			 HR_material.put(5, "rubber flooring",25); 
+			  
+			 HR_material.put(5,"plastic tiles",26); 
+			  
+			 HR_material.put(6,"cement palaster",27);
+			  
+			 HR_material.put(6, "gypasum plaster",28); 
+			  
+			 HR_material.put(7, "oak",29); 
+			  
+			 HR_material.put(7, "pine",30); 
+			   
+			 HR_material.put(7,"beech",31); 
+			  
+			 HR_material.put(7, "mahogay",32); 
+			  
+			 HR_material.put(7, "teak",32); 
+			  
+			 HR_material.put(7, "red wood",33); 
+			  
+			 HR_material.put(8,"hard fiber boards",34); 
+			  
+			 HR_material.put(8, "soft fiber boards",35); 
+			  
+			 HR_material.put(8, "plywood boards",36); 
+			   
+			 HR_material.put(8,"chip biards" ,37); 
+			  
+			 HR_material.put(8, "parquet",38); 
+			  
+			 HR_material.put(9,"gypsum boards",39); 
+			  
+			 HR_material.put(9, "cork boards",40); 
+			 
+			 HR_material.put(10,"reguular",41); 
+			  
+			 HR_material.put(10,"thermal resisting",42); 
+			 //---
+			  
+			 HR_material.put(11,"aluminuum" ,45); 
+			  
+			 HR_material.put(11, "copper" ,46); 
+			  
+			 HR_material.put(11, "brass",47); 
+			  
+			 HR_material.put(11, "cast iron",48); 
+			  
+			 HR_material.put(11, "mild steel",48); 
+			  
+			 HR_material.put(11,"stainless steel",49); 
+			  
+			 HR_material.put(12,"polystyrene boards" ,50); 
+			  
+			 HR_material.put(12, "polyurethane boards",51); 
+			  
+			 HR_material.put(12,"rock wool" ,52); 
+			  
+			 HR_material.put(12, "glass wool",53); 
+			  
+			 HR_material.put(12, "cork boards",54); 
+			  
+			 HR_material.put(12, "cork particles",54); 
+			  
+			 HR_material.put(13, "asphalt mix",55); 
+			  
+			 HR_material.put(13,"asphalt",56); 
+			  
+			 HR_material.put(13,"rool roofing",57);  
+			 
+		 
+			 
+			 Map<String, Integer> HC_material = new Hashtable<>(); 
+			 HC_material.put("densilty kg /m^2",0); 
+			 HC_material.put("thermal conductivity w / mc",1); 
+			  
+			 
+			 double array_table5[][]= {
+					 {2600 ,2.90 },
+					 { 2500, 2.20},
+					 { 2250, 1.70},
+					 { 2000, 1.40},
+					 { 1,750 , 1.05},
+					 { 2800, 3.75},
+					 {2800 ,3.50 },
+					 { 2500, 1.3},
+					 { 1800, 0.70},
+					 {1900 , 1.20},
+					 { 1600, 1.00},
+					 { 1400, 0.72 },
+					 { 1200, 1.27},
+					 { 1000, 0.65},
+					 { 2000, 1.00},			 
+					 { 2300, 1.75}, 
+					 {1600 , 0.68}, 
+					 //----
+					 { 1800,1 },
+					 { 2000, 1.40},
+					 { 2100, 1.10},
+					 { 2000, 1.20},
+					 { 1500, 0.23},
+					 { 0, 0.4},
+					 { 0, 3.5},
+					 { 2000,1.20 },
+					 { 720,0.8 },
+					 { 800,0.21 },
+					 { 600, 0.14},
+					 {800 , 0.17},
+					 { 700, 0.16},
+					 { 700, 0.17},
+					 { 0, 0.11},
+					 { 1000,0.14 },
+					 { 300, 0.06},
+					 {545 , 0.12},
+					 { 800, 0.15},
+					 {0,0.23},
+					 {0,0.17},
+					 {800 , 0.95},
+					 {2500 ,1.05 },
+					 { 2250, 1.10},
+					 //---
+					 { 2300,200 },
+					 { 8900, 250},
+					 {8400 , 130},
+					 {7000 , 40},
+					 {7000 , 45},
+					 { 7800, 15},
+					 {30 ,0.030 },
+					 { 30,0.030 },
+					 {140 ,0.040 },
+					 { 180,0.042 },
+					 {160 ,0.045 },
+					 { 80,0.042 },
+					 { 2300, 1.10},
+					 { 2100,0.80 },
+					 { 1100, 0.18},
+			 };
+			// 5-10 ----------------------------------------
+			 Map<String , Integer> map1 = new Hashtable<String , Integer>();;
+			 Map<String, Integer> HC_air_gas = new Hashtable<>(); 
+			 HC_air_gas.put("horizontal or upward", 0);
+			 HC_air_gas.put("downward", 1);
+			
+			 Hash<String,String,Integer> HR_air_gas = new Hash<String,String,Integer>(); 
+			 HR_air_gas.put("5 mum","construction material",0);
+			 HR_air_gas.put("5 mum","metals",1);
+			 HR_air_gas.put("20 mun or mum","construction material",2); 
+			 HR_air_gas.put("20 mun or mum","metals",3);
+			  
+		 
+			 
+			 
+			 double air_gas[][]= {
+					 { 0.11, 0.11  },
+					 { 0.18, 0.18  },
+					 { 0.18, 0.20  },
+					 { 0.53, 1.06 },
+					  
+					 }; 
+			
+					//  System.out.println( air_gas[HR_air_gas.get("5 mum","metals")][HC_air_gas.get("downward")]);
+			
+			 //----------------------------------------------------
+			 
+		Type_of_room_building = new JTextField();
+		Type_of_room_building.setBounds(10, 36, 140, 20);
+		frame.getContentPane().add(Type_of_room_building);
+		Type_of_room_building.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Type of room building");
 		lblNewLabel.setBounds(10, 11, 140, 14);
@@ -603,10 +706,10 @@ public class main {
 		lblNewLabel_1.setBounds(10, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 92, 140, 20);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		Inside_volume = new JTextField();
+		Inside_volume.setBounds(10, 92, 140, 20);
+		frame.getContentPane().add(Inside_volume);
+		Inside_volume.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("munber of pepole space");
 		lblNewLabel_2.setBounds(10, 123, 140, 14);
@@ -621,91 +724,91 @@ public class main {
 		lblNewLabel_3.setBounds(10, 179, 140, 14);
 		frame.getContentPane().add(lblNewLabel_3);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(10, 204, 140, 20);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		Type_of_activity = new JTextField();
+		Type_of_activity.setBounds(10, 204, 140, 20);
+		frame.getContentPane().add(Type_of_activity);
+		Type_of_activity.setColumns(10);
 		
 		lblNewLabel_4 = new JLabel("Type of application");
 		lblNewLabel_4.setBounds(10, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_4);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(10, 260, 140, 20);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		Type_of_application = new JTextField();
+		Type_of_application.setBounds(10, 260, 140, 20);
+		frame.getContentPane().add(Type_of_application);
+		Type_of_application.setColumns(10);
 		
 		lblNewLabel_5 = new JLabel("IElement");
 		lblNewLabel_5.setBounds(10, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(10, 316, 140, 20);
-		frame.getContentPane().add(textField_4);
-		textField_4.setColumns(10);
+		IElement = new JTextField();
+		IElement.setBounds(10, 316, 140, 20);
+		frame.getContentPane().add(IElement);
+		IElement.setColumns(10);
 		
 		lblNewLabel_6 = new JLabel("IHeat direction");
 		lblNewLabel_6.setBounds(10, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(10, 372, 140, 20);
-		frame.getContentPane().add(textField_5);
-		textField_5.setColumns(10);
+		IHeat_direction = new JTextField();
+		IHeat_direction.setBounds(10, 372, 140, 20);
+		frame.getContentPane().add(IHeat_direction);
+		IHeat_direction.setColumns(10);
 		
 		lblNewLabel_7 = new JLabel("IMaterial type");
 		lblNewLabel_7.setBounds(10, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_7);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(10, 428, 140, 20);
-		frame.getContentPane().add(textField_6);
-		textField_6.setColumns(10);
+		IMaterial_type = new JTextField();
+		IMaterial_type.setBounds(10, 428, 140, 20);
+		frame.getContentPane().add(IMaterial_type);
+		IMaterial_type.setColumns(10);
 		
 		lblNewLabel_8 = new JLabel("Element");
 		lblNewLabel_8.setBounds(10, 459, 140, 14);
 		frame.getContentPane().add(lblNewLabel_8);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(10, 484, 140, 20);
-		frame.getContentPane().add(textField_7);
-		textField_7.setColumns(10);
+		Element = new JTextField();
+		Element.setBounds(10, 484, 140, 20);
+		frame.getContentPane().add(Element);
+		Element.setColumns(10);
 		
-		lblNewLabel_9 = new JLabel("Material");
+		lblNewLabel_9 = new JLabel("Material type");
 		lblNewLabel_9.setBounds(10, 515, 140, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
-		textField_8 = new JTextField();
-		textField_8.setBounds(10, 540, 140, 20);
-		frame.getContentPane().add(textField_8);
-		textField_8.setColumns(10);
+		Material_type = new JTextField();
+		Material_type.setBounds(10, 540, 140, 20);
+		frame.getContentPane().add(Material_type);
+		Material_type.setColumns(10);
 		
 		lblNewLabel_10 = new JLabel("Speed");
 		lblNewLabel_10.setBounds(10, 571, 140, 14);
 		frame.getContentPane().add(lblNewLabel_10);
 		
-		textField_9 = new JTextField();
-		textField_9.setBounds(10, 596, 140, 20);
-		frame.getContentPane().add(textField_9);
-		textField_9.setColumns(10);
+		Speed = new JTextField();
+		Speed.setBounds(10, 596, 140, 20);
+		frame.getContentPane().add(Speed);
+		Speed.setColumns(10);
 		
 		lblNewLabel_11 = new JLabel("X : thichness");
 		lblNewLabel_11.setBounds(10, 627, 140, 14);
 		frame.getContentPane().add(lblNewLabel_11);
 		
-		textField_10 = new JTextField();
-		textField_10.setBounds(10, 652, 140, 20);
-		frame.getContentPane().add(textField_10);
-		textField_10.setColumns(10);
+		X_thichness = new JTextField();
+		X_thichness.setBounds(10, 652, 140, 20);
+		frame.getContentPane().add(X_thichness);
+		X_thichness.setColumns(10);
 		
-		lblNewLabel_12 = new JLabel("material number");
-		lblNewLabel_12.setBounds(200, 11, 140, 14);
-		frame.getContentPane().add(lblNewLabel_12);
+		materia = new JLabel("material number");
+		materia.setBounds(200, 11, 140, 14);
+		frame.getContentPane().add(materia);
 		
-		textField_11 = new JTextField();
-		textField_11.setBounds(200, 36, 220, 20);
-		frame.getContentPane().add(textField_11);
-		textField_11.setColumns(10);
+		material_number = new JTextField();
+		material_number.setBounds(200, 36, 220, 20);
+		frame.getContentPane().add(material_number);
+		material_number.setColumns(10);
 		
 		lblNewLabel_13 = new JLabel("construction material");
 		lblNewLabel_13.setBounds(200, 67, 220, 14);
@@ -801,28 +904,28 @@ public class main {
 		lblNewLabel_23.setBounds(200, 627, 140, 14);
 		frame.getContentPane().add(lblNewLabel_23);
 		
-		textField_22 = new JTextField();
-		textField_22.setBounds(200, 652, 220, 20);
-		frame.getContentPane().add(textField_22);
-		textField_22.setColumns(10);
+		gap_thichness = new JTextField();
+		gap_thichness.setBounds(200, 652, 220, 20);
+		frame.getContentPane().add(gap_thichness);
+		gap_thichness.setColumns(10);
 		
 		lblNewLabel_24 = new JLabel("gap material");
 		lblNewLabel_24.setBounds(500, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel_24);
 		
-		textField_23 = new JTextField();
-		textField_23.setBounds(500, 36, 140, 20);
-		frame.getContentPane().add(textField_23);
-		textField_23.setColumns(10);
+		gap_material = new JTextField();
+		gap_material.setBounds(500, 36, 140, 20);
+		frame.getContentPane().add(gap_material);
+		gap_material.setColumns(10);
 		
-		lblNewLabel_25 = new JLabel("peat flow pirection");
+		lblNewLabel_25 = new JLabel("Heat flow direction");
 		lblNewLabel_25.setBounds(500, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_25);
 		
-		textField_24 = new JTextField();
-		textField_24.setBounds(500, 92, 140, 20);
-		frame.getContentPane().add(textField_24);
-		textField_24.setColumns(10);
+		Heat_flow_direction = new JTextField();
+		Heat_flow_direction.setBounds(500, 92, 140, 20);
+		frame.getContentPane().add(Heat_flow_direction);
+		Heat_flow_direction.setColumns(10);
 		
 		lblNewLabel_26 = new JLabel("wall depth below, rude");
 		lblNewLabel_26.setBounds(500, 123, 140, 14);
@@ -936,10 +1039,10 @@ public class main {
 		lblNewLabel_38.setBounds(960, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel_38);
 		
-		textField_37 = new JTextField();
-		textField_37.setBounds(960, 36, 140, 20);
-		frame.getContentPane().add(textField_37);
-		textField_37.setColumns(10);
+		vint = new JTextField();
+		vint.setBounds(960, 36, 140, 20);
+		frame.getContentPane().add(vint);
+		vint.setColumns(10);
 		
 		JLabel lblNewLabel_39 = new JLabel("Vvent ");
 		lblNewLabel_39.setBounds(960, 67, 140, 14);
@@ -949,33 +1052,33 @@ public class main {
 		lblNewLabel_40.setBounds(960, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_40);
 		
-		textField_38 = new JTextField();
-		textField_38.setBounds(960, 92, 140, 20);
-		frame.getContentPane().add(textField_38);
-		textField_38.setColumns(10);
+		Vvent = new JTextField();
+		Vvent.setBounds(960, 92, 140, 20);
+		frame.getContentPane().add(Vvent);
+		Vvent.setColumns(10);
 		
-		JLabel lblNewLabel_41 = new JLabel("Qlatent");
+		JLabel lblNewLabel_41 = new JLabel("Qletent");
 		lblNewLabel_41.setBounds(960, 179, 140, 14);
 		frame.getContentPane().add(lblNewLabel_41);
 		
-		textField_39 = new JTextField();
-		textField_39.setBounds(960, 148, 140, 20);
-		frame.getContentPane().add(textField_39);
-		textField_39.setColumns(10);
+		Qsensible = new JTextField();
+		Qsensible.setBounds(960, 148, 140, 20);
+		frame.getContentPane().add(Qsensible);
+		Qsensible.setColumns(10);
 		
-		JLabel lblNewLabel_42 = new JLabel("Ktotal wall");
+		JLabel lblNewLabel_42 = new JLabel("Rtotal wall");
 		lblNewLabel_42.setBounds(960, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_42);
 		
-		textField_40 = new JTextField();
-		textField_40.setBounds(960, 204, 140, 20);
-		frame.getContentPane().add(textField_40);
-		textField_40.setColumns(10);
+		Qleatent = new JTextField();
+		Qleatent.setBounds(960, 204, 140, 20);
+		frame.getContentPane().add(Qleatent);
+		Qleatent.setColumns(10);
 		
-		textField_41 = new JTextField();
-		textField_41.setBounds(960, 260, 140, 20);
-		frame.getContentPane().add(textField_41);
-		textField_41.setColumns(10);
+		Rtotal = new JTextField();
+		Rtotal.setBounds(960, 260, 140, 20);
+		frame.getContentPane().add(Rtotal);
+		Rtotal.setColumns(10);
 		
 		JLabel label_1 = new JLabel("");
 		label_1.setBounds(900, 303, 20, 2);
@@ -1116,9 +1219,87 @@ public class main {
 		frame.getContentPane().add(textField_56);
 		textField_56.setColumns(10);
 		
+		JLabel lblNewLabel_58 = new JLabel("application");
+		lblNewLabel_58.setBounds(700, 123, 140, 14);
+		frame.getContentPane().add(lblNewLabel_58);
+		
+		application = new JTextField();
+		application.setBounds(700, 148, 140, 20);
+		frame.getContentPane().add(application);
+		application.setColumns(10);
+		
+		lblNumberOfPersons = new JLabel("number of persons");
+		lblNumberOfPersons.setBounds(700, 179, 140, 14);
+		frame.getContentPane().add(lblNumberOfPersons);
+		
+		number_of_persons = new JTextField();
+		number_of_persons.setBounds(700, 204, 140, 20);
+		frame.getContentPane().add(number_of_persons);
+		number_of_persons.setColumns(10);
+		
+		lblNewLabel_12 = new JLabel("Material");
+		lblNewLabel_12.setBounds(700, 235, 140, 14);
+		frame.getContentPane().add(lblNewLabel_12);
+		
+		Material = new JTextField();
+		Material.setBounds(700, 260, 140, 20);
+		frame.getContentPane().add(Material);
+		Material.setColumns(10);
+		
 		JButton btnNewButton = new JButton("Calculation");
-		btnNewButton.setBounds(700, 147, 140, 46);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 
+				float ach=type_room.get(Type_of_room_building.getText());	
+				double Vint= ( ach *   Double.parseDouble(Inside_volume.getText()) *1000) /3600;
+				vint.setText(String.valueOf(Vint));
+	    //------------------------------------------------------------------------
+			 	double x=array_tabe2[MR_table2.get(MR_table2.get(application.getText()))][MR_table2.get("L/s/person")];
+			 	double n=Double.valueOf(number_of_persons.getText());
+			 	Vvent.setText(String.valueOf(x*n));
+		//--------------------------------------------------------------------------	
+			 	 
+			 	double Sensile=table6[HR_table6.get(Type_of_activity.getText(),Type_of_application.getText())][HC_table6.get("sensile heat, w")];
+			 	Qsensible.setText(String.valueOf(Sensile));
+	    //--------------------------------------------------------------------------	
+			 	double leatent=table6[HR_table6.get(Type_of_activity.getText(),Type_of_application.getText())][HC_table6.get("leatent heat, w")];
+			 	Qleatent.setText(String.valueOf(leatent));
+	   //--------------------------------------------------------------------------------
+			 	double Ri=HR_element.get(IElement.getText(), IHeat_direction.getText()).get(IMaterial_type.getText());
+			 	double R0=array_table4[HR_wind_speed.get(Element.getText(), Material_type.getText())][HC_wind_speed.get(Speed.getText())];
+		
+				double Sum_X=0, Sum_K=0;
+				String  X[]=X_thichness.getText().split("[, ]+");
+				for (String a : X) {
+					Sum_X+=Double.valueOf(a);
+				} 
+				
+			String  Material_number[]=material_number.getText().split("[, ]+");
+			String  Materials[]=Material.getText().split(",");
+			for(int i=0; i<Material_number.length;i++) { 
+				Sum_K+= array_table5[HR_material.get(Integer.parseInt(Material_number[i]),Materials[i])][ HC_material.get("thermal conductivity w / mc")];
+ 			} 
+		 
+				System.out.println(Sum_K);
+				double Rgap=0;
+				 if(gap_thichness.getText().equals(null))
+					 Rgap =air_gas[HR_air_gas.get(gap_thichness.getText(),gap_material.getText())][HC_air_gas.get(Heat_flow_direction)];
+ 		 
+				  
+			Rtotal.setText(String.valueOf(Ri+R0+(Sum_X/Sum_K)+Rgap ));
+			 	
+	  //----------------------------------------------------------------------------
+			 	
+			}
+		});
+		btnNewButton.setBounds(700, 303, 140, 46);
 		frame.getContentPane().add(btnNewButton);
+		
+		
+		
+		
+		
+	
 		 
 		 
 		//System.out.print("");
