@@ -111,8 +111,8 @@ public class main {
 	private JComboBox Narrwest;
 	private JComboBox Depth_below_grade;
 	private JComboBox window_material_type_and_peand_frame;
-	private JComboBox single;
 	private JComboBox door_type;
+	private JComboBox single;
 	private JComboBox Heat_flow_direction;
 	private JComboBox gap_material;
 	private JComboBox gap_thichness;
@@ -1186,24 +1186,24 @@ public class main {
 		civc.setColumns(10);
 		
 		JLabel lblNewLabel_58 = new JLabel("application");
-		lblNewLabel_58.setBounds(700, 11, 140, 14);
+		lblNewLabel_58.setBounds(685, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel_58);
 		
 		lblNumberOfPersons = new JLabel("number of persons");
-		lblNumberOfPersons.setBounds(700, 67, 140, 14);
+		lblNumberOfPersons.setBounds(685, 67, 140, 14);
 		frame.getContentPane().add(lblNumberOfPersons);
 		
 		number_of_persons = new JTextField();
-		number_of_persons.setBounds(700, 92, 163, 20);
+		number_of_persons.setBounds(685, 92, 163, 20);
 		frame.getContentPane().add(number_of_persons);
 		number_of_persons.setColumns(10);
 		
 		lblNewLabel_12 = new JLabel("Material");
-		lblNewLabel_12.setBounds(700, 123, 140, 14);
+		lblNewLabel_12.setBounds(685, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_12);
 		
 		Material = new JTextField();
-		Material.setBounds(700, 148, 163, 20);
+		Material.setBounds(685, 148, 163, 20);
 		frame.getContentPane().add(Material);
 		Material.setColumns(10);
 		
@@ -1212,7 +1212,7 @@ public class main {
 		frame.getContentPane().add(lblNarrowestWidthOf);
 		
 		JLabel lblDepthBelowGrade = new JLabel("Depth below grade, m");
-		lblDepthBelowGrade.setBounds(500, 626, 163, 14);
+		lblDepthBelowGrade.setBounds(500, 627, 163, 14);
 		frame.getContentPane().add(lblDepthBelowGrade);
 		 
 	  
@@ -1274,29 +1274,29 @@ public class main {
 		
 		
 			lblAconditioned = new JLabel("Aunconditioned");
-		lblAconditioned.setBounds(700, 179, 163, 14);
+		lblAconditioned.setBounds(685, 179, 163, 14);
 		frame.getContentPane().add(lblAconditioned);
 		
 		Aunconditioned = new JTextField();
-		Aunconditioned.setBounds(700, 204, 163, 20);
+		Aunconditioned.setBounds(685, 204, 163, 20);
 		frame.getContentPane().add(Aunconditioned);
 		Aunconditioned.setColumns(10);
 		
 		lblAunheated = new JLabel("Aunheated");
-		lblAunheated.setBounds(700, 235, 163, 14);
+		lblAunheated.setBounds(685, 235, 163, 14);
 		frame.getContentPane().add(lblAunheated);
 		
 		Aunheated = new JTextField();
-		Aunheated.setBounds(700, 260, 163, 20);
+		Aunheated.setBounds(685, 260, 163, 20);
 		frame.getContentPane().add(Aunheated);
 		Aunheated.setColumns(10);
 		
 		lblAunusaal = new JLabel("Aauusaal");
-		lblAunusaal.setBounds(700, 291, 163, 14);
+		lblAunusaal.setBounds(685, 291, 163, 14);
 		frame.getContentPane().add(lblAunusaal);
 		
 		AUnusual = new JTextField();
-		AUnusual.setBounds(700, 316, 163, 20);
+		AUnusual.setBounds(685, 316, 163, 20);
 		frame.getContentPane().add(AUnusual);
 		AUnusual.setColumns(10);
 		
@@ -1387,7 +1387,7 @@ public class main {
 				,"assembly rooms"
 				,"dormitory sleeeping areas"
 				,"gambling casinos"});
-		application.setBounds(700, 35, 163, 22);
+		application.setBounds(685, 35, 163, 22);
 		application.addPopupMenuListener( listener );
 		application.setPrototypeDisplayValue("ItemWWW");
 		frame.getContentPane().add(application);	
@@ -1469,7 +1469,7 @@ public class main {
 		frame.getContentPane().add(IHeat_direction);
 		
 		IMaterial_type = new JComboBox(new String[] { 
-				 "construction materials","metals" 
+				"metals", "construction materials"
 		});
 		IMaterial_type.setBounds(10, 428, 140, 22);
 		IMaterial_type.addPopupMenuListener( listener );
@@ -1492,7 +1492,7 @@ public class main {
 			  "1.83",
 			  "2.13",
 			  });
-			Depth_below_grade.setBounds(500, 650, 163, 22);
+			Depth_below_grade.setBounds(500, 651, 163, 22);
 			frame.getContentPane().add(Depth_below_grade);
 			
 			window_material_type_and_peand_frame = new JComboBox(new String[] {
@@ -1501,7 +1501,7 @@ public class main {
 			window_material_type_and_peand_frame.setBounds(200, 428, 220, 22);
 			frame.getContentPane().add(window_material_type_and_peand_frame);
 			
-			single = new JComboBox(new String[] {
+			door_type = new JComboBox(new String[] {
 					"25 min-vood"
 					 ,"35 min-vood"
 					 ,"40 min-vood"
@@ -1513,8 +1513,8 @@ public class main {
 					 ,"palytyetyeme core",
 					 "palyty.... "
 			});
-			single.setBounds(200, 483, 220, 22);
-			frame.getContentPane().add(single);
+			door_type.setBounds(200, 540, 220, 22);
+			frame.getContentPane().add(door_type);
 			
 			Heat_flow_direction = new JComboBox(new String[] {
 					null,"downward","horizontal or upward"
@@ -1534,18 +1534,18 @@ public class main {
 			gap_thichness.setBounds(200, 651, 220, 22);
 			frame.getContentPane().add(gap_thichness);
 			
-			door_type = new JComboBox(new String[] {
+			single = new JComboBox(new String[] {
 					"single_glass","gap"
 			});
-			door_type.setBounds(200, 539, 220, 22);
-			frame.getContentPane().add(door_type);
+			single.setBounds(200, 484, 220, 22);
+			frame.getContentPane().add(single);
 			
 			
 			Element = new JComboBox(new String[] {"walls","ceilings and floors","exposed floors"});
 			Element.setBounds(10, 484, 140, 22);
 			frame.getContentPane().add(Element);
 			
-			Material_type = new JComboBox(new String[] {"construction materials","metals","construction materials"});
+			Material_type = new JComboBox(new String[] {"metals","construction materials"});
 			Material_type.setBounds(10, 538, 140, 22);
 			frame.getContentPane().add(Material_type);
 			
@@ -1558,7 +1558,7 @@ public class main {
 				double Vint= ( ach *   Double.parseDouble(Inside_volume.getText()) *1000) /3600;
 				vint.setText(String.valueOf(Vint));
 	    //2 ------------------------------------------------------------------------
-			 	double x=array_tabe2[MR_table2.get(MR_table2.get(application.getSelectedItem()))][MR_table2.get("L/s/person")];
+			 	double x=array_tabe2[MR_table2.get(application.getSelectedItem())][MC_table2.get("L/s/person")];
 			 	double n=Double.valueOf(number_of_persons.getText());
 			 	double vvent=x*n;
 			 	Vvent.setText(String.valueOf(vvent));
@@ -1571,14 +1571,18 @@ public class main {
 			 	Qleatent.setText(String.valueOf(leatent));
 	   //5 --------------------------------------------------------------------------------
 			 	int numb=0;
+			 	double Ri=0,R0=0;
 			 	 if(Double.valueOf(Speed.getText()) < 0.5  ) {	  numb=0;
 		          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5  ) {numb=1;
 		          }else if(Double.valueOf(Speed.getText()) > 5 ) {numb=2;
-		          }  
-			 	 double Ri=HR_element.get(String.valueOf(IElement.getSelectedItem()),
-			 			String.valueOf(IHeat_direction.getSelectedItem())).get(String.valueOf(IMaterial_type.getSelectedItem()));
-			 	double R0=array_table4[HR_wind_speed.get(String.valueOf(Element.getSelectedItem())
-			 			, String.valueOf(Material_type.getSelectedItem()))][HC_wind_speed.get(numb)];
+		          }   
+			 	 
+				 	 Ri=HR_element.get(String.valueOf(IElement.getSelectedItem()),
+		 			            String.valueOf(IHeat_direction.getSelectedItem()))
+		 			          .get(String.valueOf(IMaterial_type.getSelectedItem()));
+			 	  
+			 	  R0=array_table4[HR_wind_speed.get(String.valueOf(Element.getSelectedItem())
+			 			, String.valueOf(Material_type.getSelectedItem()))][numb];
 		
 				double Sum_X=0, Sum_K=0;
 				String  X[]=X_thichness.getText().split("[, ]+");
@@ -1594,9 +1598,10 @@ public class main {
 		 
 				System.out.println(Sum_K);
 				double Rgap=0;
+				 double rtotal=0;
 				 if(gap_thichness.getSelectedItem().equals(null))
 					 Rgap =air_gas[HR_air_gas.get(String.valueOf(gap_thichness.getSelectedItem()),String.valueOf(gap_material.getSelectedItem()))][HC_air_gas.get(Heat_flow_direction.getSelectedItem())];
-				 double rtotal=Ri+R0+(Sum_X/Sum_K)+Rgap;
+				  rtotal=Ri+R0+(Sum_X/Sum_K)+Rgap;
 				  
 			Rtotal.setText(String.valueOf(rtotal ));
 			 	
@@ -1620,21 +1625,23 @@ public class main {
 			String  awin_adoor[]=Awin_Adoor.getText().split("[, ]+");
 			int num=0;
 			double Awin=Double.valueOf(awin_adoor[0]);
-          if(Double.valueOf(Speed.getText()) < 0.5 &&single.getSelectedItem()=="single_glass") {	  num=0;
-          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&single.getSelectedItem()=="single_glass") {num=1;
-          }else if(Double.valueOf(Speed.getText()) > 5 &&single.getSelectedItem()=="single_glass") {num=2;
-          } else if(Double.valueOf(Speed.getText()) < 0.5 &&single.getSelectedItem()=="gap") {num=3;        	  
-          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&single.getSelectedItem()=="gap") {num=4; 
-          }else if(Double.valueOf(Speed.getText()) > .5 &&single.getSelectedItem()=="gap") {num=5; }
+          if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="single_glass") {	  num=0;
+          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="single_glass") {num=1;
+          }else if(Double.valueOf(Speed.getText()) > 5 &&door_type.getSelectedItem()=="single_glass") {num=2;
+          } else if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="gap") {num=3;        	  
+          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="gap") {num=4; 
+          }else if(Double.valueOf(Speed.getText()) > .5 &&door_type.getSelectedItem()=="gap") {num=5; }
+          
 			double Uwin= material_type[HR_material_type.get(window_material_type_and_peand_frame.getSelectedItem())]
-					                  [HC_material_type.get(single.getSelectedItem()).get(num)];
+					                  [num];
 		    double qwin =Uwin*dt*Awin;
 			Qwin.setText(String.valueOf(qwin));
 //10 --------------------------------------------------
 		 double Adoor=Double.valueOf(awin_adoor[1]);
 		//double 
 		 
-		
+		// System.out.println(Dsss_type[HR_Dsss_type.get("40 min-vood")][HC_Dsss_type.get("without storm door")]);
+			
 		double Udoor=Dsss_type[HR_Dsss_type.get(door_type.getSelectedItem())][HC_Dsss_type.get(doorList.getSelectedItem())];
 		 double qdoor=Udoor*Adoor*dt;
 		Qdoor.setText(String.valueOf(qdoor));
@@ -1659,9 +1666,9 @@ public class main {
 			
 		if(comboBox.getSelectedItem().equals("uninsulated" )) {
 			
-			Ubelow=depth_below_grade[HR_depth_below_grade.get(colum )][HC_depth_below_grade.get("uninsulated",0.0)];
+			Ubelow=depth_below_grade[colum ][HC_depth_below_grade.get("uninsulated",0.0)];
 		}else {
-			Ubelow=depth_below_grade[HR_depth_below_grade.get(colum)][HC_depth_below_grade.get("insulated",Rbelow)];
+			Ubelow=depth_below_grade[colum][HC_depth_below_grade.get("insulated",Rbelow)];
 		}
 		/* dt مش متأكد منها */
 		double ddt=Double.valueOf(DT[1])-8;
@@ -1740,7 +1747,7 @@ public class main {
 			}
 		});
 
-		btnNewButton.setBounds(700, 359, 140, 46);
+		btnNewButton.setBounds(685, 359, 140, 46);
 		frame.getContentPane().add(btnNewButton);
 	
 	
