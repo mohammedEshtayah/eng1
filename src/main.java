@@ -1599,9 +1599,11 @@ public class main {
 				System.out.println(Sum_K);
 				double Rgap=0;
 				 double rtotal=0;
-				 if(gap_thichness.getSelectedItem().equals(null))
+				 try { 
+				   if(gap_thichness.getSelectedItem().equals(null))
 					 Rgap =air_gas[HR_air_gas.get(String.valueOf(gap_thichness.getSelectedItem()),String.valueOf(gap_material.getSelectedItem()))][HC_air_gas.get(Heat_flow_direction.getSelectedItem())];
-				  rtotal=Ri+R0+(Sum_X/Sum_K)+Rgap;
+				   } catch (Exception e2) {   }
+				 rtotal=Ri+R0+(Sum_X/Sum_K)+Rgap;
 				  
 			Rtotal.setText(String.valueOf(rtotal ));
 			 	
@@ -1683,8 +1685,10 @@ public class main {
 		double Qfloorbelow=Ubit*afloor*ddt;
 		Qfloor.setText(String.valueOf(Qfloorbelow));
 		//13--------------------------------------------------------------------
-		
-		double qceiling=uwall*Double.valueOf(Acililing.getText())*dt;
+		double Uceiling,Rceiling=0;
+		Rceiling=Ri+(Sum_X/Sum_K)*R0;
+		Uceiling=1/Rceiling;
+		double qceiling=Uceiling*Double.valueOf(Acililing.getText())*dt;
 		Qceiling.setText(String.valueOf(qceiling));
 		//14 -------------------------------------------------------------
 		
