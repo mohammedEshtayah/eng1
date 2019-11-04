@@ -59,9 +59,6 @@ public class main {
 	private JTextField Afloor;
 	private JLabel lblNewLabel_29;
 	private JTextField Abelow;
-	private JLabel lblNewLabel_30;
-	private JLabel lblNewLabel_31;
-	private JLabel lblNewLabel_32;
 	private JLabel A;
 	private JTextField Uroof;
 	private JLabel lblNewLabel_36;
@@ -118,6 +115,8 @@ public class main {
 	private JComboBox gap_thichness;
 	private JComboBox Element;
 	private JComboBox Material_type;
+	private JTextField Aroof;
+	private JLabel lblNewLabel_22;
 
 	/**
 	 * Launch the application.
@@ -707,7 +706,7 @@ public class main {
 			 map2.put("0.5", 3);
 			 map2.put("0.5-5.0", 4);
 			 map2.put("5.0", 5);
-			 HC_material_type.put("gap",map2);
+			 HC_material_type.put("double_glass",map2);
 			 
 			 double material_type[][]= {
 					 { 3.8, 4.3 , 5   , 2.3, 2.5 , 2.7 },
@@ -718,17 +717,19 @@ public class main {
 			 
 			// System.out.println( material_type[HR_material_type.get("wood")][HC_material_type.get("gap").get("0.5")]);
 			 //----------------------------------------------------------------------
+		 
+			 
 			 Map<String,  Integer> HR_Dsss_type = new Hashtable<>(); 
-			 HR_Dsss_type.put("25 min-vood", 0);
-			 HR_Dsss_type.put("35 min-vood", 1);
-			 HR_Dsss_type.put("40 min-vood", 2);
-			 HR_Dsss_type.put("45 min-vood", 3);
-			 HR_Dsss_type.put("45 min-vood", 4);
-			 HR_Dsss_type.put("alrimirum", 5);
+			 HR_Dsss_type.put("25 mm-wood", 0);
+			 HR_Dsss_type.put("35 mm-wood", 1);
+			 HR_Dsss_type.put("40 mm-wood", 2);
+			 HR_Dsss_type.put("45 mn-wood", 3);
+			 HR_Dsss_type.put("50 mm-wood", 4);
+			 HR_Dsss_type.put("aluminum", 5);
 			 HR_Dsss_type.put("steel", 6);
 			 HR_Dsss_type.put("fiher core",7 );
-			 HR_Dsss_type.put("palytyetyeme core",8 );
-			 HR_Dsss_type.put("palyty.... ",9 ); 
+			 HR_Dsss_type.put("polystyrene core",8 );
+			 HR_Dsss_type.put("polyurethane core",9 ); 
 			 
 			 Map<String,  Integer> HC_Dsss_type = new Hashtable<>(); 
 			 HC_Dsss_type.put("without storm door", 0);
@@ -810,7 +811,7 @@ public class main {
 		frame.getContentPane().add(Inside_volume);
 		Inside_volume.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("munber of pepole space");
+		JLabel lblNewLabel_2 = new JLabel("Nammber of pepole space");
 		lblNewLabel_2.setBounds(10, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
@@ -827,15 +828,15 @@ public class main {
 		lblNewLabel_4.setBounds(10, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_4);
 		
-		lblNewLabel_5 = new JLabel("IElement");
+		lblNewLabel_5 = new JLabel("Inside Element");
 		lblNewLabel_5.setBounds(10, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		lblNewLabel_6 = new JLabel("IHeat direction");
+		lblNewLabel_6 = new JLabel("Inside Heat direction");
 		lblNewLabel_6.setBounds(10, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		lblNewLabel_7 = new JLabel("IMaterial type");
+		lblNewLabel_7 = new JLabel("Inside Material type");
 		lblNewLabel_7.setBounds(10, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_7);
 		
@@ -847,7 +848,7 @@ public class main {
 		lblNewLabel_9.setBounds(10, 515, 140, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
-		lblNewLabel_10 = new JLabel("Speed");
+		lblNewLabel_10 = new JLabel("Wind Speed");
 		lblNewLabel_10.setBounds(10, 571, 140, 14);
 		frame.getContentPane().add(lblNewLabel_10);
 		
@@ -875,11 +876,11 @@ public class main {
 		material_number.setColumns(10);
 		
 		lblNewLabel_13 = new JLabel("construction material");
-		lblNewLabel_13.setBounds(200, 67, 220, 14);
+		lblNewLabel_13.setBounds(685, 11, 167, 14);
 		frame.getContentPane().add(lblNewLabel_13);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(200, 92, 220, 20);
+		textField_12.setBounds(685, 36, 167, 20);
 		frame.getContentPane().add(textField_12);
 		textField_12.setColumns(10);
 		
@@ -979,18 +980,6 @@ public class main {
 		frame.getContentPane().add(Abelow);
 		Abelow.setColumns(10);
 		
-		lblNewLabel_30 = new JLabel("Δ unconditioned");
-		lblNewLabel_30.setBounds(500, 347, 140, 14);
-		frame.getContentPane().add(lblNewLabel_30);
-		
-		lblNewLabel_31 = new JLabel("Δ un heated");
-		lblNewLabel_31.setBounds(500, 403, 140, 14);
-		frame.getContentPane().add(lblNewLabel_31);
-		
-		lblNewLabel_32 = new JLabel("Δ un usual");
-		lblNewLabel_32.setBounds(500, 459, 140, 14);
-		frame.getContentPane().add(lblNewLabel_32);
-		
 		A = new JLabel("Uroof");
 		A.setBounds(500, 571, 140, 14);
 		frame.getContentPane().add(A);
@@ -1005,7 +994,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_36);
 		
 		wi_w0 = new JTextField();
-		wi_w0.setBounds(500, 540, 163, 20);
+		wi_w0.setBounds(500, 540, 140, 20);
 		frame.getContentPane().add(wi_w0);
 		wi_w0.setColumns(10);
 		
@@ -1015,6 +1004,7 @@ public class main {
 		
 		vint = new JTextField();
 		vint.setBounds(960, 36, 140, 20);
+		vint.setEditable(false);
 		frame.getContentPane().add(vint);
 		vint.setColumns(10);
 		
@@ -1027,6 +1017,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_40);
 		
 		Vvent = new JTextField();
+		Vvent.setEditable(false);
 		Vvent.setBounds(960, 92, 140, 20);
 		frame.getContentPane().add(Vvent);
 		Vvent.setColumns(10);
@@ -1036,6 +1027,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_41);
 		
 		Qsensible = new JTextField();
+		Qsensible.setEditable(false);
 		Qsensible.setBounds(960, 148, 140, 20);
 		frame.getContentPane().add(Qsensible);
 		Qsensible.setColumns(10);
@@ -1045,11 +1037,13 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_42);
 		
 		Qleatent = new JTextField();
+		Qleatent.setEditable(false);
 		Qleatent.setBounds(960, 204, 140, 20);
 		frame.getContentPane().add(Qleatent);
 		Qleatent.setColumns(10);
 		
 		Rtotal = new JTextField();
+		Rtotal.setEditable(false);
 		Rtotal.setBounds(960, 260, 140, 20);
 		frame.getContentPane().add(Rtotal);
 		Rtotal.setColumns(10);
@@ -1063,6 +1057,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_43);
 		
 		Uwall = new JTextField();
+		Uwall.setEditable(false);
 		Uwall.setBounds(960, 316, 140, 20);
 		frame.getContentPane().add(Uwall);
 		Uwall.setColumns(10);
@@ -1072,15 +1067,17 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_44);
 		
 		Qwall = new JTextField();
+		Qwall.setEditable(false);
 		Qwall.setBounds(960, 372, 140, 20);
 		frame.getContentPane().add(Qwall);
 		Qwall.setColumns(10);
 		
-		JLabel lblNewLabel_45 = new JLabel("Qceitin");
+		JLabel lblNewLabel_45 = new JLabel("Qceiling");
 		lblNewLabel_45.setBounds(960, 627, 140, 14);
 		frame.getContentPane().add(lblNewLabel_45);
 		
 		Qceiling = new JTextField();
+		Qceiling.setEditable(false);
 		Qceiling.setBounds(960, 652, 140, 20);
 		frame.getContentPane().add(Qceiling);
 		Qceiling.setColumns(10);
@@ -1090,6 +1087,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_46);
 		
 		Qfloor = new JTextField();
+		Qfloor.setEditable(false);
 		Qfloor.setBounds(960, 596, 140, 20);
 		frame.getContentPane().add(Qfloor);
 		Qfloor.setColumns(10);
@@ -1099,6 +1097,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_47);
 		
 		Qbelwor = new JTextField();
+		Qbelwor.setEditable(false);
 		Qbelwor.setBounds(960, 540, 140, 20);
 		frame.getContentPane().add(Qbelwor);
 		Qbelwor.setColumns(10);
@@ -1109,6 +1108,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_48);
 		
 		Qdoor = new JTextField();
+		Qdoor.setEditable(false);
 		Qdoor.setBounds(960, 484, 140, 20);
 		frame.getContentPane().add(Qdoor);
 		Qdoor.setColumns(10);
@@ -1118,6 +1118,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_49);
 		
 		Qtotal = new JTextField();
+		Qtotal.setEditable(false);
 		Qtotal.setBounds(1175, 36, 140, 20);
 		frame.getContentPane().add(Qtotal);
 		Qtotal.setColumns(10);
@@ -1127,6 +1128,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_51);
 		
 		Tuncond_itioned = new JTextField();
+		Tuncond_itioned.setEditable(false);
 		Tuncond_itioned.setBounds(1175, 92, 140, 20);
 		frame.getContentPane().add(Tuncond_itioned);
 		Tuncond_itioned.setColumns(10);
@@ -1136,6 +1138,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_52);
 		
 		tanneated = new JTextField();
+		tanneated.setEditable(false);
 		tanneated.setBounds(1175, 204, 140, 20);
 		frame.getContentPane().add(tanneated);
 		tanneated.setColumns(10);
@@ -1145,6 +1148,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_53);
 		
 		Tauusaal = new JTextField();
+		Tauusaal.setEditable(false);
 		Tauusaal.setBounds(1175, 316, 140, 20);
 		frame.getContentPane().add(Tauusaal);
 		Tauusaal.setColumns(10);
@@ -1154,6 +1158,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_54);
 		
 		QAttics = new JTextField();
+		QAttics.setEditable(false);
 		QAttics.setBounds(1175, 428, 140, 20);
 		frame.getContentPane().add(QAttics);
 		QAttics.setColumns(10);
@@ -1163,6 +1168,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_55);
 		
 		Qloadsesibele = new JTextField();
+		Qloadsesibele.setEditable(false);
 		Qloadsesibele.setBounds(1175, 484, 140, 20);
 		frame.getContentPane().add(Qloadsesibele);
 		Qloadsesibele.setColumns(10);
@@ -1172,6 +1178,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_56);
 		
 		Qloadlatent = new JTextField();
+		Qloadlatent.setEditable(false);
 		Qloadlatent.setBounds(1175, 540, 140, 20);
 		frame.getContentPane().add(Qloadlatent);
 		Qloadlatent.setColumns(10);
@@ -1181,29 +1188,31 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_57);
 		
 		civc = new JTextField();
+		civc.setEditable(false);
 		civc.setBounds(1175, 596, 140, 20);
 		frame.getContentPane().add(civc);
 		civc.setColumns(10);
 		
 		JLabel lblNewLabel_58 = new JLabel("application");
-		lblNewLabel_58.setBounds(685, 11, 140, 14);
+		lblNewLabel_58.setBounds(500, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_58);
 		
 		lblNumberOfPersons = new JLabel("number of persons");
-		lblNumberOfPersons.setBounds(685, 67, 140, 14);
+		lblNumberOfPersons.setBounds(500, 460, 140, 14);
 		frame.getContentPane().add(lblNumberOfPersons);
 		
 		number_of_persons = new JTextField();
-		number_of_persons.setBounds(685, 92, 163, 20);
+		number_of_persons.setBounds(500, 485, 140, 20);
 		frame.getContentPane().add(number_of_persons);
 		number_of_persons.setColumns(10);
 		
 		lblNewLabel_12 = new JLabel("Material");
-		lblNewLabel_12.setBounds(685, 123, 140, 14);
+		lblNewLabel_12.setBounds(200, 67, 140, 14);
 		frame.getContentPane().add(lblNewLabel_12);
 		
 		Material = new JTextField();
-		Material.setBounds(685, 148, 163, 20);
+	
+		Material.setBounds(200, 92, 220, 20);
 		frame.getContentPane().add(Material);
 		Material.setColumns(10);
 		
@@ -1217,30 +1226,19 @@ public class main {
 		 
 	  
 		JComboBox doorList = new JComboBox( new String[] {"without storm door", "with wood storm door", "with metal storm door"});
-		doorList.setBounds(200, 231, 163, 22);
+		doorList.setBounds(200, 231, 220, 22);
 		frame.getContentPane().add(doorList);
 		
 		JComboBox comboBox = new JComboBox( new String[] {"uninsulated", "Insulated"});
-		comboBox.setBounds(200, 271, 163, 22);
+		comboBox.setBounds(200, 271, 220, 22);
 		frame.getContentPane().add(comboBox);
-		
-		JComboBox comboBox_1 = new JComboBox(new String[] {"yes", "no"});
-		comboBox_1.setBounds(500, 371, 140, 22);
-		frame.getContentPane().add(comboBox_1);
-		
-		JComboBox comboBox_2 = new JComboBox(new String[] {"yes", "no"});
-		comboBox_2.setBounds(500, 427, 140, 22);
-		frame.getContentPane().add(comboBox_2);
-		
-		JComboBox comboBox_3 = new JComboBox(new String[] {"yes", "no"});
-		comboBox_3.setBounds(500, 483, 140, 22);
-		frame.getContentPane().add(comboBox_3);
 		
 		JLabel lblQwin = new JLabel("Qwin");
 		lblQwin.setBounds(960, 403, 140, 14);
 		frame.getContentPane().add(lblQwin);
 		
 		Qwin = new JTextField();
+		Qwin.setEditable(false);
 		Qwin.setBounds(960, 428, 140, 20);
 		frame.getContentPane().add(Qwin);
 		Qwin.setColumns(10);
@@ -1250,6 +1248,7 @@ public class main {
 		frame.getContentPane().add(lblQunconditioned);
 		
 		Qunconditioned = new JTextField();
+		Qunconditioned.setEditable(false);
 		Qunconditioned.setBounds(1175, 148, 140, 20);
 		frame.getContentPane().add(Qunconditioned);
 		Qunconditioned.setColumns(10);
@@ -1259,6 +1258,7 @@ public class main {
 		frame.getContentPane().add(lblNewLabel_16);
 		
 		QUnusual = new JTextField();
+		QUnusual.setEditable(false);
 		QUnusual.setBounds(1175, 372, 140, 20);
 		frame.getContentPane().add(QUnusual);
 		QUnusual.setColumns(10);
@@ -1268,35 +1268,36 @@ public class main {
 		frame.getContentPane().add(lblQuntheated);
 		
 		Quntheated = new JTextField();
+		Quntheated.setEditable(false);
 		Quntheated.setBounds(1175, 260, 140, 20);
 		frame.getContentPane().add(Quntheated);
 		Quntheated.setColumns(10);
 		
 		
 			lblAconditioned = new JLabel("Aunconditioned");
-		lblAconditioned.setBounds(685, 179, 163, 14);
+		lblAconditioned.setBounds(685, 67, 167, 14);
 		frame.getContentPane().add(lblAconditioned);
 		
 		Aunconditioned = new JTextField();
-		Aunconditioned.setBounds(685, 204, 163, 20);
+		Aunconditioned.setBounds(685, 92, 167, 20);
 		frame.getContentPane().add(Aunconditioned);
 		Aunconditioned.setColumns(10);
 		
 		lblAunheated = new JLabel("Aunheated");
-		lblAunheated.setBounds(685, 235, 163, 14);
+		lblAunheated.setBounds(685, 123, 167, 14);
 		frame.getContentPane().add(lblAunheated);
 		
 		Aunheated = new JTextField();
-		Aunheated.setBounds(685, 260, 163, 20);
+		Aunheated.setBounds(685, 148, 167, 20);
 		frame.getContentPane().add(Aunheated);
 		Aunheated.setColumns(10);
 		
-		lblAunusaal = new JLabel("Aauusaal");
-		lblAunusaal.setBounds(685, 291, 163, 14);
+		lblAunusaal = new JLabel("unusual");
+		lblAunusaal.setBounds(685, 179, 167, 14);
 		frame.getContentPane().add(lblAunusaal);
 		
 		AUnusual = new JTextField();
-		AUnusual.setBounds(685, 316, 163, 20);
+		AUnusual.setBounds(685, 204, 167, 20);
 		frame.getContentPane().add(AUnusual);
 		AUnusual.setColumns(10);
 		
@@ -1387,7 +1388,7 @@ public class main {
 				,"assembly rooms"
 				,"dormitory sleeeping areas"
 				,"gambling casinos"});
-		application.setBounds(685, 35, 163, 22);
+		application.setBounds(500, 428, 140, 22);
 		application.addPopupMenuListener( listener );
 		application.setPrototypeDisplayValue("ItemWWW");
 		frame.getContentPane().add(application);	
@@ -1483,7 +1484,7 @@ public class main {
 					  "8.5",
 				        "9.8" 
 			});
-			Narrwest.setBounds(200, 595, 140, 22);
+			Narrwest.setBounds(200, 595, 220, 22);
 			frame.getContentPane().add(Narrwest);
 			
 			Depth_below_grade = new JComboBox(new String[] {
@@ -1492,7 +1493,7 @@ public class main {
 			  "1.83",
 			  "2.13",
 			  });
-			Depth_below_grade.setBounds(500, 651, 163, 22);
+			Depth_below_grade.setBounds(500, 651, 140, 22);
 			frame.getContentPane().add(Depth_below_grade);
 			
 			window_material_type_and_peand_frame = new JComboBox(new String[] {
@@ -1502,16 +1503,16 @@ public class main {
 			frame.getContentPane().add(window_material_type_and_peand_frame);
 			
 			door_type = new JComboBox(new String[] {
-					"25 min-vood"
-					 ,"35 min-vood"
-					 ,"40 min-vood"
-					 ,"45 min-vood"
-					 ,"45 min-vood"
-					 ,"alrimirum"
+					"25 min-wood"
+					 ,"35 mm-wood"
+					 ,"40 mm-wood"
+					 ,"45 mm-wood"
+					 ,"50 mm-wood"
+					 ,"aluminum"
 					 ,"steel"
 					 ,"fiher core"
-					 ,"palytyetyeme core",
-					 "palyty.... "
+					 ,"polystyrene core",
+					 "polyurethane core"
 			});
 			door_type.setBounds(200, 540, 220, 22);
 			frame.getContentPane().add(door_type);
@@ -1535,7 +1536,7 @@ public class main {
 			frame.getContentPane().add(gap_thichness);
 			
 			single = new JComboBox(new String[] {
-					"single_glass","gap"
+					"single_glass","double_glass"
 			});
 			single.setBounds(200, 484, 220, 22);
 			frame.getContentPane().add(single);
@@ -1553,6 +1554,29 @@ public class main {
 		JButton btnNewButton = new JButton("Calculation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				vint.setText("");
+				Vvent.setText("");
+				Qsensible.setText("");
+				Qleatent.setText("");
+				Rtotal.setText("");
+			 	Uwall.setText("" );
+			  	Qwall.setText("" );
+			  	Qwin.setText("");
+			  	Qdoor.setText("");
+				Qbelwor.setText("");
+				Qfloor.setText("");
+				Qceiling.setText("");
+				Qtotal.setText("");
+				Tuncond_itioned.setText("");
+				Qunconditioned.setText("");
+				tanneated.setText("");
+				Quntheated.setText("");
+				Tauusaal.setText("");
+				QUnusual.setText("");
+				QAttics.setText("");
+				Qloadsesibele.setText("");
+			    Qloadlatent.setText("");		
+				civc.setText("");
 				 //System.out.print(c);
 				float ach=type_room.get(Type_of_room_building.getSelectedItem());	
 				double Vint= ( ach *   Double.parseDouble(Inside_volume.getText()) *1000) /3600;
@@ -1584,26 +1608,31 @@ public class main {
 			 	  R0=array_table4[HR_wind_speed.get(String.valueOf(Element.getSelectedItem())
 			 			, String.valueOf(Material_type.getSelectedItem()))][numb];
 		
-				double Sum_X=0, Sum_K=0;
+				double Sum=0, Sum_X[]= {}, Sum_K[]= {} ;
+				int I=0;
 				String  X[]=X_thichness.getText().split("[, ]+");
 				for (String a : X) {
-					Sum_X+=Double.valueOf(a);
+					Sum_X[I]=Double.valueOf(a);
 				} 
 				
 			String  Material_number[]=material_number.getText().split("[, ]+");
 			String  Materials[]=Material.getText().split(",");
+			
 			for(int i=0; i<Material_number.length;i++) { 
-				Sum_K+= array_table5[HR_material.get(Integer.parseInt(Material_number[i]),Materials[i])][ HC_material.get("thermal conductivity w / mc")];
+				Sum_K[i]= array_table5[HR_material.get(Integer.parseInt(Material_number[i]),Materials[i])][ HC_material.get("thermal conductivity w / mc")];
+ 			} 
+			for(int i=0; i<Sum_X.length;i++) { 
+				Sum=Sum_X[i]/ Sum_K[i] ;
  			} 
 		 
-				System.out.println(Sum_K);
+				 
 				double Rgap=0;
 				 double rtotal=0;
 				 try { 
 				   if(gap_thichness.getSelectedItem().equals(null))
 					 Rgap =air_gas[HR_air_gas.get(String.valueOf(gap_thichness.getSelectedItem()),String.valueOf(gap_material.getSelectedItem()))][HC_air_gas.get(Heat_flow_direction.getSelectedItem())];
 				   } catch (Exception e2) {   }
-				 rtotal=Ri+R0+(Sum_X/Sum_K)+Rgap;
+				 rtotal=Ri+R0+Sum+Rgap;
 				  
 			Rtotal.setText(String.valueOf(rtotal ));
 			 	
@@ -1630,9 +1659,9 @@ public class main {
           if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="single_glass") {	  num=0;
           }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="single_glass") {num=1;
           }else if(Double.valueOf(Speed.getText()) > 5 &&door_type.getSelectedItem()=="single_glass") {num=2;
-          } else if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="gap") {num=3;        	  
-          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="gap") {num=4; 
-          }else if(Double.valueOf(Speed.getText()) > .5 &&door_type.getSelectedItem()=="gap") {num=5; }
+          } else if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="double_glass") {num=3;        	  
+          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="double_glass") {num=4; 
+          }else if(Double.valueOf(Speed.getText()) > .5 &&door_type.getSelectedItem()=="double_glass") {num=5; }
           
 			double Uwin= material_type[HR_material_type.get(window_material_type_and_peand_frame.getSelectedItem())]
 					                  [num];
@@ -1685,14 +1714,15 @@ public class main {
 		double Qfloorbelow=Ubit*afloor*ddt;
 		Qfloor.setText(String.valueOf(Qfloorbelow));
 		//13--------------------------------------------------------------------
+		
 		double Uceiling,Rceiling=0;
-		Rceiling=Ri+(Sum_X/Sum_K)*R0;
+		Rceiling=Ri+Sum*R0;
 		Uceiling=1/Rceiling;
 		double qceiling=Uceiling*Double.valueOf(Acililing.getText())*dt;
 		Qceiling.setText(String.valueOf(qceiling));
 		//14 -------------------------------------------------------------
 		
-		double qtotal=/*9*/0+qbelow+Qfloorbelow+qdoor+qceiling+qwall;
+		double qtotal=qwin+qbelow+Qfloorbelow+qdoor+qceiling+qwall;
 		Qtotal.setText(String.valueOf(qtotal));
 		//15 -----------------------------------------------------
 		double dtTunconditioned=(2/3)*dt;
@@ -1717,11 +1747,13 @@ public class main {
 		double qUnusual=uwall*Double.valueOf(AUnusual.getText())*dtTauusaal;
 		QUnusual.setText(String.valueOf(qUnusual));
 		//21 --------------------------------------------------------------------
-		double Uor=0,qAttics=0,Uc,Ur ,acililing,N=0;
+		double Uor=0,qAttics=0,Uc,Ur,aroof ,acililing,N=0;
 		Ur=Double.valueOf(Uroof.getText());
-		Uc=qceiling;
+		aroof=Double.valueOf(Aroof.getText());
+		Uc=Uceiling;
 		acililing=Double.valueOf(Acililing.getText());
- 		N=Ur/Uc;
+		
+ 		N=aroof/acililing;
 		Uor=(Uc*Ur) / (Ur*(Uc/n));
 		qAttics=Uor*acililing*dt;
 		
@@ -1741,18 +1773,30 @@ public class main {
 		String  Wi_W0[]=wi_w0.getText().split("[, ]+");
 		double Wi=Double.valueOf(xin_kin[0]);
 		double W0=Double.valueOf(xin_kin[1]);
-		double Qload_latent=3*Umax*(Wi=W0);
+		
+		double Qload_latent=3*Umax*(Wi-W0);
 		Qloadlatent.setText(String.valueOf(Qload_latent));
 		//24 --------------------------------------------------------------------
-		double vcirc=(Qload_latent+qloadsesibele)/1.2*(10-Double.valueOf(DT[1]));
+		double qs=qloadsesibele+Sensile;
+		double ql=Qload_latent+leatent;
+		double vcirc=(qs+ql)/1.2*(10-Double.valueOf(DT[1]));
 		
 		civc.setText(String.valueOf(vcirc));
 		
 			}
 		});
 
-		btnNewButton.setBounds(685, 359, 140, 46);
+		btnNewButton.setBounds(685, 247, 167, 46);
 		frame.getContentPane().add(btnNewButton);
+		
+		Aroof = new JTextField();
+		Aroof.setBounds(500, 372, 140, 20);
+		frame.getContentPane().add(Aroof);
+		Aroof.setColumns(10);
+		
+		lblNewLabel_22 = new JLabel("Aroof");
+		lblNewLabel_22.setBounds(500, 347, 48, 14);
+		frame.getContentPane().add(lblNewLabel_22);
 	
 	
 	 
