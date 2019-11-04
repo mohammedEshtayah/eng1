@@ -1133,7 +1133,7 @@ public class main {
 		frame.getContentPane().add(Tuncond_itioned);
 		Tuncond_itioned.setColumns(10);
 		
-		JLabel lblNewLabel_52 = new JLabel("Tunheated");
+		JLabel lblNewLabel_52 = new JLabel("ΔTunheated");
 		lblNewLabel_52.setBounds(1175, 179, 140, 14);
 		frame.getContentPane().add(lblNewLabel_52);
 		
@@ -1143,7 +1143,7 @@ public class main {
 		frame.getContentPane().add(tanneated);
 		tanneated.setColumns(10);
 		
-		JLabel lblNewLabel_53 = new JLabel("Unusual");
+		JLabel lblNewLabel_53 = new JLabel("ΔUnusual");
 		lblNewLabel_53.setBounds(1175, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_53);
 		
