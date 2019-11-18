@@ -24,15 +24,26 @@ public class main2 {
 	private JTextField AGlass;
 	private JTextField Qtrans_throng_glass; 
 	private JTextField Normail_Thickness2;
-
+	private JTextField Qconv_H_Gain;
+	private JTextField Hours_after_each_into_space;
+	private JTextField Total_Hours_space;
+	private JTextField QL_people_cooling;
+	private JTextField QS_people_cooling;
+	private JTextField Qlighting;
+	private JTextField number_of_hoursr_after_lights;
+	private JTextField W_Lihting_Capacity;
+	private JTextField textField;
+	private JTextField textField_1;
+ 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main22(double Uceiling ,double n,double Uwin,double Awin,double output3 ,double output4 ) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					main2 window = new main2();
+					main2 window = new main2( Uceiling ,n ,Uwin,Awin ,output3 ,output4 );
+					
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,14 +55,16 @@ public class main2 {
 	/**
 	 * Create the application.
 	 */
-	public main2() {
-		initialize(); 
+	public main2(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4 ) {
+		 
+		initialize(Uceiling ,n ,Uwin,Awin,output3 ,output4); 
 		}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4) {
+		System.out.println("Uceiling"+Uceiling+" n"+n +" output3 "+output3 +" output4 "+output4);
 		BoundsPopupMenuListener listener =     new BoundsPopupMenuListener(true, false);
 		frame = new JFrame();
 		Dimension size =  Toolkit.getDefaultToolkit().getScreenSize();
@@ -451,6 +464,59 @@ public class main2 {
 			 };
 		  
 		 //table 9-10 ----------------------------------------
+		
+		 Hash<String,String,Integer> R_9_10 = new Hash<String,String,Integer>();
+		 R_9_10.put( "N Shaded","L",0);
+		 R_9_10.put( "N Shaded","M",1);
+		 R_9_10.put( "N Shaded","H",2);
+		 R_9_10.put( "NNE","L",3);
+		 R_9_10.put( "NNE","M",4);
+		 R_9_10.put( "NNE","H",5);
+		 R_9_10.put( "NE","L",6);
+		 R_9_10.put( "NE","M",7);
+		 R_9_10.put( "NE","H",8);
+		 R_9_10.put( "ENE","L",9);
+		 R_9_10.put( "ENE","M",10);
+		 R_9_10.put( "ENE","H",11);
+		 R_9_10.put( "E","L",12);
+		 R_9_10.put( "E","M",13);
+		 R_9_10.put( "E","H",14);
+		 R_9_10.put( "ESE","L",15);
+		 R_9_10.put( "ESE","M",16);
+		 R_9_10.put( "ESE","H",17);
+		 R_9_10.put( "SE","L",18);
+		 R_9_10.put( "SE","M",19);
+		 R_9_10.put( "SE","H",20);
+		 R_9_10.put( "SSW","L",21);
+		 R_9_10.put( "SSW","M",22);
+		 R_9_10.put( "SSW","H",23);
+		 R_9_10.put( "S","L",24);
+		 R_9_10.put( "S","M",25);
+		 R_9_10.put( "S","H",26);
+		 R_9_10.put( "SW","L",27);
+		 R_9_10.put( "SW","M",28);
+		 R_9_10.put( "SW","H",29);
+		 R_9_10.put( "WSW","L",30);
+		 R_9_10.put( "WSW","M",31);
+		 R_9_10.put( "WSW","H",32);
+		 R_9_10.put( "W","L",33);
+		 R_9_10.put( "W","M",34);
+		 R_9_10.put( "W","H",35);
+		 R_9_10.put( "WNW","L",36);
+		 R_9_10.put( "WNW","M",37);
+		 R_9_10.put( "WNW","H",38);
+		 R_9_10.put( "NW","L",39);
+		 R_9_10.put( "NW","M",40);
+		 R_9_10.put( "NW","H",41);
+		 R_9_10.put( "NNW","L",42);
+		 R_9_10.put( "NNW","M",43);
+		 R_9_10.put( "NNW","H",44);
+		 R_9_10.put( "HORIZ.","L",45);
+		 R_9_10.put( "HORIZ.","M",46);
+		 R_9_10.put( "HORIZ.","H",47);
+
+		
+		 
 		 double Table_9_10[][]={
 				 {0.17 ,0.24 ,0.11 ,0.09 ,0.08 ,0.33 ,0.24 ,0.48 ,0. ,0.56 ,0.61 ,0.71 ,0.76 ,0.82 ,0.82 ,0.79 ,0.75},
 				 {0.23 ,0.20 ,0.18 ,0.16 ,0.14 ,0.34 ,0.14 ,0.46 ,0.53 ,0.59 ,0.65 ,0.70 ,0.73 ,0.75 ,0.76 ,0.74 ,0.75},
@@ -522,9 +588,95 @@ public class main2 {
 				 
 				 };
 		 //table 9-11 ----------------------------------------
-		 double Table_9_11[][]={
-				 {0 ,0 ,0 ,0 ,0},
+		 
+				 Map<String,Integer> R_9_11=new HashMap<String,Integer>();
+				 R_9_11.put( "N Shaded",0);
+				 R_9_11.put( "NNE",3); 
+				 R_9_11.put( "NE",6); 
+				 R_9_11.put( "ENE",9); 
+				 R_9_11.put( "E",12); 
+				 R_9_11.put( "ESE",15); 
+				 R_9_11.put( "SE",18); 
+				 R_9_11.put( "SSW",21); 
+				 R_9_11.put( "S",24); 
+				 R_9_11.put( "SW",27); 
+				 R_9_11.put( "WSW",30); 
+				 R_9_11.put( "W",33); 
+				 R_9_11.put( "WNW",36); 
+				 R_9_11.put( "NW",39); 
+				 R_9_11.put( "NNW",42); 
+				 R_9_11.put( "HORIZ.",45); 
+				 double Table_9_11[][]={
+				 {0.08 ,0.07 ,0.06 ,0.06 ,0.07 ,0.73 ,0.66 ,0.65 ,0.73 ,0.80 ,0.86 ,0.89 ,0.89 ,0.86 ,0.82 ,0.75 ,0.78},
+				 {0.03 ,0.03 ,0.02 ,0.02 ,0.03 ,0.64 ,0.77 ,0.62 ,0.42 ,0.37 ,0.37 ,0.37 ,0.36 ,0.35 ,0.32 ,0.28 ,0.23},
+				 {0.03 ,0.02 ,0.02 ,0.02 ,0.02 ,0.56 ,0.76 ,0.74 ,0.58 ,0.37 ,0.29 ,0.27 ,0.26 ,0.24 ,0.22 ,0.20 ,0.16},
+				 {0.03 ,0.02 ,0.02 ,0.02 ,0.02 ,0.52 ,0.76 ,0.80 ,0.72 ,0.52 ,0.31 ,0.26 ,0.24 ,0.22 ,0.20 ,0.18 ,0.15},
+				 {0.03 ,0.02 ,0.02 ,0.02 ,0.02 ,0.47 ,0.72 ,0.80 ,0.76 ,0.62 ,0.41 ,0.27 ,0.24 ,0.22 ,0.20 ,0.17 ,0.14},
+				 {0.03 ,0.03 ,0.02 ,0.02 ,0.02 ,0.41 ,0.67 ,0.79 ,0.80 ,072. ,0.54 ,0.34 ,0.27 ,0.24 ,0.21 ,0.19 ,0.15},
+				 {0.03 ,0.03 ,0.02 ,0.02 ,0.02 ,0.30 ,0.57 ,0.74 ,0.82 ,0.79 ,0.68 ,0.49 ,0.33 ,0.28 ,0.25 ,0.22 ,0.18},
+				 {0.04 ,0.03 ,0.03 ,0.03 ,0.02 ,0.12 ,0.31 ,0.54 ,0.72 ,0.81 ,0.81 ,0.71 ,0.54 ,0.38 ,0.32 ,0.27 ,0.22},
+				 {0.04 ,0.04 ,0.03 ,0.03 ,0.03 ,0.09 ,0.16 ,0.23 ,0.38 ,0.58 ,0.75 ,0.83 ,0.80 ,0.68 ,0.50 ,0.35 ,0.27},
+				 {0.05 ,0.04 ,0.04 ,0.03 ,0.03 ,0.09 ,0.14 ,0.18 ,0.22 ,0.27 ,0.43 ,0.63 ,0.78 ,0.84 ,0.80 ,0.66 ,0.46},
+				 {0.05 ,0.05 ,0.04 ,0.04 ,0.03 ,0.07 ,0.11 ,0.14 ,0.16 ,0.19 ,0.22 ,0.38 ,0.59 ,0.75 ,0.83 ,0.81 ,0.69},
+				 {0.05 ,0.05 ,0.04 ,0.04 ,0.03 ,0.07 ,0.10 ,0.12 ,0.14 ,0.16 ,0.17 ,0.23 ,0.44 ,0.64 ,0.78 ,0.84 ,0.78},
+				 {0.05 ,0.05 ,0.04 ,0.04 ,0.03 ,0.06 ,0.09 ,0.11 ,0.13 ,0.15 ,0.16 ,0.17 ,0.31 ,0.53 ,0.72 ,0.82 ,0.81},
+				 {0.05 ,0.05 ,0.04 ,0.03 ,0.03 ,0.07 ,0.10 ,0.12 ,0.14 ,0.16 ,0.17 ,0.18 ,0.22 ,0.43 ,0.65 ,0.80 ,0.84},
+				 {0.05 ,0.04 ,0.04 ,0.03 ,0.03 ,0.07 ,0.11 ,0.14 ,0.17 ,0.19 ,0.20 ,0.21 ,0.22 ,0.30 ,0.52 ,0.73 ,0.82},
+				 {0.05 ,0.05 ,0.04 ,0.03 ,0.03 ,0.11 ,0.17 ,0.22 ,0.26 ,0.30 ,0.32 ,0.33 ,0.34 ,0.34 ,0.39 ,0.61 ,0.82},
+				 {0.06 ,0.05 ,0.04 ,0.04 ,0.03 ,0.12 ,0.27 ,0.44 ,0.59 ,0.72 ,0.81 ,0.85 ,0.85 ,0.81 ,0.71 ,0.58 ,0.42},
+				
+                 };
+				 // Table_9_16 ----------------------------------
+				 double Table_9_16[][]={
+						 {0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 },
+						 {0, 0.49 ,0 ,0.49 ,0 ,0.50 ,0 ,0.51 ,0 ,0.53 ,0 ,0.55 ,0 ,0.58 ,0 ,0.62 },
+						 {0, 0.58 ,0 ,0.59 ,0 ,0.60 ,0 ,0.61 ,0 ,0.62 ,0 ,0.64 ,0 ,0.66 ,0 ,0.70  },
+						 {0, 0.17 ,0 ,0.66 ,0 ,0.67 ,0 ,0.67 ,0 ,0.69 ,0 ,0.70 ,0 ,0.72 ,0 ,0.75 },
+						 {0, 0.13 ,0 ,0.71 ,0 ,0.72 ,0 ,0.72 ,0 ,0.74 ,0 ,0.75 ,0 ,0.77 ,0 ,0.79 },
+						 {0, 0.10 ,0 ,0.27 ,0 ,0.76 ,0 ,0.76 ,0 ,0.77 ,0 ,0.79 ,0 ,0.80 ,0 ,0.82 },
+						 {0, 0.08 ,0 ,0.21 ,0 ,0.79 ,0 ,0.80, 0 ,0.80 ,0 ,0.81 ,0 ,0.83 ,0 ,0.85 },
+						 {0, 0.07 ,0 ,0.16 ,0 ,0.34 ,0 ,0.82 ,0 ,0.83 ,0 ,0.84 ,0 ,0.85 ,0 ,0.87 },
+						 {0, 0.06 ,0 ,0.14 ,0 ,0.26 ,0 ,0.84 ,0 ,0.85 ,0 ,0.86 ,0 ,0.87 ,0 ,0.88 },
+						 {0, 0.05 ,0 ,0.11 ,0 ,0.21 ,0 ,0.38 ,0 ,0.87 ,0 ,0.88 ,0 ,0.89 ,0 ,0.90 },
+						 {0, 0.04 ,0 ,0.10 ,0 ,0.18 ,0 ,0.30 ,0 ,0.89 ,0 ,0.89 ,0 ,0.9 ,0 ,0.91 },
+						 {0, 0.04 ,0 ,0.08 ,0 ,0.15 ,0 ,0.25 ,0 ,0.42 ,0 ,0.91 ,0 ,0.91 ,0 ,0.92 },
+						 {0, 0.03 ,0 ,0.07 ,0 ,0.13 ,0 ,0.21 ,0 ,0.34 ,0 ,0.92 ,0 ,0.92 ,0 ,0.93 },
+						 {0, 0.03 ,0 ,0.06 ,0 ,0.11 ,0 ,0.18 ,0 ,0.28 ,0 ,0.45 ,0 ,0.93 ,0 ,0.94 },
+						 {0, 0.02 ,0 ,0.06 ,0 ,0.10 ,0 ,0.15 ,0 ,0.23 ,0 ,0.36 ,0 ,0.94 ,0 ,0.95 },
+						 {0, 0.02 ,0 ,0.05 ,0 ,0.08 ,0 ,0.13 ,0 ,0.20 ,0 ,0.30 ,0 ,0.47 ,0 ,0.95 },
+						 {0, 0.02 ,0 ,0.04 ,0 ,0.07 ,0 ,0.12 ,0 ,0.17 ,0 ,0.25 ,0 ,0.38 ,0 ,0.96 },
+						 {0, 0.02 ,0 ,0.04 ,0 ,0.06 ,0 ,0.10 ,0 ,0.15 ,0 ,0.21 ,0 ,0.31 ,0 ,0.49 },
+						 {0, 0.01 ,0 ,0.03 ,0 ,0.06 ,0 ,0.09 ,0 ,0.13 ,0 ,0.19 ,0 ,0.26 ,0 ,0.39 },
+						 						 
 				 };
+				// Table_9_14 ----------------------------------
+				 Hash<String,String,Integer> C_9_16 = new Hash<String,String,Integer>();
+				 C_9_16.put( "fixture x^4 hours of operation","10",0);
+				 C_9_16.put( "fixture x^4 hours of operation","16",1);
+				 C_9_16.put( "fixture y^4 hours of operation","10",2);
+				 C_9_16.put( "fixture y^4 hours of operation","16",3);
+				 double Table_9_14[][]={
+						 {0.08  ,  0.19  ,  0.01  ,  0.05},
+						 {0.62  ,  0.72  ,  0.76  ,  0.79},
+						 {0.66  ,  0.75  ,  0.81  ,  0.83},
+						 {0.69  ,  0.77  ,  0.84  ,  0.87},
+						 {0.73  ,  0.80  ,  0.88  ,  0.89},
+						 {0.75  ,  0.82  ,  0.90  ,  0.91},
+						 {0.78  ,  0.84  ,  0.92  ,  0.93},
+						 {0.80  ,  0.85  ,  0.93  ,  0.94},
+						 {0.82  ,  0.87  ,  0.95  ,  0.95},
+						 {0.84  ,  0.88  ,  0.96  ,  0.96},
+						 {0.85  ,  0.89  ,  0.97  ,  0.97},
+						 {0.32  ,  0.90  ,  0.22  ,  0.98},
+						 {0.29  ,  0.91  ,  0.18  ,  0.98},
+						 {0.26  ,  0.92  ,  0.14  ,  0.98},
+						 {0.23  ,  0.93  ,  0.12  ,  0.99},
+						 {0.21  ,  0.94  ,  0.09  ,  0.99},
+						 {0.18  ,  0.94  ,  0.08  ,  0.99},
+						 {0.17  ,  0.40  ,  0.06  ,  0.24},
+						 {0.15  ,  0.56  ,  0.05  ,  0.20},
+						 
+						 };
 		 
 		JLabel lblNewLabel = new JLabel("Solar time");
 		lblNewLabel.setBounds(10, 11, 140, 14);
@@ -632,20 +784,22 @@ public class main2 {
 		Ti_T0.setColumns(10);
 		
 		JLabel aaa = new JLabel("Qcooling_ceiling");
-		aaa.setBounds(817, 11, 140, 14);
+		aaa.setBounds(1161, 11, 140, 14);
 		frame.getContentPane().add(aaa);
 		
 		Qcooling_ceiling = new JTextField();
-		Qcooling_ceiling.setBounds(817, 36, 140, 20);
+		Qcooling_ceiling.setEditable(false);
+		Qcooling_ceiling.setBounds(1161, 36, 140, 20);
 		frame.getContentPane().add(Qcooling_ceiling);
 		Qcooling_ceiling.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Qcooling-wall");
-		lblNewLabel_1.setBounds(817, 73, 140, 14);
+		lblNewLabel_1.setBounds(1161, 73, 140, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		Qcooling_wall = new JTextField();
-		Qcooling_wall.setBounds(817, 99, 140, 20);
+		Qcooling_wall.setEditable(false);
+		Qcooling_wall.setBounds(1161, 99, 140, 20);
 		frame.getContentPane().add(Qcooling_wall);
 		Qcooling_wall.setColumns(10);
 		
@@ -679,11 +833,12 @@ public class main2 {
 		AGlass.setColumns(10);
 		
 		JLabel lblQtransThrongGlass = new JLabel("Q.trans throng glass");
-		lblQtransThrongGlass.setBounds(817, 136, 140, 14);
+		lblQtransThrongGlass.setBounds(1161, 136, 140, 14);
 		frame.getContentPane().add(lblQtransThrongGlass);
 		
 		Qtrans_throng_glass = new JTextField();
-		Qtrans_throng_glass.setBounds(817, 162, 140, 20);
+		Qtrans_throng_glass.setEditable(false);
+		Qtrans_throng_glass.setBounds(1161, 162, 140, 20);
 		frame.getContentPane().add(Qtrans_throng_glass);
 		Qtrans_throng_glass.setColumns(10);
 		
@@ -776,24 +931,154 @@ public class main2 {
 		MLDW.setBounds(435, 210, 140, 22);
 		frame.getContentPane().add(MLDW);
 		
+		JComboBox with_no = new JComboBox(new String[] {"with","withno"});
+		with_no.setBounds(435, 252, 140, 22);
+		frame.getContentPane().add(with_no);
+		
+
+		JComboBox Glass_Facing = new JComboBox(new String [] {
+			"N Shaded","NNE",
+			"NE","ENE","E",
+			"ESE","SE","SSW","S",
+			"SW","WSW","W","WNW","NW","NNW",
+			"HORIZ."	
+		});
+		Glass_Facing.setBounds(435, 307, 140, 22);
+		frame.getContentPane().add(Glass_Facing);
+		
+		JLabel lblNewLabel_5 = new JLabel("Building Construction");
+		lblNewLabel_5.setBounds(435, 339, 140, 14);
+		frame.getContentPane().add(lblNewLabel_5);
+		
+		JComboBox Building_Construction = new JComboBox(new String[] {"L","M","H"});
+		Building_Construction.setBounds(435, 364, 140, 22);
+		frame.getContentPane().add(Building_Construction);
+		
+		JLabel lblGlassFacing = new JLabel("Glass Facing");
+		lblGlassFacing.setBounds(435, 282, 145, 14);
+		frame.getContentPane().add(lblGlassFacing);
+		
+		JLabel lblNewLabel_6 = new JLabel("Fenestration Facing");
+		lblNewLabel_6.setBounds(435, 404, 140, 14);
+		frame.getContentPane().add(lblNewLabel_6);
+		
+		JComboBox Fenestration_Facing = new JComboBox(new String [] {
+				"N Shaded","NNE",
+				"NE","ENE","E",
+				"ESE","SE","SSW","S",
+				"SW","WSW","W","WNW","NW","NNW",
+				"HORIZ."	
+			});
+		Fenestration_Facing.setBounds(435, 434, 140, 22);
+		frame.getContentPane().add(Fenestration_Facing);
+		
+
+		JLabel lblQconvhgain = new JLabel("Qconv.H.Gain");
+		lblQconvhgain.setBounds(1161, 199, 140, 14);
+		frame.getContentPane().add(lblQconvhgain);
+		
+		Qconv_H_Gain = new JTextField();
+		Qconv_H_Gain.setEditable(false);
+		Qconv_H_Gain.setBounds(1161, 224, 140, 20);
+		frame.getContentPane().add(Qconv_H_Gain);
+		Qconv_H_Gain.setColumns(10);
+		
+		JLabel lblNewLabel_7 = new JLabel("Hours After Each Into Space");
+		lblNewLabel_7.setBounds(611, 11, 140, 14);
+		frame.getContentPane().add(lblNewLabel_7);
+		
+		Hours_after_each_into_space = new JTextField();
+		Hours_after_each_into_space.setBounds(611, 36, 140, 20);
+		frame.getContentPane().add(Hours_after_each_into_space);
+		Hours_after_each_into_space.setColumns(10);
+		
+		JLabel lblNewLabel_8 = new JLabel("Total Hours space");
+		lblNewLabel_8.setBounds(611, 73, 140, 14);
+		frame.getContentPane().add(lblNewLabel_8);
+		
+		Total_Hours_space = new JTextField();
+		Total_Hours_space.setBounds(611, 99, 140, 20);
+		frame.getContentPane().add(Total_Hours_space);
+		Total_Hours_space.setColumns(10);
+		
+		JLabel lblQlpeoplecooling = new JLabel("QL.people(cooling)");
+		lblQlpeoplecooling.setBounds(1161, 252, 140, 14);
+		frame.getContentPane().add(lblQlpeoplecooling);
+		
+		QL_people_cooling = new JTextField();
+		QL_people_cooling.setEditable(false);
+		QL_people_cooling.setColumns(10);
+		QL_people_cooling.setBounds(1161, 277, 140, 20);
+		frame.getContentPane().add(QL_people_cooling);
+		
+		JLabel lblQspeoplecooling = new JLabel("QS.people(cooling)");
+		lblQspeoplecooling.setBounds(1161, 308, 140, 14);
+		frame.getContentPane().add(lblQspeoplecooling);
+		
+		QS_people_cooling = new JTextField();
+		QS_people_cooling.setEditable(false);
+		QS_people_cooling.setColumns(10);
+		QS_people_cooling.setBounds(1161, 333, 140, 20);
+		frame.getContentPane().add(QS_people_cooling);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(435, 470, 140, 22);
+		frame.getContentPane().add(comboBox);
+		
+		JLabel lblQlighting = new JLabel("Qlighting");
+		lblQlighting.setBounds(1161, 364, 140, 14);
+		frame.getContentPane().add(lblQlighting);
+		
+		Qlighting = new JTextField();
+		Qlighting.setEditable(false);
+		Qlighting.setColumns(10);
+		Qlighting.setBounds(1161, 389, 140, 20);
+		frame.getContentPane().add(Qlighting);
+		
+		JComboBox x_y = new JComboBox(new String[] {"fixture x^4 hours of operation","fixture y^4 hours of operation"});
+		x_y.setBounds(611, 132, 140, 22);
+		frame.getContentPane().add(x_y);
+		
+		W_Lihting_Capacity = new JTextField();
+		W_Lihting_Capacity.setColumns(10);
+		W_Lihting_Capacity.setBounds(611, 314, 140, 20);
+		frame.getContentPane().add(W_Lihting_Capacity);
+		
+		JLabel lblWLihtingCapacity = new JLabel("W Lighting Capacity");
+		lblWLihtingCapacity.setBounds(611, 288, 140, 14);
+		frame.getContentPane().add(lblWLihtingCapacity);
+		
+		JLabel lblNewLabel_9 = new JLabel("number of hoursr after lights are turned on");
+		lblNewLabel_9.setBounds(611, 225, 239, 14);
+		frame.getContentPane().add(lblNewLabel_9);
+		
+		number_of_hoursr_after_lights = new JTextField();
+		number_of_hoursr_after_lights.setBounds(611, 256, 140, 20);
+		frame.getContentPane().add(number_of_hoursr_after_lights);
+		number_of_hoursr_after_lights.setColumns(10);
+		
+		
+		JComboBox _10_16 = new JComboBox(new String[] {"10","16"});
+		_10_16.setBounds(611, 161, 140, 22);
+		frame.getContentPane().add(_10_16);
+		
 		
 		JButton btnNewButton = new JButton("Calculation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//1 -----------------------------------------------------
-				
-				// ضل علي امرر Uceiling 
-				double Uceiling=0 , aceiling=0 , C_Tb_cor_c=0 ,  C_Tb=0  , LM=0  , k=0  ,Ti=0 ,T0=0;
+				 
+				double   aceiling=0 , C_Tb_cor_c=0 ,  C_Tb=0  , LM=0  , k=0  ,Ti=0 ,T0=0;
 				double qcooling_ceiling=0;
 				int No_C,No_R,solar_time=0;
 
-				
-				 No_R= R_9_2.get(String.valueOf( without_with.getSelectedItem()),String.valueOf( Root_Descript.getSelectedItem()));
+				System.out.print( String.valueOf( without_with.getSelectedItem())+"  "+String.valueOf( Root_Descript.getSelectedItem()));
+				 No_R= R_9_1.get(String.valueOf( without_with.getSelectedItem()),String.valueOf( Root_Descript.getSelectedItem()));
 				C_Tb=Table_9_1[No_R][Integer.valueOf(Solar_time.getText())];
 				
 				 No_R= R_9_2.get(String.valueOf( Lat.getSelectedItem()),String.valueOf( month.getSelectedItem()));
 			    LM=Table_9_2[No_R][H_9_2.get(SNWE.getSelectedItem())];
-			    
+			  
 			    aceiling=Double.valueOf( Aceiling.getText());
 			    if (color.getSelectedItem().equals("dark color"))
 			    	k=1;
@@ -809,7 +1094,8 @@ public class main2 {
 				qcooling_ceiling=Uceiling*aceiling*C_Tb_cor_c;
 				Qcooling_ceiling.setText(String.valueOf(qcooling_ceiling)  );
 				//2 -----------------------------------------------------
-				double qcooling_wall=0 , Uwan=0 , Awan=0 , C_Tb_cor_W=0 ,  C_Tb_W=0  ,    k2=0  ;
+				  
+				   double qcooling_wall=0 , Uwan=0 , Awan=0 , C_Tb_cor_W=0 ,  C_Tb_W=0  ,    k2=0  ;
 			 	 
 				C_Tb_W=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall.getSelectedItem()));
 				 
@@ -820,10 +1106,11 @@ public class main2 {
 			    	k2=0.83;
 			  
 				C_Tb_cor_W=(C_Tb_W+LM)*k2+(25.5 - Ti) + (T0-29.4);
+				/*Uwan*Awan not found ?*/
 				qcooling_wall=Uwan*Awan*C_Tb_cor_W;
 				Qcooling_wall.setText(String.valueOf(qcooling_wall)  );
 				//3 -----------------------------------------------------
-				double qtrans_throng_glass=0 , aglass=0 , SHG=0 , SC=0 ,  CH=0 ,Normail ;
+				double qtrans_throng_glass=0 , aglass=0 , SHG=0 , SC=0 ,  CLF=0 ,Normail ;
 				Normail=Double.valueOf( Normail_Thickness2.getText());
 				
 				No_C=C_9_7.get( String.valueOf(Glass_direction.getSelectedItem()));
@@ -883,21 +1170,80 @@ public class main2 {
                 	SC=Table_9_9[No_R][No_C];
                 	 
                 	}
+                
+                if(with_no.getSelectedItem().equals("with")) {
+                	No_R=R_9_10.get(String.valueOf(Glass_Facing.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
+                	CLF=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
+                }
+                else {
+                	No_R=R_9_11.get( Fenestration_Facing.getSelectedItem());
+                	CLF=Table_9_11[No_R][Integer.valueOf(Solar_time.getText())] ;
+                }	
 				
 				aglass=Double.valueOf( AGlass.getText());
-				qtrans_throng_glass=aglass* SHG * SC * CH;
+				qtrans_throng_glass=aglass* SHG * SC * CLF;
 				Qtrans_throng_glass.setText(String.valueOf(qtrans_throng_glass)  );
 				//4 -----------------------------------------------------
+				/* جدول 12 ناقص */
+					double qconv_H_Gain=0,C_TD_con_win=0 ,C_TD_win=0    ;
+				//C_TD_win=Table_9_12[][];
+				C_TD_con_win=C_TD_win+(25.5 - Ti) + (T0-29.4);
+				 qconv_H_Gain=Uwin* Awin * C_TD_con_win;
+				 Qconv_H_Gain.setText(String.valueOf(qconv_H_Gain)  );
 				//5 -----------------------------------------------------
+				 QL_people_cooling.setText(String.valueOf( output4 * n )  );
 				//6 -----------------------------------------------------
+				 double CLF12=0,qL_people_cooling;
+				 CLF12=Table_9_16[Integer.valueOf( Hours_after_each_into_space.getText())][Integer.valueOf( Total_Hours_space.getText())];
+				 qL_people_cooling=output3 * n *CLF12;
+				 QL_people_cooling.setText(String.valueOf(qL_people_cooling)  );
 				//7 -----------------------------------------------------
+				  double CLF_light=0 , qlighting=0;
+				  No_C= C_9_16.get(String.valueOf( x_y.getSelectedItem()),String.valueOf(_10_16.getSelectedItem() ));
+				  CLF_light=Table_9_14[Integer.valueOf( number_of_hoursr_after_lights.getText())][No_C];
+				  qlighting=Double.valueOf(W_Lihting_Capacity.getText() ) * CLF_light;
+				  Qlighting.setText(String.valueOf(" ")  );
 				//8 -----------------------------------------------------
 				//9 ----------------------------------------------------- 
+				/* *
+				 */
 			}
 		
 		});
-		btnNewButton.setBounds(615, 181, 89, 23);
+		btnNewButton.setBounds(1161, 548, 140, 52);
 		frame.getContentPane().add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setColumns(10);
+		textField.setBounds(1161, 497, 140, 20);
+		frame.getContentPane().add(textField);
+		
+		JLabel lblOutput_1 = new JLabel("output8");
+		lblOutput_1.setBounds(1161, 472, 140, 14);
+		frame.getContentPane().add(lblOutput_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setColumns(10);
+		textField_1.setBounds(1161, 441, 140, 20);
+		frame.getContentPane().add(textField_1);
+		
+		JLabel lblOutput = new JLabel("output8");
+		lblOutput.setBounds(1161, 416, 140, 14);
+		frame.getContentPane().add(lblOutput);
+
+		
+		
+	
+		
+	
+		
+		
+
+		
+		
+		
 		
 		
 		

@@ -17,7 +17,8 @@ import java.awt.event.ActionEvent;
 
 
 public class main {
- 
+	double Uceiling ,Number_of_persons;
+	double Sensile /*3*/ ,leatent /*4*/ ,Awin ,Uwin;
 	private JFrame frame;
 	private JLabel lblNewLabel_1;
 	private JTextField Inside_volume;
@@ -811,7 +812,7 @@ public class main {
 		frame.getContentPane().add(Inside_volume);
 		Inside_volume.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Nammber of pepole space");
+		JLabel lblNewLabel_2 = new JLabel("Namber of pepole space");
 		lblNewLabel_2.setBounds(10, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
@@ -1583,15 +1584,15 @@ public class main {
 				vint.setText(String.valueOf(Vint));
 	    //2 ------------------------------------------------------------------------
 			 	double x=array_tabe2[MR_table2.get(application.getSelectedItem())][MC_table2.get("L/s/person")];
-			 	double n=Double.valueOf(number_of_persons.getText());
-			 	double vvent=x*n;
+			 	Number_of_persons=Double.valueOf(number_of_persons.getText());
+			 	double vvent=x*Number_of_persons;
 			 	Vvent.setText(String.valueOf(vvent));
 		//3 --------------------------------------------------------------------------	
-			 	 
-			 	double Sensile=table6[HR_table6.get(String.valueOf(Type_of_activity.getSelectedItem()),String.valueOf(Type_of_application.getSelectedItem()))][HC_table6.get("sensile heat, w")];
+			 	//Qsensible__Qleatent //
+			 	  Sensile=table6[HR_table6.get(String.valueOf(Type_of_activity.getSelectedItem()),String.valueOf(Type_of_application.getSelectedItem()))][HC_table6.get("sensile heat, w")];
 			 	Qsensible.setText(String.valueOf(Sensile));
 	    //4 --------------------------------------------------------------------------	
-			 	double leatent=table6[HR_table6.get(String.valueOf(Type_of_activity.getSelectedItem()),String.valueOf(Type_of_application.getSelectedItem()))][HC_table6.get("leatent heat, w")];
+			 	  leatent=table6[HR_table6.get(String.valueOf(Type_of_activity.getSelectedItem()),String.valueOf(Type_of_application.getSelectedItem()))][HC_table6.get("leatent heat, w")];
 			 	Qleatent.setText(String.valueOf(leatent));
 	   //5 --------------------------------------------------------------------------------
 			 	int numb=0;
@@ -1655,7 +1656,7 @@ public class main {
  // 9 ------------------------------------------------------- 
 			String  awin_adoor[]=Awin_Adoor.getText().split("[, ]+");
 			int num=0;
-			double Awin=Double.valueOf(awin_adoor[0]);
+			  Awin=Double.valueOf(awin_adoor[0]);
           if(Double.valueOf(Speed.getText()) < 0.5 &&door_type.getSelectedItem()=="single_glass") {	  num=0;
           }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="single_glass") {num=1;
           }else if(Double.valueOf(Speed.getText()) > 5 &&door_type.getSelectedItem()=="single_glass") {num=2;
@@ -1663,7 +1664,7 @@ public class main {
           }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5 &&door_type.getSelectedItem()=="double_glass") {num=4; 
           }else if(Double.valueOf(Speed.getText()) > .5 &&door_type.getSelectedItem()=="double_glass") {num=5; }
           
-			double Uwin= material_type[HR_material_type.get(window_material_type_and_peand_frame.getSelectedItem())]
+			Uwin= material_type[HR_material_type.get(window_material_type_and_peand_frame.getSelectedItem())]
 					                  [num];
 		    double qwin =Uwin*dt*Awin;
 			Qwin.setText(String.valueOf(qwin));
@@ -1715,7 +1716,7 @@ public class main {
 		Qfloor.setText(String.valueOf(Qfloorbelow));
 		//13--------------------------------------------------------------------
 		
-		double Uceiling,Rceiling=0;
+		double Rceiling=0;
 		Rceiling=Ri+Sum*R0;
 		Uceiling=1/Rceiling;
 		double qceiling=Uceiling*Double.valueOf(Acililing.getText())*dt;
@@ -1754,7 +1755,7 @@ public class main {
 		acililing=Double.valueOf(Acililing.getText());
 		
  		N=aroof/acililing;
-		Uor=(Uc*Ur) / (Ur*(Uc/n));
+		Uor=(Uc*Ur) / (Ur*(Uc/Number_of_persons));
 		qAttics=Uor*acililing*dt;
 		
  
@@ -1797,6 +1798,20 @@ public class main {
 		lblNewLabel_22 = new JLabel("Aroof");
 		lblNewLabel_22.setBounds(500, 347, 48, 14);
 		frame.getContentPane().add(lblNewLabel_22);
+		
+		JButton btnPage = new JButton("page2");
+		btnPage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+			
+			main2 a=	new main2(Uceiling,Number_of_persons,Uwin,Awin, Sensile,leatent);
+			main2.main22(Uceiling,Number_of_persons,Uwin,Awin,Sensile,leatent);
+			 
+			 
+			}
+		});
+		btnPage.setBounds(685, 315, 89, 23);
+		frame.getContentPane().add(btnPage);
 	
 	
 	 
