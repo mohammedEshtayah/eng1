@@ -32,8 +32,8 @@ public class main2 {
 	private JTextField Qlighting;
 	private JTextField number_of_hoursr_after_lights;
 	private JTextField W_Lihting_Capacity;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField QL_quipment;
+	private JTextField QS_Equipment;
  
 	/**
 	 * Launch the application.
@@ -677,7 +677,64 @@ public class main2 {
 						 {0.15  ,  0.56  ,  0.05  ,  0.20},
 						 
 						 };
-		 
+		 //---------------------------------------------
+				 Hash<String,String,Integer> C_9_13 = new Hash<String,String,Integer>();
+				  C_9_13.put("without Hood","Sensible" ,0);
+				  C_9_13.put("without Hood","Latent" ,1);
+				  C_9_13.put("without Hood","Total" ,2);
+				  C_9_13.put("with Hood","Sensible" ,3);
+				  
+				
+				 Map<String,Integer> R_9_13=new HashMap<String,Integer>();
+				 R_9_13.put("Hair dryers(Blower type)",0);
+				 R_9_13.put("Hair dryers(Helmet type)" ,1);
+				 R_9_13.put("Coffee brewer (electrical)",2);
+				 R_9_13.put("Coffee brewer (gas)",3);
+				 R_9_13.put("Water heater",4);
+				 R_9_13.put("Coffee urn (electrical)",5);
+				 R_9_13.put("Coffee urn (gas)",6);
+				 R_9_13.put("Deep fat fryer (electrical)",7);
+				 R_9_13.put("Deep fat fryer (gas)",8);
+				 R_9_13.put("Toaster",9);
+				 R_9_13.put("Domestic gas oven",10);
+				 R_9_13.put("Roasting  oven",11);
+				 R_9_13.put("Food warmer(gas)",12);
+				 R_9_13.put("Egg boiler",13);
+				 R_9_13.put("Frying griddle",14);
+				 R_9_13.put("Hotplate",15);
+				 R_9_13.put("Neon sign, per meter length",16);
+				 R_9_13.put("Sterilizer",17);
+				 R_9_13.put("Laboratory burner",18);
+				 R_9_13.put("Small copy machine",19);
+				 R_9_13.put("Large copy machine",20);
+				 R_9_13.put("Motors 400-2000W",21);
+				 R_9_13.put("Motors 2000-15000W",22);
+				 
+				 double Table_9_13[][]={
+					{675  ,  120 , 795  , 0  },
+					{550  ,  100 , 650  , 0  },
+					{225  ,  65  , 290  , 95 },
+					{490  ,  210 , 700  , 415},
+					{1130 ,  330 , 1465 , 0  },
+					{1075 ,  350 , 1425 , 440},
+					{1460 ,  625 , 2085 , 415},
+					{820  ,  1930, 2750 , 730},
+					{2080 ,  2080, 4160 , 830},
+					{1055 , 705  , 1760 , 440},
+					{2430 , 1200 , 3630 , 0 },
+					{500  , 320  , 820   , 0},
+					{1550 , 400  , 1950  , 400},
+			     	{335  ,220   ,555   ,0},
+			     	{13600 , 7200 ,20800, 4150},
+			     	{1550 ,1060 , 2610 ,780},
+			     	{56  , 0  ,  56  , 0},
+			     	{190 , 350  , 540 ,0},
+			     	{470 ,120 ,590 ,0},
+			     	{1760 ,0 ,1760 ,0},
+			     	{3515 ,0 ,3515 ,0},
+			     	{1100 , 0 ,1100,0},
+			     	{2430 , 0 ,2430 , 0}
+			     	};
 		JLabel lblNewLabel = new JLabel("Solar time");
 		lblNewLabel.setBounds(10, 11, 140, 14);
 		frame.getContentPane().add(lblNewLabel);
@@ -865,6 +922,7 @@ public class main2 {
 		frame.getContentPane().add(lblTypeGalss);
 		
 		JComboBox Glass_with = new JComboBox(new String [] {"Glass with no Shading","Glass with Shading"});
+		Glass_with.addPopupMenuListener( listener );
 		Glass_with.setBounds(220, 303, 140, 22);
 		frame.getContentPane().add(Glass_with);
 		
@@ -908,6 +966,7 @@ public class main2 {
 				
 				});
 		Type_Glass2.setBounds(435, 35, 140, 22);
+		Type_Glass2.addPopupMenuListener( listener );
 		frame.getContentPane().add(Type_Glass2);
 		
 		Normail_Thickness2 = new JTextField();
@@ -1036,6 +1095,7 @@ public class main2 {
 		frame.getContentPane().add(Qlighting);
 		
 		JComboBox x_y = new JComboBox(new String[] {"fixture x^4 hours of operation","fixture y^4 hours of operation"});
+		x_y.addPopupMenuListener( listener );
 		x_y.setBounds(611, 132, 140, 22);
 		frame.getContentPane().add(x_y);
 		
@@ -1062,6 +1122,62 @@ public class main2 {
 		_10_16.setBounds(611, 161, 140, 22);
 		frame.getContentPane().add(_10_16);
 		
+		QL_quipment = new JTextField();
+		QL_quipment.setEditable(false);
+		QL_quipment.setColumns(10);
+		QL_quipment.setBounds(1161, 497, 140, 20);
+		frame.getContentPane().add(QL_quipment);
+		
+		JLabel lblOutput_1 = new JLabel("QL.Equipment");
+		lblOutput_1.setBounds(1161, 472, 140, 14);
+		frame.getContentPane().add(lblOutput_1);
+		
+		QS_Equipment = new JTextField();
+		QS_Equipment.setEditable(false);
+		QS_Equipment.setColumns(10);
+		QS_Equipment.setBounds(1161, 441, 140, 20);
+		frame.getContentPane().add(QS_Equipment);
+		
+		JLabel lblOutput = new JLabel("QS.Equipment");
+		lblOutput.setBounds(1161, 416, 140, 14);
+		frame.getContentPane().add(lblOutput);
+		
+		JComboBox Application_of_Equipment = new JComboBox(new String[] {
+				 "Hair dryers(Blower type)",
+				 "Hair dryers(Helmet type)" ,
+				 "Coffee brewer (electrical)",
+				 "Coffee brewer (gas)",
+				 "Water heater",
+				 "Coffee urn (electrical)",
+				 "Coffee urn (gas)",
+				 "Deep fat fryer (electrical)",
+				 "Deep fat fryer (gas)",
+				 "Toaster",
+				 "Domestic gas oven",
+				 "Roasting  oven",
+				 "Food warmer(gas)",
+				 "Egg boiler",
+				 "Frying griddle",
+				 "Hotplate",
+				 "Neon sign, per meter length",
+				 "Sterilizer",
+				 "Laboratory burner",
+				 "Small copy machine",
+				 "Large copy machine",
+				 "Motors 400-2000W",
+				 "Motors 2000-15000W",
+		} );
+		Application_of_Equipment.addPopupMenuListener( listener );
+		Application_of_Equipment.setBounds(611, 364, 140, 22);
+		frame.getContentPane().add(Application_of_Equipment);
+		
+		JLabel lblApplication = new JLabel("Application of Equipment");
+		lblApplication.setBounds(611, 339, 140, 14);
+		frame.getContentPane().add(lblApplication);
+		
+		JComboBox Hood = new JComboBox(new String[]{"with Hood" ,"without Hood"});
+		Hood.setBounds(611, 400, 140, 22);
+		frame.getContentPane().add(Hood);
 		
 		JButton btnNewButton = new JButton("Calculation");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -1200,11 +1316,21 @@ public class main2 {
 				//7 -----------------------------------------------------
 				  double CLF_light=0 , qlighting=0;
 				  No_C= C_9_16.get(String.valueOf( x_y.getSelectedItem()),String.valueOf(_10_16.getSelectedItem() ));
+				  
 				  CLF_light=Table_9_14[Integer.valueOf( number_of_hoursr_after_lights.getText())][No_C];
 				  qlighting=Double.valueOf(W_Lihting_Capacity.getText() ) * CLF_light;
 				  Qlighting.setText(String.valueOf(" ")  );
 				//8 -----------------------------------------------------
-				//9 ----------------------------------------------------- 
+				  double qs=0 , Qs=0 , CLF_8=0;
+				 
+				   qs=Table_9_13[R_9_13.get(Application_of_Equipment.getSelectedItem())][C_9_13.get(String.valueOf(Hood.getSelectedItem()), "Sensible")];
+				   Qs=qs*CLF_8;
+				   QS_Equipment.setText(String.valueOf(Qs) );
+				   //9 ----------------------------------------------------- 
+				   double qL=0 ;
+					 
+				   qL=Table_9_13[R_9_13.get(Application_of_Equipment.getSelectedItem())][C_9_13.get(String.valueOf(Hood.getSelectedItem()), "Latent")];
+				   QS_Equipment.setText(String.valueOf(qL) );
 				/* *
 				 */
 			}
@@ -1213,25 +1339,10 @@ public class main2 {
 		btnNewButton.setBounds(1161, 548, 140, 52);
 		frame.getContentPane().add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setColumns(10);
-		textField.setBounds(1161, 497, 140, 20);
-		frame.getContentPane().add(textField);
+
+
 		
-		JLabel lblOutput_1 = new JLabel("output8");
-		lblOutput_1.setBounds(1161, 472, 140, 14);
-		frame.getContentPane().add(lblOutput_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(1161, 441, 140, 20);
-		frame.getContentPane().add(textField_1);
-		
-		JLabel lblOutput = new JLabel("output8");
-		lblOutput.setBounds(1161, 416, 140, 14);
-		frame.getContentPane().add(lblOutput);
+	
 
 		
 		
