@@ -5,7 +5,10 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
+import java.net.URI;
+//import com.sun.org.apache.xerces.internal.util.URI;
 
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JTextArea;
@@ -13,16 +16,22 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.awt.event.ActionEvent; 
 
-
+import java.net.URI;
+import java.net.URISyntaxException;
 public class main {
 	double Uceiling ,Number_of_persons;
 	double Sensile /*3*/ ,leatent /*4*/ ,Awin ,Uwin;
+	int Region;
+	String city;
 	private JFrame frame;
 	private JLabel lblNewLabel_1;
 	private JTextField Inside_volume;
-	private JTextField textField_1;
+	private JTextField Namber_of_pepole_space;
 	private JLabel lblNewLabel_3;
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
@@ -118,6 +127,9 @@ public class main {
 	private JComboBox Material_type;
 	private JTextField Aroof;
 	private JLabel lblNewLabel_22;
+	private JComboBox City;
+	private JLabel lblNewLabel_30;
+	private JTextField month;
 
 	/**
 	 * Launch the application.
@@ -175,9 +187,9 @@ public class main {
 		/* 4-6 */
 		 Map<String, Float> type_room = new Hashtable<>(); 
 		 type_room.put("room with no windows or exterior doors",(float)  0.5); 
-		 type_room.put("room with no windows or exterior doors on one side only", (float) 1.0); 
-		 type_room.put("room with no windows or exterior doors on two side ", (float)1.5); 
-		 type_room.put("room with no windows or exterior doors on three sides",(float) 2.0);
+		 type_room.put("room with windows or exterior doors on one side only", (float) 1.0); 
+		 type_room.put("room with windows or exterior doors on two side ", (float)1.5); 
+		 type_room.put("room with windows or exterior doors on three sides",(float) 2.0);
 		 type_room.put("entrance halls",(float) 2.5);	 
 		 type_room.put("Factories machine shops",(float) 1.25);	 
 		 type_room.put("recreation rooms, assembly room, gymanasium",(float) 1.5);	
@@ -816,10 +828,10 @@ public class main {
 		lblNewLabel_2.setBounds(10, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(10, 148, 140, 20);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		Namber_of_pepole_space = new JTextField();
+		Namber_of_pepole_space.setBounds(10, 148, 140, 20);
+		frame.getContentPane().add(Namber_of_pepole_space);
+		Namber_of_pepole_space.setColumns(10);
 		
 		lblNewLabel_3 = new JLabel("Type of activity");
 		lblNewLabel_3.setBounds(10, 179, 140, 14);
@@ -894,7 +906,7 @@ public class main {
 		frame.getContentPane().add(Dt);
 		Dt.setColumns(10);
 		
-		lblNewLabel_15 = new JLabel("Awall");
+		lblNewLabel_15 = new JLabel("Area wall");
 		lblNewLabel_15.setBounds(200, 179, 220, 14);
 		frame.getContentPane().add(lblNewLabel_15);
 		
@@ -903,8 +915,8 @@ public class main {
 		frame.getContentPane().add(Awall);
 		Awall.setColumns(10);
 		
-		lblNewLabel_17 = new JLabel("Awin:=       ,Adoor=      ");
-		lblNewLabel_17.setBounds(200, 294, 220, 14);
+		lblNewLabel_17 = new JLabel("Area win:=       ,Area door=      ");
+		lblNewLabel_17.setBounds(200, 300, 220, 14);
 		frame.getContentPane().add(lblNewLabel_17);
 		
 		Awin_Adoor = new JTextField();
@@ -912,7 +924,7 @@ public class main {
 		frame.getContentPane().add(Awin_Adoor);
 		Awin_Adoor.setColumns(10);
 		
-		lblNewLabel_18 = new JLabel("Aceliling");
+		lblNewLabel_18 = new JLabel("Area celiling");
 		lblNewLabel_18.setBounds(200, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_18);
 		
@@ -990,8 +1002,34 @@ public class main {
 		frame.getContentPane().add(Uroof);
 		Uroof.setColumns(10);
 		
-		lblNewLabel_36 = new JLabel("Wi=    ,   W0=");
-		lblNewLabel_36.setBounds(500, 515, 140, 14);
+		lblNewLabel_36 = new JLabel("Wi=    ,   W0=get Value ==> click here");
+		lblNewLabel_36.addMouseListener(new MouseAdapter() {
+			 
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("http://www.google.ps"));
+                } catch (IOException  e1) {
+                    e1.printStackTrace();
+                } catch (URISyntaxException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+ 
+            @Override
+            public void mouseExited(MouseEvent e) {
+            	lblNewLabel_36.setText("Wi=    ,   W0=click here" );
+            }
+ 
+            @Override
+            public void mouseEntered(MouseEvent e) {
+//                 hyperlink.setText("<html><a href=''>" + "ةخاشةةثي" + "</a></html>");
+            }
+ 
+        });
+ 
+		lblNewLabel_36.setBounds(500, 515, 233, 14);
 		frame.getContentPane().add(lblNewLabel_36);
 		
 		wi_w0 = new JTextField();
@@ -1436,9 +1474,9 @@ public class main {
 		
 		Type_of_room_building = new JComboBox(new String[] {
 				"room with no windows or exterior doors"
-				,"room with no windows or exterior doors on one side only"
-				,"room with no windows or exterior doors on two side"
-				,"room with no windows or exterior doors on three sides" 
+				,"room with windows or exterior doors on one side only"
+				,"room with windows or exterior doors on two side"
+				,"room with windows or exterior doors on three sides" 
 				,"entrance halls"
 				,"Factories machine shops" 
 				,"recreation rooms, assembly room, gymanasium"	
@@ -1551,7 +1589,111 @@ public class main {
 			Material_type.setBounds(10, 538, 140, 22);
 			frame.getContentPane().add(Material_type);
 			
+
+			City = new JComboBox(new String[] {"","القدس","نابلس","جنين","طولكرم","أريحا","الخليل","العروب","الفاعة"});
+			City.setBounds(685, 428, 167, 22);
+			frame.getContentPane().add(City);
 			
+			lblNewLabel_30 = new JLabel("month");
+			lblNewLabel_30.setBounds(685, 352, 48, 14);
+			frame.getContentPane().add(lblNewLabel_30);
+			
+			month = new JTextField();
+			month.setBounds(685, 372, 167, 20);
+			frame.getContentPane().add(month);
+			month.setColumns(10);
+			
+			JComboBox region = new JComboBox(new String[] {"","المنطقة الاولى","المنطقة الثانية","المنطقة الثاثة","المنطقة الربعة","المنطقة الخامسة","المنطقة السادسة - غزة" ,"المنطقة السابعة - غزة"});
+			region.setBounds(685, 483, 167, 22);
+			frame.getContentPane().add(region);
+			
+			JLabel lblCity = new JLabel("City");
+			lblCity.setBounds(685, 403, 48, 14);
+			frame.getContentPane().add(lblCity);
+			  Map<String, Integer> R_table = new Hashtable<>(); 
+			  R_table.put("المنطقة الاولى", 0);
+			  R_table.put("المنطقة الثانية", 1);
+			  R_table.put("المنطقة الثاثة", 2);
+			  R_table.put("المنطقة الربعة",3);
+			  R_table.put("المنطقة الخامسة",4);
+			  R_table.put("لمنطقة السادسة - غزة",5);
+			  R_table.put("المنطقة السابعة - غزة",6);
+			  
+			  Map<String, Integer> R_table2 = new Hashtable<>();  
+			  R_table2.put("القدس", 0);
+			  R_table2.put("نابلس", 1);
+			  R_table2.put("جنين", 2);
+			  R_table2.put("طولكرم",3); 
+			  R_table2.put("أريحا",4); 
+			  R_table2.put("الخليل",5); 
+			  R_table2.put("العروب",6); 
+			  R_table2.put("الفاعة",7); 
+			  
+				 
+				 
+		    double Table_10a[][]= {
+		    		{0 ,16.3, 18.0, 18.4, 18.5, 18.0 ,19.4, 20.4, 18.6, 17.0, 13.0, 14.1, 16.0},
+		    		{0 ,8.7,  9.5, 10.0, 10.2, 10.7, 12.0, 12.4, 11.3, 10.3, 7.7, 7.8, 7.7},
+		    		{0 ,7.5,  7.9,7.9, 7.9, 9.0, 9.4 ,9.7, 8.6, 7.2, 5.4, 6.1, 7.5},
+		    		{0 ,4.3,  4.1, 3.8, 3.4, 3.3, 2.9, 2.9 ,2.7, 2.6, 2.9, 3.8, 4.0},
+		    		{0 ,8.9, 10.4, 13.1, 16.2, 15.8, 15.3 ,16.0, 14.8, 12.6, 9.4, 7.9, 7.6},
+		    		{0 ,12.4 ,12.8 ,12.6 ,11.5 ,9.3,9.3 ,9.2 ,8.7 ,8.1 ,8.0 ,8.8 ,10.1},
+		    		{0,8.6 , 10.1, 10.8, 9.7, 6.5, 5.1, 5.1, 5.4, 5.1, 5.8, 5.8, 7.9},
+		    		{0, 4.6, 6.5, 6.1, 3.6, 3.3, 3.6, 6.8, 6.5, 5.0, 2.5, 2.5, 2.1}
+		    		};
+		    double Table_8a[][]= {
+		    		{0, 69.3, 65.7, 60.3, 49.3, 42.7, 44, 44.6, 49, 50.3, 53.7,61.3, 66},
+		    		{0, 69.3, 65.7, 60.3, 49.3, 42.7, 44, 44.6, 49, 50.3, 53.7,61.3, 66},
+		    		{0, 69.7, 68  , 68.2, 57.9, 50.4, 56, 55.5, 61.9, 60.8, 56.5, 60.3, 69.3 },
+		    		{0, 71.7, 71.7, 68.2, 51.7, 44.5, 50.7, 49.7, 53.7, 56, 54.7, 62.2, 68},
+		    		{0, 73.3, 72,7, 69, 60.7, 58.7, 61.5, 62, 65.2, 60.4, 58.5, 63.4, 65.9},
+		    		{0, 66, 69, 64, 67, 73, 77, 76, 75, 65, 66, 72, 62},
+		    		{0, 69.7, 68, 68.2, 57.9, 50.4, 56, 55.5, 61.9, 60.8, 56.5, 60.3, 69.3  },
+		    		};
+		    double Table_1234567a[][]= {
+		    		{0, 14.4, 13.7, 15.8, 21.8, 26.9, 29.3, 31, 31.5, 29.5, 26, 21.1, 16},
+		    		{0, 14.4, 13.7, 15.8, 21.8, 26.9, 29.3, 31, 31.5, 29.5, 26, 21.1, 16},
+		    		{0, 10.2, 10.4, 11.7, 17, 20.7, 23.4, 25.5, 26.4, 24.3, 21.3, 17.7, 12.7},
+		    		{0, 8.3, 8.2, 9.5, 17.4, 19.9, 21.7, 23.6, 24, 22.3, 20.1, 16, 10.8},
+		    		{0, 12.8, 13, 14.4, 19.4, 22.9, 25.3, 27.6, 28.9, 27.1, 24.2, 20.4, 16.1},
+		    		{0,  14.2, 14.6, 15.8, 19.9, 21.4, 23.9, 26, 26.8, 25.2, 23.4, 20.2,16.9},
+		    		{0, 10.2, 10.4, 11.7, 17, 20.7, 23.4, 25.5, 26.4, 24.3, 21.3, 17.7, 12.7}
+		    		};
+		  
+		    
+			City.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent evt) {
+	            	 double w0,speeD,TT0;
+	            	 int r,r2;
+	                 int Month;
+	            Month= Integer.valueOf(month.getText());
+	             r2=R_table2.get(City.getSelectedItem());
+	             speeD=Table_10a[r2][Month];
+	             Speed.setText(String.valueOf(speeD)); 
+	          
+			 
+	           
+	            }
+	        });	
+			region.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent evt) {
+	            	 double w0,speeD,TT0;
+	            	 
+	            	 int r,r2;
+	                 int Month;
+	            Month= Integer.valueOf(month.getText());  
+	             Region=R_table.get(region.getSelectedItem());
+//	             
+//	             speeD=Table_8a[Region][Month];
+//		         Speed.setText(String.valueOf(speeD));
+	              
+	           
+		         TT0=Table_1234567a[Region][Month];
+	             Dt.setText( String.valueOf(TT0));
+			 
+	           
+	            }
+	        });				
 		JButton btnNewButton = new JButton("Calculation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -1609,15 +1751,22 @@ public class main {
 			 	  R0=array_table4[HR_wind_speed.get(String.valueOf(Element.getSelectedItem())
 			 			, String.valueOf(Material_type.getSelectedItem()))][numb];
 		
-				double Sum=0, Sum_X[]= {}, Sum_K[]= {} ;
-				int I=0;
-				String  X[]=X_thichness.getText().split("[, ]+");
-				for (String a : X) {
-					Sum_X[I]=Double.valueOf(a);
-				} 
+			 	 String  X[]=X_thichness.getText().split("[, ]+");
+			 	 double Sum=0 ;
+			 	 double Sum_X[] =new double [X.length];
+			 	 
+				 
+				//String  X[]=X_thichness.getText().split("[, ]+");
+				 
+					for(int i=0; i<X.length;i++) { 
+					Sum_X[i]=Double.valueOf(X[i]);
+					 
+				   } 
+				 
 				
-			String  Material_number[]=material_number.getText().split("[, ]+");
+			String  Material_number[]=material_number.getText().split(",");
 			String  Materials[]=Material.getText().split(",");
+			double Sum_K[] =new double [Material_number.length];
 			
 			for(int i=0; i<Material_number.length;i++) { 
 				Sum_K[i]= array_table5[HR_material.get(Integer.parseInt(Material_number[i]),Materials[i])][ HC_material.get("thermal conductivity w / mc")];
@@ -1787,7 +1936,7 @@ public class main {
 			}
 		});
 
-		btnNewButton.setBounds(685, 247, 167, 46);
+		btnNewButton.setBounds(685, 639, 167, 46);
 		frame.getContentPane().add(btnNewButton);
 		
 		Aroof = new JTextField();
@@ -1798,22 +1947,28 @@ public class main {
 		lblNewLabel_22 = new JLabel("Aroof");
 		lblNewLabel_22.setBounds(500, 347, 48, 14);
 		frame.getContentPane().add(lblNewLabel_22);
-		
-		JButton btnPage = new JButton("page2");
+	
+		JButton btnPage = new JButton("Go to Page 2");
 		btnPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			frame.dispose();
+			city=String.valueOf(City.getSelectedItem());
 			
-			main2 a=	new main2(Uceiling,Number_of_persons,Uwin,Awin, Sensile,leatent);
-			main2.main22(Uceiling,Number_of_persons,Uwin,Awin,Sensile,leatent);
+			main2 a=	new main2(Uceiling,Number_of_persons,Uwin,Awin, Sensile,leatent,city,Region);
+			main2.main22(Uceiling,Number_of_persons,Uwin,Awin,Sensile,leatent,city,Region);
 			 
 			 
 			}
 		});
-		btnPage.setBounds(685, 315, 89, 23);
+		btnPage.setBounds(1175, 639, 140, 68);
 		frame.getContentPane().add(btnPage);
-	
-	
+		
+		JLabel lblRegion = new JLabel("region");
+		lblRegion.setBounds(685, 459, 126, 14);
+		frame.getContentPane().add(lblRegion);
+		
+		
+		
 	 
 		
 	  
