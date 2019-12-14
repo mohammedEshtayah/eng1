@@ -1403,6 +1403,7 @@ public class main2 {
 				/*Uwan*Awan not found ?*/
 				qcooling_wall=Uwan*Awan*C_Tb_cor_W;
 				Qcooling_wall.setText(String.valueOf(qcooling_wall)  );
+				
 				//3 -----------------------------------------------------
 				double qtrans_throng_glass=0 , aglass=0 , SHG=0 , SC=0 ,  CLF=0 ,Normail ;
 				Normail=Double.valueOf( Normail_Thickness2.getText());
