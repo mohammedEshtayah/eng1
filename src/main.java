@@ -25,7 +25,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 public class main {
 	double Uceiling ,Number_of_persons;
-	double Sensile /*3*/ ,leatent /*4*/ ,Awin ,Uwin;
+	double Sensile /*3*/ ,leatent /*4*/ ,Awin ,Uwin,uwall;
 	int Region;
 	String city;
 	private JFrame frame;
@@ -36,15 +36,12 @@ public class main {
 	private JLabel lblNewLabel_4;
 	private JLabel lblNewLabel_5;
 	private JLabel lblNewLabel_6;
-	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JLabel lblNewLabel_9;
 	private JLabel lblNewLabel_10;
 	private JTextField Speed;
 	private JLabel lblNewLabel_11;
-	private JTextField X_thichness;
-	private JLabel materia;
-	private JTextField material_number;
+	private JTextField X_thichness_wall;
 	private JLabel lblNewLabel_13;
 	private JTextField textField_12;
 	private JLabel lblNewLabel_14;
@@ -64,7 +61,7 @@ public class main {
 	private JLabel lblNewLabel_26;
 	private JTextField Depth_Below;
 	private JLabel lblNewLabel_27;
-	private JTextField Xin_Kin;
+	private JTextField Rwall_below;
 	private JLabel lblNewLabel_28;
 	private JTextField Afloor;
 	private JLabel lblNewLabel_29;
@@ -95,7 +92,7 @@ public class main {
 	private JLabel lblNumberOfPersons;
 	private JTextField number_of_persons;
 	private JLabel lblNewLabel_12;
-	private JTextField Material;
+	private JTextField wall_Material;
 	private JTextField Qwin;
 	private JLabel lblQunconditioned;
 	private JTextField Qunconditioned;
@@ -112,9 +109,8 @@ public class main {
 	private JComboBox Type_of_activity;
 	private JComboBox Type_of_application;
 	private JComboBox Type_of_room_building;
-	private JComboBox IElement;
-	private JComboBox IHeat_direction;
-	private JComboBox IMaterial_type;
+	private JComboBox IElement1;
+	private JComboBox IHeat_direction_wall;
 	private JComboBox Narrwest;
 	private JComboBox Depth_below_grade;
 	private JComboBox window_material_type_and_peand_frame;
@@ -123,13 +119,25 @@ public class main {
 	private JComboBox Heat_flow_direction;
 	private JComboBox gap_material;
 	private JComboBox gap_thichness;
-	private JComboBox Element;
+	private JComboBox Element1;
 	private JComboBox Material_type;
 	private JTextField Aroof;
 	private JLabel lblNewLabel_22;
 	private JComboBox City;
 	private JLabel lblNewLabel_30;
 	private JTextField month;
+	private JLabel lblInsideMaterialType;
+	private JComboBox IMaterial_type_ceiling;
+	private JLabel lblInsideMaterialType_1;
+	private JComboBox IMaterial_type_floor;
+	private JLabel lblElement_1;
+	private JComboBox Element2;
+	private JLabel lblElement;
+	private JComboBox Element3;
+	private JTextField X_thichness_ceiling;
+	private JTextField X_thichness_floor;
+	private JTextField ceiling_Material;
+	private JTextField floor_Material;
 
 	/**
 	 * Launch the application.
@@ -186,9 +194,10 @@ public class main {
 		frame.getContentPane().setLayout(null);
 		/* 4-6 */
 		 Map<String, Float> type_room = new Hashtable<>(); 
+			 
 		 type_room.put("room with no windows or exterior doors",(float)  0.5); 
 		 type_room.put("room with windows or exterior doors on one side only", (float) 1.0); 
-		 type_room.put("room with windows or exterior doors on two side ", (float)1.5); 
+		 type_room.put("room with windows or exterior doors on two side", (float)1.5); 
 		 type_room.put("room with windows or exterior doors on three sides",(float) 2.0);
 		 type_room.put("entrance halls",(float) 2.5);	 
 		 type_room.put("Factories machine shops",(float) 1.25);	 
@@ -484,8 +493,8 @@ public class main {
 		 
 			 HR_wind_speed.put("walls","construction materials",0); 
 			 HR_wind_speed.put("walls","metals",1); 
-			 HR_wind_speed.put("ceilings and floors","construction materials",2); 
-			 HR_wind_speed.put("ceilings and floors","metals",3); 
+			 HR_wind_speed.put("ceilings","construction materials",2); 
+			 HR_wind_speed.put("ceilings","metals",3); 
 			 HR_wind_speed.put("exposed floors","construction materials",4); 
 			 
 			 Map<String, Integer> HC_wind_speed = new Hashtable<>(); 
@@ -497,136 +506,138 @@ public class main {
 			 double array_table4[][]= {
 					 {0.08,0.06,0.03},
 					 {0.10,0.07,0.03},
+					 {0.07,0.04,0.02},
 					 {0.09,0.05,0.02},
 					 {0.09,0,0},
 					 
 			 };
 		 //------------------------------ 5-1
-			 Hash<Integer,String,Integer> HR_material = new Hash<Integer,String,Integer>(); 
 			 
-			 HR_material.put(1,"marble",0); 
-			  
-			 HR_material.put(1,"hard stone",1); 
+			 Map<String,Integer> HR_material = new Hashtable<String,Integer>(); 
 			 
-			 HR_material.put(1,"firm stone",2); 
+			 HR_material.put("marble",0); 
+			  
+			 HR_material.put("hard stone",1); 
 			 
-			 HR_material.put(1,"semi firm ston",3);
+			 HR_material.put("firm stone",2); 
+			 
+			 HR_material.put("semi firm ston",3);
 			  
-			 HR_material.put(1,"soft ston",4); 
+			 HR_material.put("soft ston",4); 
 			  
-			 HR_material.put(1,"granit",5); 
+			 HR_material.put("granit",5); 
 			 
 			  
-			 HR_material.put(1,"baslt and stqnes",6); 
+			 HR_material.put("baslt and stqnes",6); 
 			  
-			 HR_material.put(1,"lime stone",7); 
+			 HR_material.put("lime stone",7); 
 			 
 		 
-			 HR_material.put(1,"sand",8); 
+			 HR_material.put("sand",8); 
 			 
 			 // HR_material.put("building brick",0);
 			 
-			 HR_material.put(2,"soil",9); 
+			 HR_material.put("soil",9); 
 			 //-----3
 			  
-			 HR_material.put(3,"cement brick ,solid",10); 
+			 HR_material.put("cement brick ,solid",10); 
 			  
-			 HR_material.put(3,"cement brick , with air gaps",11); 
+			 HR_material.put("cement brick , with air gaps",11); 
 			  
-			 HR_material.put(3,"common brick (low density)",12); 
+			 HR_material.put("common brick (low density)",12); 
 			  
-			 HR_material.put(3,"face brick (high density)",13); 
+			 HR_material.put("face brick (high density)",13); 
 			  
-			 HR_material.put(3,"glass brick",14); 
+			 HR_material.put("glass brick",14); 
 			 
-			 HR_material.put(3,"fire-clay brick",15); 
+			 HR_material.put("fire-clay brick",15); 
 			  
-			 HR_material.put(3,"clay",16); 
+			 HR_material.put("clay",16); 
 			 //---4
 			  
-			 HR_material.put(4,"light concrete",17); 
+			 HR_material.put("light concrete",17); 
 			  
-			 HR_material.put(4,"foam concrete",18);
+			 HR_material.put("foam concrete",18);
 			  
-			 HR_material.put(4,"mortar",20); 
+			 HR_material.put("mortar",20); 
 			 //---- 
 			  
-			 HR_material.put(5,"terrazzo tiles",21); 
+			 HR_material.put("terrazzo tiles",21); 
 			  
-			 HR_material.put(5, "ceramic tiles",22); 
+			 HR_material.put("ceramic tiles",22); 
 			  
-			 HR_material.put(5, "pvc tiles",23); 
+			 HR_material.put("pvc tiles",23); 
 			  
-			 HR_material.put(5, "rubber tiles",24); 
+			 HR_material.put("rubber tiles",24); 
 			  
-			 HR_material.put(5, "rubber flooring",25); 
+			 HR_material.put("rubber flooring",25); 
 			  
-			 HR_material.put(5,"plastic tiles",26); 
+			 HR_material.put("plastic tiles",26); 
 			  
-			 HR_material.put(6,"cement palaster",27);
+			 HR_material.put("cement palaster",27);
 			  
-			 HR_material.put(6, "gypasum plaster",28); 
+			 HR_material.put("gypasum plaster",28); 
 			  
-			 HR_material.put(7, "oak",29); 
+			 HR_material.put("oak",29); 
 			  
-			 HR_material.put(7, "pine",30); 
+			 HR_material.put("pine",30); 
 			   
-			 HR_material.put(7,"beech",31); 
+			 HR_material.put("beech",31); 
 			  
-			 HR_material.put(7, "mahogay",32); 
+			 HR_material.put("mahogay",32); 
 			  
-			 HR_material.put(7, "teak",32); 
+			 HR_material.put("teak",32); 
 			  
-			 HR_material.put(7, "red wood",33); 
+			 HR_material.put("red wood",33); 
 			  
-			 HR_material.put(8,"hard fiber boards",34); 
+			 HR_material.put("hard fiber boards",34); 
 			  
-			 HR_material.put(8, "soft fiber boards",35); 
+			 HR_material.put("soft fiber boards",35); 
 			  
-			 HR_material.put(8, "plywood boards",36); 
+			 HR_material.put("plywood boards",36); 
 			   
-			 HR_material.put(8,"chip biards" ,37); 
+			 HR_material.put("chip biards" ,37); 
 			  
-			 HR_material.put(8, "parquet",38); 
+			 HR_material.put("parquet",38); 
 			  
-			 HR_material.put(9,"gypsum boards",39); 
+			 HR_material.put("gypsum boards",39); 
 			  
-			 HR_material.put(9, "cork boards",40); 
+			 HR_material.put("cork boards",40); 
 			 
-			 HR_material.put(10,"reguular",41); 
+			 HR_material.put("reguular",41); 
 			  
-			 HR_material.put(10,"thermal resisting",42); 
+			 HR_material.put("thermal resisting",42); 
 			 //---
 			  
-			 HR_material.put(11,"aluminuum" ,45); 
+			 HR_material.put("aluminuum" ,45); 
 			  
-			 HR_material.put(11, "copper" ,46); 
+			 HR_material.put( "copper" ,46); 
 			  
-			 HR_material.put(11, "brass",47); 
+			 HR_material.put( "brass",47); 
 			  
-			 HR_material.put(11, "cast iron",48); 
+			 HR_material.put( "cast iron",48); 
 			  
-			 HR_material.put(11, "mild steel",48); 
+			 HR_material.put( "mild steel",48); 
 			  
-			 HR_material.put(11,"stainless steel",49); 
+			 HR_material.put("stainless steel",49); 
 			  
-			 HR_material.put(12,"polystyrene boards" ,50); 
+			 HR_material.put("polystyrene boards" ,50); 
 			  
-			 HR_material.put(12, "polyurethane boards",51); 
+			 HR_material.put( "polyurethane boards",51); 
 			  
-			 HR_material.put(12,"rock wool" ,52); 
+			 HR_material.put("rock wool" ,52); 
 			  
-			 HR_material.put(12, "glass wool",53); 
+			 HR_material.put( "glass wool",53); 
 			  
-			 HR_material.put(12, "cork boards",54); 
+			 HR_material.put( "cork boards",54); 
 			  
-			 HR_material.put(12, "cork particles",54); 
+			 HR_material.put( "cork particles",54); 
 			  
-			 HR_material.put(13, "asphalt mix",55); 
+			 HR_material.put( "asphalt mix",55); 
 			  
-			 HR_material.put(13,"asphalt",56); 
+			 HR_material.put("asphalt",56); 
 			  
-			 HR_material.put(13,"rool roofing",57);  
+			 HR_material.put("rool roofing",57);  
 			 
 		 
 			 
@@ -756,7 +767,7 @@ public class main {
 			 HR_Dsss_type.put("25 min-wood", 0);
 			 HR_Dsss_type.put("35 mm-wood", 1);
 			 HR_Dsss_type.put("40 mm-wood", 2);
-			 HR_Dsss_type.put("45 mn-wood", 3);
+			 HR_Dsss_type.put("45 mm-wood", 3);
 			 HR_Dsss_type.put("50 mm-wood", 4);
 			 HR_Dsss_type.put("aluminum", 5);
 			 HR_Dsss_type.put("steel", 6);
@@ -861,52 +872,39 @@ public class main {
 		lblNewLabel_4.setBounds(10, 235, 140, 14);
 		frame.getContentPane().add(lblNewLabel_4);
 		
-		lblNewLabel_5 = new JLabel("Inside Element");
+		lblNewLabel_5 = new JLabel("Inside Element 1");
 		lblNewLabel_5.setBounds(10, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		lblNewLabel_6 = new JLabel("Inside Heat direction");
-		lblNewLabel_6.setBounds(10, 347, 140, 14);
+		lblNewLabel_6 = new JLabel("Inside Heat direction for wall");
+		lblNewLabel_6.setBounds(10, 458, 167, 14);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		lblNewLabel_7 = new JLabel("Inside Material type");
-		lblNewLabel_7.setBounds(10, 403, 140, 14);
-		frame.getContentPane().add(lblNewLabel_7);
-		
-		lblNewLabel_8 = new JLabel("Element");
-		lblNewLabel_8.setBounds(10, 459, 140, 14);
+		lblNewLabel_8 = new JLabel("Element 1");
+		lblNewLabel_8.setBounds(205, 123, 140, 14);
 		frame.getContentPane().add(lblNewLabel_8);
 		
 		lblNewLabel_9 = new JLabel("Material type");
-		lblNewLabel_9.setBounds(10, 515, 140, 14);
+		lblNewLabel_9.setBounds(205, 291, 140, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		lblNewLabel_10 = new JLabel("Wind Speed");
-		lblNewLabel_10.setBounds(10, 571, 140, 14);
+		lblNewLabel_10.setBounds(205, 347, 140, 14);
 		frame.getContentPane().add(lblNewLabel_10);
 		
 		Speed = new JTextField();
-		Speed.setBounds(10, 596, 140, 20);
+		Speed.setBounds(205, 372, 140, 20);
 		frame.getContentPane().add(Speed);
 		Speed.setColumns(10);
 		
-		lblNewLabel_11 = new JLabel("X : thichness");
-		lblNewLabel_11.setBounds(10, 627, 140, 14);
+		lblNewLabel_11 = new JLabel("X : thichness for wall");
+		lblNewLabel_11.setBounds(205, 403, 140, 14);
 		frame.getContentPane().add(lblNewLabel_11);
 		
-		X_thichness = new JTextField();
-		X_thichness.setBounds(10, 652, 140, 20);
-		frame.getContentPane().add(X_thichness);
-		X_thichness.setColumns(10);
-		
-		materia = new JLabel("material number");
-		materia.setBounds(200, 11, 140, 14);
-		frame.getContentPane().add(materia);
-		
-		material_number = new JTextField();
-		material_number.setBounds(200, 36, 220, 20);
-		frame.getContentPane().add(material_number);
-		material_number.setColumns(10);
+		X_thichness_wall = new JTextField();
+		X_thichness_wall.setBounds(205, 428, 140, 20);
+		frame.getContentPane().add(X_thichness_wall);
+		X_thichness_wall.setColumns(10);
 		
 		lblNewLabel_13 = new JLabel("construction material");
 		lblNewLabel_13.setBounds(783, 11, 167, 14);
@@ -918,55 +916,55 @@ public class main {
 		textField_12.setColumns(10);
 		
 		lblNewLabel_14 = new JLabel("T0=      Ti=");
-		lblNewLabel_14.setBounds(200, 123, 140, 14);
+		lblNewLabel_14.setBounds(407, 65, 140, 14);
 		frame.getContentPane().add(lblNewLabel_14);
 		
 		Dt = new JTextField();
-		Dt.setBounds(200, 148, 220, 20);
+		Dt.setBounds(407, 90, 220, 20);
 		frame.getContentPane().add(Dt);
 		Dt.setColumns(10);
 		
 		lblNewLabel_15 = new JLabel("Area wall");
-		lblNewLabel_15.setBounds(200, 179, 220, 14);
+		lblNewLabel_15.setBounds(407, 121, 220, 14);
 		frame.getContentPane().add(lblNewLabel_15);
 		
 		Awall = new JTextField();
-		Awall.setBounds(200, 204, 220, 20);
+		Awall.setBounds(407, 146, 220, 20);
 		frame.getContentPane().add(Awall);
 		Awall.setColumns(10);
 		
 		lblNewLabel_17 = new JLabel("Area win:=       ,Area door=      ");
-		lblNewLabel_17.setBounds(200, 300, 220, 14);
+		lblNewLabel_17.setBounds(407, 242, 220, 14);
 		frame.getContentPane().add(lblNewLabel_17);
 		
 		Awin_Adoor = new JTextField();
-		Awin_Adoor.setBounds(200, 316, 220, 20);
+		Awin_Adoor.setBounds(407, 258, 220, 20);
 		frame.getContentPane().add(Awin_Adoor);
 		Awin_Adoor.setColumns(10);
 		
 		lblNewLabel_18 = new JLabel("Area celiling");
-		lblNewLabel_18.setBounds(200, 347, 140, 14);
+		lblNewLabel_18.setBounds(407, 289, 140, 14);
 		frame.getContentPane().add(lblNewLabel_18);
 		
 		Acililing = new JTextField();
-		Acililing.setBounds(200, 372, 220, 20);
+		Acililing.setBounds(407, 314, 220, 20);
 		frame.getContentPane().add(Acililing);
 		Acililing.setColumns(10);
 		
 		lblNewLabel_19 = new JLabel("window material type and peand frame");
-		lblNewLabel_19.setBounds(200, 403, 220, 14);
+		lblNewLabel_19.setBounds(407, 345, 220, 14);
 		frame.getContentPane().add(lblNewLabel_19);
 		
 		lblNewLabel_20 = new JLabel("single or double glass");
-		lblNewLabel_20.setBounds(200, 459, 140, 14);
+		lblNewLabel_20.setBounds(407, 401, 140, 14);
 		frame.getContentPane().add(lblNewLabel_20);
 		
 		lblNewLabel_21 = new JLabel("door-type");
-		lblNewLabel_21.setBounds(200, 515, 140, 14);
+		lblNewLabel_21.setBounds(407, 457, 140, 14);
 		frame.getContentPane().add(lblNewLabel_21);
 		
 		lblNewLabel_23 = new JLabel("gap thichness");
-		lblNewLabel_23.setBounds(200, 627, 140, 14);
+		lblNewLabel_23.setBounds(407, 569, 140, 14);
 		frame.getContentPane().add(lblNewLabel_23);
 		
 		lblNewLabel_24 = new JLabel("gap material");
@@ -990,10 +988,10 @@ public class main {
 		lblNewLabel_27.setBounds(637, 178, 140, 14);
 		frame.getContentPane().add(lblNewLabel_27);
 		
-		Xin_Kin = new JTextField();
-		Xin_Kin.setBounds(637, 203, 140, 20);
-		frame.getContentPane().add(Xin_Kin);
-		Xin_Kin.setColumns(10);
+		Rwall_below = new JTextField();
+		Rwall_below.setBounds(637, 203, 140, 20);
+		frame.getContentPane().add(Rwall_below);
+		Rwall_below.setColumns(10);
 		
 		lblNewLabel_28 = new JLabel("Area floor");
 		lblNewLabel_28.setBounds(637, 234, 140, 14);
@@ -1265,18 +1263,139 @@ public class main {
 		frame.getContentPane().add(number_of_persons);
 		number_of_persons.setColumns(10);
 		
-		lblNewLabel_12 = new JLabel("Material");
-		lblNewLabel_12.setBounds(200, 67, 140, 14);
+		lblNewLabel_12 = new JLabel("wall Material");
+		lblNewLabel_12.setBounds(203, 570, 144, 14);
 		frame.getContentPane().add(lblNewLabel_12);
 		
-		Material = new JTextField();
+		wall_Material = new JTextField();
 	
-		Material.setBounds(200, 92, 220, 20);
-		frame.getContentPane().add(Material);
-		Material.setColumns(10);
+		wall_Material.setBounds(160, 594, 215, 22);
+		frame.getContentPane().add(wall_Material);
+		wall_Material.setColumns(10);
+		
+		
+		JLabel lblRegion = new JLabel("region");
+		lblRegion.setBounds(783, 571, 126, 14);
+		frame.getContentPane().add(lblRegion);
+		
+		JLabel lblInsideElement = new JLabel("Inside Element 2");
+		lblInsideElement.setBounds(10, 346, 140, 14);
+		frame.getContentPane().add(lblInsideElement);
+		
+		JComboBox IElement2 = new JComboBox(new String[]{  
+				   "walls" ,			 
+				   "callngs and floors"  
+		});
+		IElement2.setBounds(10, 369, 140, 22);
+		frame.getContentPane().add(IElement2);
+		
+		JLabel lblInsideElement_1 = new JLabel("Inside Element 3");
+		lblInsideElement_1.setBounds(10, 404, 140, 14);
+		frame.getContentPane().add(lblInsideElement_1);
+		
+		JComboBox IElement3 = new JComboBox(new String[]{  
+				   "walls" ,			 
+				   "callngs and floors"  
+		});
+		IElement3.setBounds(10, 427, 140, 22);
+		frame.getContentPane().add(IElement3);
+		
+		JLabel lblInsideHeatDirection = new JLabel("Inside Heat direction for ceiling");
+		lblInsideHeatDirection.setBounds(10, 514, 185, 14);
+		frame.getContentPane().add(lblInsideHeatDirection);
+		
+		JComboBox IHeat_direction_ceiling = new JComboBox( );
+		IHeat_direction_ceiling.setBounds(10, 537, 140, 22);
+		frame.getContentPane().add(IHeat_direction_ceiling);
+		
+		JLabel lblInsideHeatDirection_1 = new JLabel("Inside Heat direction for floor");
+		lblInsideHeatDirection_1.setBounds(10, 571, 167, 14);
+		frame.getContentPane().add(lblInsideHeatDirection_1);
+		//sssssss
+		JComboBox IHeat_direction_floor = new JComboBox();
+		IHeat_direction_floor.setBounds(10, 594, 140, 22);
+		frame.getContentPane().add(IHeat_direction_floor);
+		
+		lblInsideMaterialType = new JLabel("Inside Material type for ceiling");
+		lblInsideMaterialType.setBounds(205, 11, 192, 14);
+		frame.getContentPane().add(lblInsideMaterialType);
+		
+		IMaterial_type_ceiling = new JComboBox(new String[]{"construction materials"});
+		IMaterial_type_ceiling.setBounds(205, 35, 140, 22);
+		frame.getContentPane().add(IMaterial_type_ceiling);
+		
+		lblInsideMaterialType_1 = new JLabel("Inside Material type for floor");
+		lblInsideMaterialType_1.setBounds(207, 65, 167, 14);
+		frame.getContentPane().add(lblInsideMaterialType_1);
+		
+		IMaterial_type_floor = new JComboBox(new String[]{"construction materials"});
+		IMaterial_type_floor.setBounds(207, 90, 140, 22);
+		frame.getContentPane().add(IMaterial_type_floor);
+		
+		lblElement_1 = new JLabel("Element 2");
+		lblElement_1.setBounds(205, 176, 140, 14);
+		frame.getContentPane().add(lblElement_1);
+		
+		Element2 = new JComboBox(new String[] {"walls","ceilings","exposed floors"});
+		Element2.setBounds(205, 201, 140, 22);
+		frame.getContentPane().add(Element2);
+		
+		lblElement = new JLabel("Element 3");
+		lblElement.setBounds(207, 232, 140, 14);
+		frame.getContentPane().add(lblElement);
+		
+		Element3 = new JComboBox(new String[] {"walls","ceilings","exposed floors"});
+		Element3.setBounds(207, 257, 140, 22);
+		frame.getContentPane().add(Element3);
+		
+		JLabel lblXThichness_1 = new JLabel("X : thichness for ceiling");
+		lblXThichness_1.setBounds(205, 459, 140, 14);
+		frame.getContentPane().add(lblXThichness_1);
+		
+		X_thichness_ceiling = new JTextField();
+		X_thichness_ceiling.setColumns(10);
+		X_thichness_ceiling.setBounds(205, 484, 140, 20);
+		frame.getContentPane().add(X_thichness_ceiling);
+		
+		JLabel lblXThichness = new JLabel("X : thichness for floor");
+		lblXThichness.setBounds(205, 514, 140, 14);
+		frame.getContentPane().add(lblXThichness);
+		
+		X_thichness_floor = new JTextField();
+		X_thichness_floor.setColumns(10);
+		X_thichness_floor.setBounds(205, 539, 140, 20);
+		frame.getContentPane().add(X_thichness_floor);
+		
+		ceiling_Material = new JTextField();
+		ceiling_Material.setColumns(10);
+		ceiling_Material.setBounds(160, 650, 215, 22);
+		frame.getContentPane().add(ceiling_Material);
+		
+		JLabel lblCeilngMaterial = new JLabel("ceiling Material");
+		lblCeilngMaterial.setBounds(201, 625, 144, 14);
+		frame.getContentPane().add(lblCeilngMaterial);
+		
+		JLabel lblFloorMaterial = new JLabel("floor Material");
+		lblFloorMaterial.setBounds(407, 11, 144, 14);
+		frame.getContentPane().add(lblFloorMaterial);
+		
+		floor_Material = new JTextField();
+		floor_Material.setColumns(10);
+		floor_Material.setBounds(407, 36, 192, 20);
+		frame.getContentPane().add(floor_Material);
+		
+		JComboBox IMaterial_type_wall = new JComboBox(new String[]{"construction materials"});
+		IMaterial_type_wall.setBounds(10, 650, 140, 22);
+		frame.getContentPane().add(IMaterial_type_wall);
+		
+		JLabel lblInsideMaterialType_2 = new JLabel("Inside Material type for wall");
+		lblInsideMaterialType_2.setBounds(10, 625, 192, 14);
+		frame.getContentPane().add(lblInsideMaterialType_2);
+		
+		
 		
 		JLabel lblNarrowestWidthOf = new JLabel("Narrowest width of the house, m");
-		lblNarrowestWidthOf.setBounds(200, 571, 184, 14);
+		lblNarrowestWidthOf.setBounds(407, 513, 184, 14);
 		frame.getContentPane().add(lblNarrowestWidthOf);
 		
 		JLabel lblDepthBelowGrade = new JLabel("Depth below grade, m");
@@ -1285,11 +1404,11 @@ public class main {
 		 
 	  
 		JComboBox doorList = new JComboBox( new String[] {"without storm door", "with wood storm door", "with metal storm door"});
-		doorList.setBounds(200, 231, 220, 22);
+		doorList.setBounds(407, 173, 220, 22);
 		frame.getContentPane().add(doorList);
 		
 		JComboBox comboBox = new JComboBox( new String[] {"uninsulated", "Insulated"});
-		comboBox.setBounds(200, 271, 220, 22);
+		comboBox.setBounds(407, 213, 220, 22);
 		frame.getContentPane().add(comboBox);
 		
 		JLabel lblQwin = new JLabel("Qwin");
@@ -1360,6 +1479,101 @@ public class main {
 		frame.getContentPane().add(AUnusual);
 		AUnusual.setColumns(10);
 		
+
+		Aroof = new JTextField();
+		Aroof.setBounds(637, 371, 140, 20);
+		frame.getContentPane().add(Aroof);
+		Aroof.setColumns(10);
+		
+		lblNewLabel_22 = new JLabel("Area roof");
+		lblNewLabel_22.setBounds(637, 346, 163, 14);
+		frame.getContentPane().add(lblNewLabel_22);
+	
+		JButton btnPage = new JButton("Go to Page 2");
+		btnPage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+			city=String.valueOf(City.getSelectedItem());
+			
+			main2 a=	new main2(Uceiling,Number_of_persons,Uwin,Awin, Sensile,leatent,city,Region,uwall);
+			main2.main22(Uceiling,Number_of_persons,Uwin,Awin,Sensile,leatent,city,Region,uwall);
+			 
+			 
+			}
+		});
+		btnPage.setBounds(1175, 639, 140, 68);
+		frame.getContentPane().add(btnPage);
+		
+		JComboBox wallMaterial = new JComboBox(new String[] {
+				 "marble",  "hard stone", "firm stone", "semi firm ston",  "soft ston",  "granit",  "baslt and stqnes",  "lime stone",  "sand","soil",
+				 "cement brick ,solid",  "cement brick , with air gaps",  "common brick (low density)", "face brick (high density)",
+                 "glass brick","fire-clay brick",  "clay", "light concrete", "foam concrete",  "mortar", "terrazzo tiles", 
+				 "ceramic tiles", "pvc tiles", "rubber tiles", "rubber flooring", "plastic tiles",  "cement palaster", "gypasum plaster", "oak", "pine",  "beech", 
+				 "mahogay",  "teak", "red wood",  "hard fiber boards", "soft fiber boards", 
+				 "plywood boards",   "chip biards" ,  "parquet",   "gypsum boards",   "cork boards",   "reguular",  "thermal resisting",   "aluminuum" , 
+				  "copper" ,   "brass",   "cast iron",  "mild steel",  "stainless steel", "polystyrene boards" ,  
+				    "polyurethane boards",   "rock wool" ,  "glass wool",   "cork boards",  "cork particles",  "asphalt mix",  "asphalt", "rool roofing"  
+		});
+		wallMaterial.setBounds(377, 594, 20, 22);
+		wallMaterial.addPopupMenuListener( listener );
+		frame.getContentPane().add(wallMaterial);
+		
+		JComboBox ceilingMaterial = new JComboBox(new String[] {
+				 "marble",  "hard stone", "firm stone", "semi firm ston",  "soft ston",  "granit",  "baslt and stqnes",  "lime stone",  "sand","soil",
+				 "cement brick ,solid",  "cement brick , with air gaps",  "common brick (low density)", "face brick (high density)",
+                "glass brick","fire-clay brick",  "clay", "light concrete", "foam concrete",  "mortar", "terrazzo tiles", 
+				 "ceramic tiles", "pvc tiles", "rubber tiles", "rubber flooring", "plastic tiles",  "cement palaster", "gypasum plaster", "oak", "pine",  "beech", 
+				 "mahogay",  "teak", "red wood",  "hard fiber boards", "soft fiber boards", 
+				 "plywood boards",   "chip biards" ,  "parquet",   "gypsum boards",   "cork boards",   "reguular",  "thermal resisting",   "aluminuum" , 
+				  "copper" ,   "brass",   "cast iron",  "mild steel",  "stainless steel", "polystyrene boards" ,  
+				    "polyurethane boards",   "rock wool" ,  "glass wool",   "cork boards",  "cork particles",  "asphalt mix",  "asphalt", "rool roofing"  
+		});
+		ceilingMaterial.setBounds(377, 650, 20, 22);
+		ceilingMaterial.addPopupMenuListener( listener );
+		frame.getContentPane().add(ceilingMaterial);
+		
+		JComboBox floorMaterial = new JComboBox(new String[] {
+				 "marble",  "hard stone", "firm stone", "semi firm ston",  "soft ston",  "granit",  "baslt and stqnes",  "lime stone",  "sand","soil",
+				 "cement brick ,solid",  "cement brick , with air gaps",  "common brick (low density)", "face brick (high density)",
+                "glass brick","fire-clay brick",  "clay", "light concrete", "foam concrete",  "mortar", "terrazzo tiles", 
+				 "ceramic tiles", "pvc tiles", "rubber tiles", "rubber flooring", "plastic tiles",  "cement palaster", "gypasum plaster", "oak", "pine",  "beech", 
+				 "mahogay",  "teak", "red wood",  "hard fiber boards", "soft fiber boards", 
+				 "plywood boards",   "chip biards" ,  "parquet",   "gypsum boards",   "cork boards",   "reguular",  "thermal resisting",   "aluminuum" , 
+				  "copper" ,   "brass",   "cast iron",  "mild steel",  "stainless steel", "polystyrene boards" ,  
+				    "polyurethane boards",   "rock wool" ,  "glass wool",   "cork boards",  "cork particles",  "asphalt mix",  "asphalt", "rool roofing"  
+		});
+		floorMaterial.setBounds(599, 35, 20, 22);
+		floorMaterial.addPopupMenuListener( listener );
+		frame.getContentPane().add(floorMaterial);
+		
+		
+	 
+		floorMaterial.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	
+            	floor_Material.setText( floorMaterial.getSelectedItem()+"/" +floor_Material.getText() );
+          		 
+          	 
+          }
+      });	
+		ceilingMaterial.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	
+            	ceiling_Material.setText( ceilingMaterial.getSelectedItem()+"/" +ceiling_Material.getText() );
+          		 
+          	 
+          }
+      });	
+		wallMaterial.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	
+            	wall_Material.setText( wallMaterial.getSelectedItem()+"/" +wall_Material.getText() );
+          		 
+          	 
+          }
+      });	
+	
+	  
 	
 		
 		JComboBox application = new JComboBox(new String[] {
@@ -1453,7 +1667,6 @@ public class main {
 		frame.getContentPane().add(application);	
 		JComboBox Type_of_activity = new JComboBox(new String[] {
 				 "seated at rest" 
-				 ,"seated at rest" 
 				 ,"seated, very light work"
 				 ,"moderately active office work"
 				 ,"standing light work ,walking"
@@ -1473,24 +1686,87 @@ public class main {
 		Type_of_activity.setPrototypeDisplayValue("ItemWWW");
 		frame.getContentPane().add(Type_of_activity);
 		
-		JComboBox Type_of_application = new JComboBox(new String[]{ "matinee","evening"
-			      ,"offices, hotel, aparrtments, restautant"
-				 ,"offices, hotel, aparrtments"
-			     ,"department store, retail, store, supermakets"
-				  ,"drug store"
-				 ,"bank"
-				 ,"restaurant"
-				  ,"dactory"
-				 ,"small parts assembly"
-				  ,"dance halls"
-				 ,"factory"
-				  ,"bowling alley"
-				  ,"factory"
-		});
+		
+		JComboBox Type_of_application = new JComboBox(new String[]{"matinee","evening"});
 		Type_of_application.setBounds(10, 258, 140, 22);  
 		Type_of_application.addPopupMenuListener( listener );
 		Type_of_application.setPrototypeDisplayValue("ItemWWW");		
 		frame.getContentPane().add(Type_of_application); 
+		Type_of_activity.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+              
+
+				
+            	  if( Type_of_activity.getSelectedItem().equals("seated at rest" )) { 
+                	  //Type_of_application.removeAllItems();
+            		 String element[]=new String[] {"matinee","evening"};  
+            		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+            	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("seated, very light work" )) { 
+                	 Type_of_application.removeAllItems();
+             		 Type_of_application.insertItemAt("offices, hotel, aparrtments, restautant", 0);
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("moderately active office work" )) { 
+            		  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"offices, hotel, aparrtments"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("standing light work ,walking" )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"department store, retail, store, supermakets" };  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("walking, scated")) { 
+                	  Type_of_application.removeAllItems();
+            		  String element[]=new String[] {"drug store"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("standing walking slowly" )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"bank"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("sedentary work")) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"restaurant"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("light bench work" )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"dactory"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   }
+            	  if( Type_of_activity.getSelectedItem().equals("moderate work"  )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"small parts assembly"};  
+             		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+             	   } 
+            	  if( Type_of_activity.getSelectedItem().equals( "moderate dancing"  )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"dance halls"};  
+              		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+              	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("walking at 1.5 ml/s"   )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"factory"};  
+              		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+              	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("bowling"   )) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"bowling alley"};  
+              		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+              	   } 
+            	  if( Type_of_activity.getSelectedItem().equals("helvy work")) { 
+                	  Type_of_application.removeAllItems();
+                	  String element[]=new String[] {"factory"};  
+              		for (String s : element)  Type_of_application.insertItemAt(s, Type_of_application.getItemCount());
+              	   } 
+            	  
+            	  Type_of_application.setSelectedIndex(0);
+            	 
+           
+             
+            }});
 		
 		Type_of_room_building = new JComboBox(new String[] {
 				"room with no windows or exterior doors"
@@ -1511,38 +1787,32 @@ public class main {
 		Type_of_room_building.setPrototypeDisplayValue("ItemWWW");	
 		frame.getContentPane().add(Type_of_room_building);
 		
-		IElement = new JComboBox(new String[] {  
+		IElement1 = new JComboBox(new String[] {  
 				   "walls" ,			 
 				   "callngs and floors"  
 		});
-		IElement.setBounds(10, 314, 140, 22);
-		IElement.addPopupMenuListener( listener );
-		IElement.setPrototypeDisplayValue("ItemWWW");
-		frame.getContentPane().add(IElement);
+		IElement1.setBounds(10, 314, 140, 22);
+		IElement1.addPopupMenuListener( listener );
+		IElement1.setPrototypeDisplayValue("ItemWWW");
+		frame.getContentPane().add(IElement1);
 		
-		
-		IMaterial_type = new JComboBox();
-		IMaterial_type.setBounds(10, 428, 140, 22);
-		IMaterial_type.addPopupMenuListener( listener );
-		IMaterial_type.setPrototypeDisplayValue("ItemWWW");
-		frame.getContentPane().add(IMaterial_type);
-		
-		IHeat_direction = new JComboBox(new String[] {   "horizontal" });
-		IHeat_direction.setBounds(10, 370, 140, 22);
-		IHeat_direction.addPopupMenuListener( listener );
-		IHeat_direction.setPrototypeDisplayValue("ItemWWW");
-		frame.getContentPane().add(IHeat_direction);
+		IHeat_direction_wall = new JComboBox(new String[] {   "horizontal" });
+		IHeat_direction_wall.setBounds(10, 482, 140, 22);
+		IHeat_direction_wall.addPopupMenuListener( listener );
+		IHeat_direction_wall.setPrototypeDisplayValue("ItemWWW");
+		frame.getContentPane().add(IHeat_direction_wall);
 		 
-		IElement.addActionListener(new ActionListener() {
+ 
+		IElement1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-            
-            	  if( IElement.getSelectedItem().equals("walls")) {
-            		  IHeat_direction.removeAllItems();
+            	 IHeat_direction_wall.removeAllItems();
+            	  if( IElement1.getSelectedItem().equals("walls")) {
+            		 
             		String element[]=new String[] {   "horizontal" };  
             		for (String s : element) {
-            			IHeat_direction.insertItemAt(s, IHeat_direction.getItemCount());
+            			IHeat_direction_wall.insertItemAt(s, IHeat_direction_wall.getItemCount());
             		}
-            		IHeat_direction.setSelectedIndex(0);
+            		IHeat_direction_wall.setSelectedIndex(0);
             		
             		//IHeat_direction.insertItemAt(item, index);
             		 
@@ -1550,14 +1820,13 @@ public class main {
             	  } 
             		 
             		 
-            	if( IElement.getSelectedItem().equals("callngs and floors")	) {
+            	if( IElement1.getSelectedItem().equals("callngs and floors")	) {
             	 String element[]=new String[] {    "upward","downward"   } ;
-           	        
-           	     IHeat_direction.removeAllItems();
+           	         
       		        for (String s : element) {
-      			        IHeat_direction.insertItemAt(s, IHeat_direction.getItemCount());
+      			        IHeat_direction_wall.insertItemAt(s, IHeat_direction_wall.getItemCount());
       		        }
-      		         IHeat_direction.setSelectedIndex(0);
+      		         IHeat_direction_wall.setSelectedIndex(0);
             		 
             	 
 
@@ -1565,29 +1834,29 @@ public class main {
            
             }
         });	
-		IHeat_direction.addActionListener(new ActionListener() {
+		IHeat_direction_wall.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //	"metals", "construction materials"
-            	if( IHeat_direction.getSelectedItem().equals("horizontal")||IHeat_direction.getSelectedItem().equals("upward")) {
-              		IMaterial_type.removeAllItems();
+            	if( IHeat_direction_wall.getSelectedItem().equals("horizontal")||IHeat_direction_wall.getSelectedItem().equals("upward")) {
+            		IMaterial_type_wall.removeAllItems();
               		String element_type[]=new String[] { "metals", "construction materials"}; 
               		for (String s : element_type) {
-              			IMaterial_type.insertItemAt(s, IMaterial_type.getItemCount());
+              			IMaterial_type_wall.insertItemAt(s, IMaterial_type_wall.getItemCount());
               		}
-              		IMaterial_type.setSelectedIndex(0);
+              		IMaterial_type_wall.setSelectedIndex(0);
               		
               		//IHeat_direction.insertItemAt(item, index);
               		 
               		 
               	  } 
           		 
-            	if( IHeat_direction.getSelectedItem().equals("downward") ) {
-              		IMaterial_type.removeAllItems();
+            	if( IHeat_direction_wall.getSelectedItem().equals("downward") ) {
+            		IMaterial_type_wall.removeAllItems();
               		String element_type[]=new String[] { "construction materials"}; 
               		for (String s : element_type) {
-              			IMaterial_type.insertItemAt(s, IMaterial_type.getItemCount());
+              			IMaterial_type_wall.insertItemAt(s, IMaterial_type_wall.getItemCount());
               		}
-              		IMaterial_type.setSelectedIndex(0);
+              		IMaterial_type_wall.setSelectedIndex(0);
               		
               		 
               		 
@@ -1598,13 +1867,130 @@ public class main {
           }
       });	
 		
+		IElement2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	IHeat_direction_ceiling.removeAllItems();
+            	  if( IElement2.getSelectedItem().equals("walls")) {
+            		  
+            		String element[]=new String[] {   "horizontal" };  
+            		
+            		for (String s : element)  IHeat_direction_ceiling.insertItemAt(s, IHeat_direction_ceiling.getItemCount());
+            		 IHeat_direction_ceiling.setSelectedIndex(0);
+            	  } 
+            		 
+            		 
+            	if( IElement2.getSelectedItem().equals("callngs and floors")	) {
+            	 String element[]=new String[] {    "upward","downward"   } ;
+           	        
+            	     
+      		        for (String s : element) IHeat_direction_ceiling.insertItemAt(s, IHeat_direction_ceiling.getItemCount());
+      		         
+      			      IHeat_direction_ceiling.setSelectedIndex(0);
+            		 
+            	 
+
+            	}
+           
+            }
+        });	
+		IHeat_direction_ceiling.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	
+            	IMaterial_type_ceiling.removeAllItems();
+            	if( IHeat_direction_ceiling.getSelectedItem().equals("horizontal")||IHeat_direction_ceiling.getSelectedItem().equals("upward")) {
+            		 
+              		String element_type[]=new String[] { "metals", "construction materials"}; 
+              		for (String s : element_type) IMaterial_type_ceiling.insertItemAt(s, IMaterial_type_ceiling.getItemCount());
+               
+              		IMaterial_type_ceiling.setSelectedIndex(0); 	 
+              	  } 
+          		 
+            	if( IHeat_direction_ceiling.getSelectedItem().equals("downward") ) {
+            		
+              		String element_type[]=new String[] { "construction materials"}; 
+              		for (String s : element_type)  IMaterial_type_ceiling.insertItemAt(s, IMaterial_type_ceiling.getItemCount());
+              	 
+              		IMaterial_type_ceiling.setSelectedIndex(0);
+              		
+              		 
+              		 
+              		 
+              	  } 
+          		 
+          	 
+          }
+      });	
+		
+		
+		IElement3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	 IHeat_direction_floor.removeAllItems();
+            	  if( IElement3.getSelectedItem().equals("walls")) {
+            		 
+            		String element[]=new String[] {   "horizontal" };  
+            		for (String s : element)  IHeat_direction_floor.insertItemAt(s, IHeat_direction_floor.getItemCount());
+            		 
+            		IHeat_direction_floor.setSelectedIndex(0);
+            		  	 
+            	  } 
+            		 
+            		 
+            	if( IElement3.getSelectedItem().equals("callngs and floors")	) {
+            	 String element[]=new String[] {    "upward","downward"   } ;
+           	        
+            	 
+      		     for (String s : element) IHeat_direction_floor.insertItemAt(s, IHeat_direction_floor.getItemCount());
+      		        
+      		      IHeat_direction_floor.setSelectedIndex(0);
+            		 
+            	 
+
+            	}
+           
+            }
+        });	
+		IHeat_direction_floor.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	IMaterial_type_floor.removeAllItems();
+                //	"metals", "construction materials"
+            	if( IHeat_direction_floor.getSelectedItem().equals("horizontal")||IHeat_direction_floor.getSelectedItem().equals("upward")) {
+            		
+              		String element_type[]=new String[] { "metals", "construction materials"}; 
+              		for (String s : element_type) {
+              			IMaterial_type_floor.insertItemAt(s, IMaterial_type_floor.getItemCount());
+              		}
+              		IMaterial_type_floor.setSelectedIndex(0);
+              		
+              		//IHeat_direction.insertItemAt(item, index);
+              		 
+              		 
+              	  } 
+          		 
+            	if( IHeat_direction_floor.getSelectedItem().equals("downward") ) {
+            		 
+              		String element_type[]=new String[] { "construction materials"}; 
+              		for (String s : element_type) {
+              			IMaterial_type_floor.insertItemAt(s, IMaterial_type_floor.getItemCount());
+              		}
+              		IMaterial_type_floor.setSelectedIndex(0);
+              		
+              		 
+              		 
+              		 
+              	  } 
+          		 
+          	 
+          }
+      });	
+		
+		
 			Narrwest = new JComboBox(new String [] {
 					"6.1",
 					 "7.3",
 					  "8.5",
 				        "9.8" 
 			});
-			Narrwest.setBounds(200, 595, 220, 22);
+			Narrwest.setBounds(407, 537, 220, 22);
 			frame.getContentPane().add(Narrwest);
 			
 			Depth_below_grade = new JComboBox(new String[] {
@@ -1619,7 +2005,7 @@ public class main {
 			window_material_type_and_peand_frame = new JComboBox(new String[] {
 					"wood", "alumiunm","steel", "pvc"
 			});
-			window_material_type_and_peand_frame.setBounds(200, 428, 220, 22);
+			window_material_type_and_peand_frame.setBounds(407, 370, 220, 22);
 			frame.getContentPane().add(window_material_type_and_peand_frame);
 			
 			door_type = new JComboBox(new String[] {
@@ -1634,7 +2020,7 @@ public class main {
 					 ,"polystyrene core",
 					 "polyurethane core"
 			});
-			door_type.setBounds(200, 540, 220, 22);
+			door_type.setBounds(407, 482, 220, 22);
 			frame.getContentPane().add(door_type);
 			
 			Heat_flow_direction = new JComboBox(new String[] {
@@ -1652,22 +2038,22 @@ public class main {
 			gap_thichness = new JComboBox(new String[] {
 			null,"5 mum","20 mun or mum"
 			});
-			gap_thichness.setBounds(200, 651, 220, 22);
+			gap_thichness.setBounds(407, 593, 220, 22);
 			frame.getContentPane().add(gap_thichness);
 			
 			single = new JComboBox(new String[] {
 					"single_glass","double_glass"
 			});
-			single.setBounds(200, 484, 220, 22);
+			single.setBounds(407, 426, 220, 22);
 			frame.getContentPane().add(single);
 			
 			
-			Element = new JComboBox(new String[] {"walls","ceilings and floors","exposed floors"});
-			Element.setBounds(10, 484, 140, 22);
-			frame.getContentPane().add(Element);
+			Element1 = new JComboBox(new String[] {"walls","ceilings","exposed floors"});
+			Element1.setBounds(205, 147, 140, 22);
+			frame.getContentPane().add(Element1);
 			
 			Material_type = new JComboBox(new String[] {"metals","construction materials"});
-			Material_type.setBounds(10, 538, 140, 22);
+			Material_type.setBounds(205, 314, 140, 22);
 			frame.getContentPane().add(Material_type);
 			
 
@@ -1804,6 +2190,7 @@ public class main {
 			    Qloadlatent.setText("");		
 				civc.setText("");
 				 //System.out.print(c);
+				
 				float ach=type_room.get(Type_of_room_building.getSelectedItem());	
 				double Vint= ( ach *   Double.parseDouble(Inside_volume.getText()) *1000) /3600;
 				vint.setText(String.valueOf(Vint));
@@ -1821,57 +2208,35 @@ public class main {
 			 	Qleatent.setText(String.valueOf(leatent));
 	   //5 --------------------------------------------------------------------------------
 			 	int numb=0;
-			 	double Ri=0,R0=0;
-			 	 if(Double.valueOf(Speed.getText()) < 0.5  ) {	  numb=0;
-		          }else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5  ) {numb=1;
-		          }else if(Double.valueOf(Speed.getText()) > 5 ) {numb=2;
-		          }   
-			 	System.out.print("fff");
-			 	 //System.out.print(HR_element.get("callngs and floors","upward").get("construction materials"));
-				 	 Ri=HR_element.get(
-		 			            String.valueOf(IHeat_direction.getSelectedItem())
-		 			          ,String.valueOf(IMaterial_type.getSelectedItem()));
-			 	  
-			 	  R0=array_table4[HR_wind_speed.get(String.valueOf(Element.getSelectedItem())
-			 			, String.valueOf(Material_type.getSelectedItem()))][numb];
-		
-			 	 String  X[]=X_thichness.getText().split("[, ]+");
-			 	 double Sum=0 ;
-			 	 double Sum_X[] =new double [X.length];
+			 	double Ri=0,R0=0,Sum=0,Rgap=0, rtotal=0;
+				 
+			 	 if(Double.valueOf(Speed.getText()) < 0.5  ) {	  numb=0;}
+			 	 else if(Double.valueOf(Speed.getText()) > 0.5 && Double.valueOf(Speed.getText()) <5  ) {numb=1;}
+			 	 else if(Double.valueOf(Speed.getText()) > 5 ) {numb=2; }   
 			 	 
-				 
-				//String  X[]=X_thichness.getText().split("[, ]+");
-				 
-					for(int i=0; i<X.length;i++) { 
-					Sum_X[i]=Double.valueOf(X[i]);
+			  	 Ri=HR_element.get(  String.valueOf(IHeat_direction_wall.getSelectedItem())  ,String.valueOf(IMaterial_type_wall.getSelectedItem()));
+			 	 R0=array_table4[HR_wind_speed.get(String.valueOf(Element1.getSelectedItem()) , String.valueOf(IMaterial_type_wall.getSelectedItem()))][numb];
+		
+			 	 String  X[]=X_thichness_wall.getText().split(",");
+			 	 double Sum_X[] =new double [X.length];
+			 	 for(int i=0; i<X.length;i++)  Sum_X[i]=Double.valueOf(X[i]);
 					 
-				   } 
+			 	 String  Materials[]=wall_Material.getText().split("/");
+				 double Sum_K[] =new double [Materials.length];
 				 
-				
-			String  Material_number[]=material_number.getText().split(",");
-			String  Materials[]=Material.getText().split("/");
-			double Sum_K[] =new double [Material_number.length];
-			
-			for(int i=0; i<Material_number.length;i++) { 
-				Sum_K[i]= array_table5[HR_material.get(Integer.parseInt(Material_number[i]),Materials[i])][ HC_material.get("thermal conductivity w / mc")];
- 			} 
-			for(int i=0; i<Sum_X.length;i++) { 
-				Sum=Sum_X[i]/ Sum_K[i] ;
- 			} 
-		 
-				 
-				double Rgap=0;
-				 double rtotal=0;
-				 try { 
-				   if(gap_thichness.getSelectedItem().equals(null))
-					 Rgap =air_gas[HR_air_gas.get(String.valueOf(gap_thichness.getSelectedItem()),String.valueOf(gap_material.getSelectedItem()))][HC_air_gas.get(Heat_flow_direction.getSelectedItem())];
-				   } catch (Exception e2) {   }
-				 rtotal=Ri+R0+Sum+Rgap;
-				  
-			Rtotal.setText(String.valueOf(rtotal ));
+				 for(int i=0; i<Materials.length;i++) Sum_K[i]= array_table5[HR_material.get( Materials[i] )][ 1 /* "thermal conductivity w / mc"*/];
+	 			 for(int i=0; i<Sum_X.length;i++) Sum=Sum_X[i]/ Sum_K[i] ;
+	 			 try { 
+					   if(gap_thichness.getSelectedItem().equals(null))
+						 Rgap =air_gas[HR_air_gas.get(String.valueOf(gap_thichness.getSelectedItem()),String.valueOf(gap_material.getSelectedItem()))][HC_air_gas.get(Heat_flow_direction.getSelectedItem())];
+					   } catch (Exception e2) {   }
+					 
+				rtotal=Ri+R0+Sum+Rgap;
+	          Rtotal.setText(String.valueOf(rtotal ));
+ 
 			 	
 	  //6 ----------------------------------------------------------------------------
-			 double uwall=1/rtotal;
+			   uwall=1/rtotal;
 			Uwall.setText(String.valueOf(uwall ) );
      //7 ---------------------------------------------------------------------------------
 			
@@ -1912,10 +2277,9 @@ public class main {
 		Qdoor.setText(String.valueOf(qdoor));
 				//System.out.print();
 		//11 ------------------------------------------
-		String  xin_kin[]=Xin_Kin.getText().split("[, ]+");
-		double Xin=Double.valueOf(xin_kin[0]);
-		double Kin=Double.valueOf(xin_kin[1]);
-		double Rbelow=Xin/Kin;
+		// hint
+	 
+		double Rbelow=Double.valueOf(Rwall_below.getText());
 		double Ubelow=0 ,qbelow ,abelow;
         double depthbelow=Double.valueOf(Depth_Below.getText());
         int colum=0;
@@ -1941,22 +2305,55 @@ public class main {
 		Qbelwor.setText(String.valueOf(qbelow ));
 		//System.out.println(depth_below_grade[HR_depth_below_grade.get("0.9-1.2" )][HC_depth_below_grade.get("uninsulated")]);
 		// 12 ----------------------------------------------------
-		double afloor=Double.valueOf(Afloor.getText());
-		double Ubit=depth_below[HR_depth_below.get(Depth_below_grade.getSelectedItem())][HC_depth_below.get(Narrwest.getSelectedItem())];
-		 
+		double afloor=Double.valueOf(Afloor.getText()); 
+		double  FRi=0,FR0=0,FSum=0,FRgap=0, Frtotal=0,Ufloor=0; 
+	 	 
+	  	 Ri=HR_element.get(  String.valueOf(IHeat_direction_floor.getSelectedItem())  ,String.valueOf(IMaterial_type_floor.getSelectedItem()));
+	 	 R0=array_table4[HR_wind_speed.get(String.valueOf(Element3.getSelectedItem()) , String.valueOf(IMaterial_type_floor.getSelectedItem()))][numb];
+
+	 	 String  FX[]=X_thichness_floor.getText().split(",");
+	 	 double Sum_FX[] =new double [FX.length];
+	 	 for(int i=0; i<FX.length;i++)  Sum_FX[i]=Double.valueOf(FX[i]);
 			 
-		double Qfloorbelow=Ubit*afloor*ddt;
+	 	 String  Materials_floor[]=floor_Material.getText().split("/");
+		 double Sum_FK[] =new double [Materials_floor.length];
+		 
+		 for(int i=0; i<Materials_floor.length;i++) Sum_FK[i]= array_table5[HR_material.get( Materials_floor[i] )][ 1 /* "thermal conductivity w / mc"*/];
+			 for(int i=0; i<Sum_FX.length;i++) FSum=Sum_FX[i]/ Sum_FK[i] ;
+			 Frtotal=FRi+FR0+FSum;
+          Ufloor=1/Frtotal;
+		/*
+		double Ubit=depth_below[HR_depth_below.get(Depth_below_grade.getSelectedItem())][HC_depth_below.get(Narrwest.getSelectedItem())];*/
+		double Qfloorbelow=Ufloor*afloor*dt;
+		
 		Qfloor.setText(String.valueOf(Qfloorbelow));
 		//13--------------------------------------------------------------------
 		
-		double Rceiling=0;
-		Rceiling=Ri+Sum*R0;
+		double qceiling=0; 
+	 	double CRi=0,CR0=0,CSum=0,CRgap=0, Crtotal=0; 
+	 	 
+	  	 Ri=HR_element.get(  String.valueOf(IHeat_direction_ceiling.getSelectedItem())  ,String.valueOf(IMaterial_type_ceiling.getSelectedItem()));
+	 	 R0=array_table4[HR_wind_speed.get(String.valueOf(Element2.getSelectedItem()) , String.valueOf(IMaterial_type_ceiling.getSelectedItem()))][numb];
+
+	 	 String  CX[]=X_thichness_ceiling.getText().split(",");
+	 	 double Sum_CX[] =new double [CX.length];
+	 	 for(int i=0; i<CX.length;i++)  Sum_CX[i]=Double.valueOf(CX[i]);
+			 
+	 	 String  Materials_ceiling[]=ceiling_Material.getText().split("/");
+		 double Sum_CK[] =new double [Materials_ceiling.length];
+		 
+		 for(int i=0; i<Materials_ceiling.length;i++) Sum_CK[i]= array_table5[HR_material.get( Materials_ceiling[i] )][ 1 /* "thermal conductivity w / mc"*/];
+			 for(int i=0; i<Sum_CX.length;i++) CSum=Sum_CX[i]/ Sum_CK[i] ;
+         Crtotal=CRi+CR0+CSum;
+		Qceiling.setText(String.valueOf(Crtotal ));
+    
+		/*Rceiling=Ri+Sum*R0;
 		Uceiling=1/Rceiling;
-		double qceiling=Uceiling*Double.valueOf(Acililing.getText())*dt;
-		Qceiling.setText(String.valueOf(qceiling));
+		double qceiling=Uceiling*Double.valueOf(Acililing.getText())*dt;*/
+		
 		//14 -------------------------------------------------------------
 		
-		double qtotal=qwin+qbelow+Qfloorbelow+qdoor+qceiling+qwall;
+		double qtotal=qwin+qbelow+Qfloorbelow+qdoor+qceiling+qwall+Qfloorbelow;
 		Qtotal.setText(String.valueOf(qtotal));
 		//15 -----------------------------------------------------
 		double dtTunconditioned=(2/3)*dt;
@@ -2005,8 +2402,8 @@ public class main {
 		Qloadsesibele.setText(String.valueOf(qloadsesibele));
 		//23 --------------------------------------------------------------------
 		String  Wi_W0[]=wi_w0.getText().split("[, ]+");
-		double Wi=Double.valueOf(xin_kin[0]);
-		double W0=Double.valueOf(xin_kin[1]);
+		double Wi=Double.valueOf(Wi_W0[0]);
+		double W0=Double.valueOf(Wi_W0[1]);
 		
 		double Qload_latent=3*Umax*(Wi-W0);
 		Qloadlatent.setText(String.valueOf(Qload_latent));
@@ -2023,39 +2420,6 @@ public class main {
 		btnNewButton.setBounds(783, 639, 167, 46);
 		frame.getContentPane().add(btnNewButton);
 		
-		Aroof = new JTextField();
-		Aroof.setBounds(637, 371, 140, 20);
-		frame.getContentPane().add(Aroof);
-		Aroof.setColumns(10);
-		
-		lblNewLabel_22 = new JLabel("Area roof");
-		lblNewLabel_22.setBounds(637, 346, 163, 14);
-		frame.getContentPane().add(lblNewLabel_22);
-	
-		JButton btnPage = new JButton("Go to Page 2");
-		btnPage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			frame.dispose();
-			city=String.valueOf(City.getSelectedItem());
-			
-			main2 a=	new main2(Uceiling,Number_of_persons,Uwin,Awin, Sensile,leatent,city,Region);
-			main2.main22(Uceiling,Number_of_persons,Uwin,Awin,Sensile,leatent,city,Region);
-			 
-			 
-			}
-		});
-		btnPage.setBounds(1175, 639, 140, 68);
-		frame.getContentPane().add(btnPage);
-		
-		JLabel lblRegion = new JLabel("region");
-		lblRegion.setBounds(783, 571, 126, 14);
-		frame.getContentPane().add(lblRegion);
-		
-		
-		
-	 
-		
-	  
 			 
 		
 		

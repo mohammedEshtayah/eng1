@@ -21,7 +21,7 @@ public class main2 {
 	private JTextField Ti_T0;
 	private JTextField Qcooling_ceiling;
 	private JTextField Qcooling_wall;
-	private JTextField AGlass;
+	private JTextField AGlass1;
 	private JTextField Qtrans_throng_glass; 
 	private JTextField Normail_Thickness2;
 	private JTextField Qconv_H_Gain;
@@ -36,15 +36,26 @@ public class main2 {
 	private JTextField QS_Equipment;
 	private JTextField run_hour;
 	private JTextField number_of_hour;
+	private JTextField AGlass3;
+	private JTextField AGlass4;
+	private JTextField Awall1;
+	private JTextField Awall2;
+	private JTextField Awall3;
+	private JTextField Awall4;
+	private JTextField Awin1;
+	private JTextField Awin2;
+	private JTextField Awin3;
+	private JTextField Awin4;
+	private JTextField lm;
  
 	/**
 	 * Launch the application.
 	 */
-	public static void main22(double Uceiling ,double n,double Uwin,double Awin,double output3 ,double output4,String city,int Region ) {
+	public static void main22(double Uceiling ,double n,double Uwin,double Awin,double output3 ,double output4,String city,int Region,double Uwall ) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					main2 window = new main2( Uceiling ,n ,Uwin,Awin ,output3 ,output4 ,city,Region );
+					main2 window = new main2( Uceiling ,n ,Uwin,Awin ,output3 ,output4 ,city,Region ,Uwall);
 					
 					window.frame.setVisible(true);
 				} catch (Exception e) {
@@ -57,15 +68,15 @@ public class main2 {
 	/**
 	 * Create the application.
 	 */
-	public main2(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4,String city,int Region ) {
+	public main2(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4,String city,int Region,double Uwall ) {
 		 
-		initialize(Uceiling ,n ,Uwin,Awin,output3 ,output4, city,Region); 
+		initialize(Uceiling ,n ,Uwin,Awin,output3 ,output4, city,Region,Uwall); 
 		}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4,String city,int Region) {
+	private void initialize(double Uceiling ,double n ,double Uwin,double Awin,double output3 ,double output4,String city,int Region,double Uwall) {
 		System.out.println("Uceiling"+Uceiling+" n"+n +" output3 "+output3 +" output4 "+output4 +"city "+city);
 		BoundsPopupMenuListener listener =     new BoundsPopupMenuListener(true, false);
 		frame = new JFrame();
@@ -894,31 +905,31 @@ public class main2 {
 				"Horizontal Roofs"			
 				
 				});
-		will_direction.setBounds(10, 269, 140, 22);
+		will_direction.setBounds(10, 297, 140, 22);
 		frame.getContentPane().add(will_direction);
 		
 		Aceiling = new JTextField();
-		Aceiling.setBounds(10, 333, 140, 20);
+		Aceiling.setBounds(10, 361, 140, 20);
 		frame.getContentPane().add(Aceiling);
 		Aceiling.setColumns(10);
 		
 		JLabel lblAceiling = new JLabel("Aceiling");
-		lblAceiling.setBounds(10, 307, 140, 14);
+		lblAceiling.setBounds(10, 335, 140, 14);
 		frame.getContentPane().add(lblAceiling);
 		
 		JComboBox color = new JComboBox( new String [] {
 				"dark color", "ligth color"
 		});
-		color.setBounds(10, 402, 140, 22);
+		color.setBounds(10, 412, 140, 22);
 		frame.getContentPane().add(color);
 		
 		
 		JLabel lblTiT = new JLabel("Ti  , T0");
-		lblTiT.setBounds(10, 434, 140, 14);
+		lblTiT.setBounds(10, 445, 140, 14);
 		frame.getContentPane().add(lblTiT);
 		
 		Ti_T0 = new JTextField();
-		Ti_T0.setBounds(10, 465, 140, 20);
+		Ti_T0.setBounds(10, 470, 140, 20);
 		frame.getContentPane().add(Ti_T0);
 		Ti_T0.setColumns(10);
 		
@@ -943,33 +954,281 @@ public class main2 {
 		Qcooling_wall.setColumns(10);
 		
 		JComboBox color_wall = new JComboBox(new String[] {"ligth wall color","medaim wall color","dark wall color"});
-		color_wall.setBounds(220, 11, 140, 22);
+		color_wall.setBounds(10, 578, 140, 22);
 		frame.getContentPane().add(color_wall);
 		
-		JComboBox North_Latitude_Wall = new JComboBox(new String [] {"N","NE","E","SE","S","SW","W","NW"});
-		North_Latitude_Wall.setBounds(220, 69, 140, 22);
-		frame.getContentPane().add(North_Latitude_Wall);
+		JComboBox North_Latitude_Wall1 = new JComboBox(new String [] {"N","NE","E","SE","S","SW","W","NW"});
+		North_Latitude_Wall1.setBounds(220, 35, 140, 22);
+		frame.getContentPane().add(North_Latitude_Wall1);
 		
 		JComboBox Wall_Group = new JComboBox(new String[] {"Group A","Group B","Group C","Group D","Group E","Group F","Group G"});
-		Wall_Group.setBounds(220, 132, 140, 22);
+		Wall_Group.setBounds(220, 238, 140, 22);
 		frame.getContentPane().add(Wall_Group);
 		
-		JLabel lblNorthLatitudeWall = new JLabel("North Latitude Wall Facting");
-		lblNorthLatitudeWall.setBounds(220, 39, 157, 14);
+		JLabel lblNorthLatitudeWall = new JLabel("North Latitude Wall Facting 1");
+		lblNorthLatitudeWall.setBounds(188, 11, 189, 14);
 		frame.getContentPane().add(lblNorthLatitudeWall);
 		
 		JLabel lblNewLabel_2 = new JLabel("Wall Group");
-		lblNewLabel_2.setBounds(220, 102, 140, 14);
+		lblNewLabel_2.setBounds(220, 221, 140, 14);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("AGlass");
-		lblNewLabel_3.setBounds(220, 185, 140, 14);
+		JLabel lblNewLabel_3 = new JLabel("AGlass 1");
+		lblNewLabel_3.setBounds(220, 276, 140, 14);
 		frame.getContentPane().add(lblNewLabel_3);
 		
-		AGlass = new JTextField();
-		AGlass.setBounds(220, 211, 140, 20);
-		frame.getContentPane().add(AGlass);
-		AGlass.setColumns(10);
+		AGlass1 = new JTextField();
+		AGlass1.setBounds(220, 291, 140, 20);
+		frame.getContentPane().add(AGlass1);
+		AGlass1.setColumns(10);
+		
+		JLabel lblDirectionToObtain = new JLabel("Direction to obtain LM");
+		lblDirectionToObtain.setBounds(10, 500, 140, 14);
+		frame.getContentPane().add(lblDirectionToObtain);
+		
+		JLabel lblColor = new JLabel("ceiling color");
+		lblColor.setBounds(10, 392, 140, 14);
+		frame.getContentPane().add(lblColor);
+		
+		JLabel lblCeilingDirection = new JLabel("ceiling direction");
+		lblCeilingDirection.setBounds(10, 272, 140, 14);
+		frame.getContentPane().add(lblCeilingDirection);
+		
+		JLabel lblWallColor = new JLabel("wall color");
+		lblWallColor.setBounds(10, 558, 140, 14);
+		frame.getContentPane().add(lblWallColor);
+		
+		JComboBox North_Latitude_Wall2 = new JComboBox(new String [] {"N","NE","E","SE","S","SW","W","NW"});
+		North_Latitude_Wall2.setBounds(220, 94, 140, 22);
+		frame.getContentPane().add(North_Latitude_Wall2);
+		
+		JLabel lblNorthLatitudeWall_1 = new JLabel("North Latitude Wall Facting 2");
+		lblNorthLatitudeWall_1.setBounds(188, 70, 189, 14);
+		frame.getContentPane().add(lblNorthLatitudeWall_1);
+		
+		JLabel lblNorthLatitudeWall_2 = new JLabel("North Latitude Wall Facting 3 ");
+		lblNorthLatitudeWall_2.setBounds(188, 121, 189, 14);
+		frame.getContentPane().add(lblNorthLatitudeWall_2);
+		
+		JComboBox North_Latitude_Wall3 = new JComboBox(new String [] {"N","NE","E","SE","S","SW","W","NW"});
+		North_Latitude_Wall3.setBounds(220, 144, 140, 22);
+		frame.getContentPane().add(North_Latitude_Wall3);
+		
+		JLabel lblNorthLatitudeWall_3 = new JLabel("North Latitude Wall Facting 4");
+		lblNorthLatitudeWall_3.setBounds(188, 170, 189, 14);
+		frame.getContentPane().add(lblNorthLatitudeWall_3);
+		
+		JComboBox North_Latitude_Wall4 = new JComboBox(new String [] {"N","NE","E","SE","S","SW","W","NW"});
+		North_Latitude_Wall4.setBounds(220, 191, 140, 22);
+		frame.getContentPane().add(North_Latitude_Wall4);
+		
+		JLabel lblGlassDirection_1 = new JLabel("Glass direction 2");
+		lblGlassDirection_1.setBounds(219, 497, 140, 14);
+		frame.getContentPane().add(lblGlassDirection_1);
+		
+		JComboBox Glass_direction2 = new JComboBox(new String []{
+				"N",
+				"NNE  NNW",
+				"NE  NW",
+				"ENE  WNW",
+				"E  W",
+				"ESE  WSW",
+				"SE  SW",
+				"SSW  SSW",
+				"S",
+				"Horizontal Roofs"			
+				
+				});
+		Glass_direction2.setBounds(219, 524, 140, 22);
+		frame.getContentPane().add(Glass_direction2);
+		
+		JLabel lblGlassDirection_2 = new JLabel("Glass direction 3");
+		lblGlassDirection_2.setBounds(219, 554, 140, 14);
+		frame.getContentPane().add(lblGlassDirection_2);
+		
+		JComboBox Glass_direction3 = new JComboBox(new String []{
+				"N",
+				"NNE  NNW",
+				"NE  NW",
+				"ENE  WNW",
+				"E  W",
+				"ESE  WSW",
+				"SE  SW",
+				"SSW  SSW",
+				"S",
+				"Horizontal Roofs"			
+				
+				});
+		Glass_direction3.setBounds(219, 581, 140, 22);
+		frame.getContentPane().add(Glass_direction3);
+		
+		JLabel lblGlassDirection_3 = new JLabel("Glass direction 4");
+		lblGlassDirection_3.setBounds(226, 612, 140, 14);
+		frame.getContentPane().add(lblGlassDirection_3);
+		
+		JComboBox Glass_direction4 = new JComboBox(new String []{
+				"N",
+				"NNE  NNW",
+				"NE  NW",
+				"ENE  WNW",
+				"E  W",
+				"ESE  WSW",
+				"SE  SW",
+				"SSW  SSW",
+				"S",
+				"Horizontal Roofs"			
+				
+				});
+		Glass_direction4.setBounds(219, 633, 140, 22);
+		frame.getContentPane().add(Glass_direction4);
+		
+		JLabel lblGlassFacing_1 = new JLabel("Glass Facing 2");
+		lblGlassFacing_1.setBounds(568, 331, 145, 14);
+		frame.getContentPane().add(lblGlassFacing_1);
+		
+		JComboBox Glass_Facing2 = new JComboBox(new String [] {
+				"N Shaded","NNE",
+				"NE","ENE","E",
+				"ESE","SE","SSW","S",
+				"SW","WSW","W","WNW","NW","NNW",
+				"HORIZ."	
+			});
+		Glass_Facing2.setBounds(568, 354, 140, 22);
+		frame.getContentPane().add(Glass_Facing2);
+		
+		JLabel lblGlassFacing_2 = new JLabel("Glass Facing 3");
+		lblGlassFacing_2.setBounds(567, 381, 145, 14);
+		frame.getContentPane().add(lblGlassFacing_2);
+		
+		JComboBox Glass_Facing3 = new JComboBox(new String [] {
+				"N Shaded","NNE",
+				"NE","ENE","E",
+				"ESE","SE","SSW","S",
+				"SW","WSW","W","WNW","NW","NNW",
+				"HORIZ."	
+			});
+		Glass_Facing3.setBounds(567, 404, 140, 22);
+		frame.getContentPane().add(Glass_Facing3);
+		
+		JComboBox Glass_Facing4 = new JComboBox(new String [] {
+				"N Shaded","NNE",
+				"NE","ENE","E",
+				"ESE","SE","SSW","S",
+				"SW","WSW","W","WNW","NW","NNW",
+				"HORIZ."	
+			});
+		Glass_Facing4.setBounds(566, 453, 140, 22);
+		frame.getContentPane().add(Glass_Facing4);
+		
+		JLabel lblGlassFacing_3 = new JLabel("Glass Facing 4");
+		lblGlassFacing_3.setBounds(566, 430, 145, 14);
+		frame.getContentPane().add(lblGlassFacing_3);
+		
+		JLabel lblAglass = new JLabel("AGlass 2");
+		lblAglass.setBounds(220, 322, 140, 14);
+		frame.getContentPane().add(lblAglass);
+		
+		JTextField AGlass2 = new JTextField();
+		AGlass2.setColumns(10);
+		AGlass2.setBounds(220, 337, 140, 20);
+		frame.getContentPane().add(AGlass2);
+		
+		JLabel lblAglass_1 = new JLabel("AGlass 3");
+		lblAglass_1.setBounds(220, 361, 140, 14);
+		frame.getContentPane().add(lblAglass_1);
+		
+		AGlass3 = new JTextField();
+		AGlass3.setColumns(10);
+		AGlass3.setBounds(220, 376, 140, 20);
+		frame.getContentPane().add(AGlass3);
+		
+		JLabel lblAglass_2 = new JLabel("AGlass 4");
+		lblAglass_2.setBounds(220, 401, 140, 14);
+		frame.getContentPane().add(lblAglass_2);
+		
+		AGlass4 = new JTextField();
+		AGlass4.setColumns(10);
+		AGlass4.setBounds(220, 416, 140, 20);
+		frame.getContentPane().add(AGlass4);
+		
+		JLabel lblAwall = new JLabel("Awall 1");
+		lblAwall.setBounds(396, 16, 140, 14);
+		frame.getContentPane().add(lblAwall);
+		
+		Awall1 = new JTextField();
+		Awall1.setColumns(10);
+		Awall1.setBounds(396, 31, 140, 20);
+		frame.getContentPane().add(Awall1);
+		
+		JLabel lblAwall_1 = new JLabel("Awall 2");
+		lblAwall_1.setBounds(395, 62, 140, 14);
+		frame.getContentPane().add(lblAwall_1);
+		
+		Awall2 = new JTextField();
+		Awall2.setColumns(10);
+		Awall2.setBounds(395, 77, 140, 20);
+		frame.getContentPane().add(Awall2);
+		
+		JLabel lblAwall_2 = new JLabel("Awall 3");
+		lblAwall_2.setBounds(396, 111, 140, 14);
+		frame.getContentPane().add(lblAwall_2);
+		
+		Awall3 = new JTextField();
+		Awall3.setColumns(10);
+		Awall3.setBounds(396, 126, 140, 20);
+		frame.getContentPane().add(Awall3);
+		
+		JLabel lblAwall_3 = new JLabel("Awall 4");
+		lblAwall_3.setBounds(395, 158, 140, 14);
+		frame.getContentPane().add(lblAwall_3);
+		
+		Awall4 = new JTextField();
+		Awall4.setColumns(10);
+		Awall4.setBounds(395, 173, 140, 20);
+		frame.getContentPane().add(Awall4);
+		
+		JLabel lblAwin = new JLabel("Awin 1");
+		lblAwin.setBounds(396, 206, 140, 14);
+		frame.getContentPane().add(lblAwin);
+		
+		Awin1 = new JTextField();
+		Awin1.setColumns(10);
+		Awin1.setBounds(396, 221, 140, 20);
+		frame.getContentPane().add(Awin1);
+		
+		JLabel lblAwin_1 = new JLabel("Awin 2");
+		lblAwin_1.setBounds(396, 260, 140, 14);
+		frame.getContentPane().add(lblAwin_1);
+		
+		Awin2 = new JTextField();
+		Awin2.setColumns(10);
+		Awin2.setBounds(396, 275, 140, 20);
+		frame.getContentPane().add(Awin2);
+		
+		JLabel lblAwin_2 = new JLabel("Awin 3");
+		lblAwin_2.setBounds(397, 304, 140, 14);
+		frame.getContentPane().add(lblAwin_2);
+		
+		Awin3 = new JTextField();
+		Awin3.setColumns(10);
+		Awin3.setBounds(397, 319, 140, 20);
+		frame.getContentPane().add(Awin3);
+		
+		JLabel lblAwin_3 = new JLabel("Awin 4");
+		lblAwin_3.setBounds(398, 350, 140, 14);
+		frame.getContentPane().add(lblAwin_3);
+		
+		Awin4 = new JTextField();
+		Awin4.setColumns(10);
+		Awin4.setBounds(398, 365, 140, 20);
+		frame.getContentPane().add(Awin4);
+		
+		lm = new JTextField();
+		lm.setBounds(10, 523, 122, 23);
+		frame.getContentPane().add(lm);
+		lm.setColumns(10);
+		
+		
 		
 		JLabel lblQtransThrongGlass = new JLabel("Q.trans throng glass");
 		lblQtransThrongGlass.setBounds(1161, 136, 140, 14);
@@ -981,51 +1240,51 @@ public class main2 {
 		frame.getContentPane().add(Qtrans_throng_glass);
 		Qtrans_throng_glass.setColumns(10);
 		
-		JLabel lblGlassDirection = new JLabel("Glass direction");
-		lblGlassDirection.setBounds(220, 242, 140, 14);
+		JLabel lblGlassDirection = new JLabel("Glass direction 1");
+		lblGlassDirection.setBounds(219, 442, 140, 14);
 		frame.getContentPane().add(lblGlassDirection);
 		
 		JComboBox month3 = new JComboBox(new String[] {"Jan.","Feb.","Mar.","Apr.","Maj","Jun.","Jul.","Aug.","Sep.","Oct.","Nov.","Dec."});
-		month3.setBounds(220, 307, 140, 22);
+		month3.setBounds(398, 403, 140, 22);
 		frame.getContentPane().add(month3);
 		
 
 		JComboBox  Galss = new JComboBox(new String[] {"Single Glass","Double Glass","Insulating Glass"});
-		 Galss.setBounds(220, 434, 140, 22);
+		 Galss.setBounds(398, 503, 140, 22);
 		frame.getContentPane().add( Galss);
 				
 		JComboBox Type_Galss = new JComboBox(new String [] {
 				"Clear" ,"Haet absorbing","Regular","palte","Reflective"});
-		Type_Galss.setBounds(220, 402, 140, 22);
+		Type_Galss.setBounds(398, 473, 140, 22);
 		frame.getContentPane().add(Type_Galss);
 		
 		JLabel lblTypeGalss = new JLabel("Type Galss");
-		lblTypeGalss.setBounds(220, 377, 140, 14);
+		lblTypeGalss.setBounds(398, 459, 140, 14);
 		frame.getContentPane().add(lblTypeGalss);
 		
 		JComboBox Glass_with = new JComboBox(new String [] {"Glass with no Shading","Glass with Shading"});
 		Glass_with.addPopupMenuListener( listener );
-		Glass_with.setBounds(220, 341, 140, 22);
+		Glass_with.setBounds(398, 434, 140, 22);
 		frame.getContentPane().add(Glass_with);
 		
 		JLabel lblNormailThickness = new JLabel("Normail Thickness");
-		lblNormailThickness.setBounds(220, 476, 140, 14);
+		lblNormailThickness.setBounds(400, 532, 140, 14);
 		frame.getContentPane().add(lblNormailThickness);
 		
 		JComboBox Normail_Thickness = new JComboBox(new String [] {"3","6","10","12"});
-		Normail_Thickness.setBounds(220, 508, 140, 22);
+		Normail_Thickness.setBounds(400, 561, 140, 22);
 		frame.getContentPane().add(Normail_Thickness);
 		
 		JComboBox Shading_Conefficient = new JComboBox(new String [] {"h=22.7","h=17.0"});
-		Shading_Conefficient.setBounds(220, 566, 140, 22);
+		Shading_Conefficient.setBounds(403, 618, 140, 22);
 		frame.getContentPane().add(Shading_Conefficient);
 		
 		JLabel lblShadingConefficient = new JLabel("Shading Conefficient");
-		lblShadingConefficient.setBounds(220, 541, 140, 14);
+		lblShadingConefficient.setBounds(403, 593, 140, 14);
 		frame.getContentPane().add(lblShadingConefficient);
 		
 		JLabel lblTypeGlass = new JLabel("Type Glass");
-		lblTypeGlass.setBounds(435, 11, 140, 14);
+		lblTypeGlass.setBounds(566, 14, 140, 14);
 		frame.getContentPane().add(lblTypeGlass);
 		
 		JComboBox Type_Glass2 = new JComboBox(new String[] {
@@ -1047,60 +1306,60 @@ public class main2 {
                 "Reflective Coated"
 				
 				});
-		Type_Glass2.setBounds(435, 35, 140, 22);
+		Type_Glass2.setBounds(566, 36, 140, 22);
 		Type_Glass2.addPopupMenuListener( listener );
 		frame.getContentPane().add(Type_Glass2);
 		
 		Normail_Thickness2 = new JTextField();
-		Normail_Thickness2.setBounds(435, 99, 140, 20);
+		Normail_Thickness2.setBounds(566, 96, 140, 20);
 		frame.getContentPane().add(Normail_Thickness2);
 		Normail_Thickness2.setColumns(10);
 		
 		JLabel label = new JLabel("Normail Thickness");
-		label.setBounds(435, 73, 140, 14);
+		label.setBounds(566, 70, 140, 14);
 		frame.getContentPane().add(label);
 		
 		JLabel lblNewLabel_4 = new JLabel("type of Shading");
-		lblNewLabel_4.setBounds(435, 136, 140, 14);
+		lblNewLabel_4.setBounds(566, 137, 140, 14);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JComboBox type_shading = new JComboBox(new String[] {"Venetian Blinds","Roller Shade"});
-		type_shading.setBounds(435, 161, 140, 22);
+		type_shading.setBounds(566, 162, 140, 22);
 		frame.getContentPane().add(type_shading);
 		
 		JComboBox MLDW = new JComboBox(new String[] {"Medium","Light","Dark","White"});
-		MLDW.setBounds(435, 210, 140, 22);
+		MLDW.setBounds(566, 211, 140, 22);
 		frame.getContentPane().add(MLDW);
 		
 		JComboBox with_no = new JComboBox(new String[] {"with","withno"});
-		with_no.setBounds(435, 252, 140, 22);
+		with_no.setBounds(566, 253, 140, 22);
 		frame.getContentPane().add(with_no);
 		
 
-		JComboBox Glass_Facing = new JComboBox(new String [] {
+		JComboBox Glass_Facing1 = new JComboBox(new String [] {
 			"N Shaded","NNE",
 			"NE","ENE","E",
 			"ESE","SE","SSW","S",
 			"SW","WSW","W","WNW","NW","NNW",
 			"HORIZ."	
 		});
-		Glass_Facing.setBounds(435, 307, 140, 22);
-		frame.getContentPane().add(Glass_Facing);
+		Glass_Facing1.setBounds(566, 308, 140, 22);
+		frame.getContentPane().add(Glass_Facing1);
 		
 		JLabel lblNewLabel_5 = new JLabel("Building Construction");
-		lblNewLabel_5.setBounds(435, 339, 140, 14);
+		lblNewLabel_5.setBounds(571, 479, 140, 14);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		JComboBox Building_Construction = new JComboBox(new String[] {"L","M","H"});
-		Building_Construction.setBounds(435, 364, 140, 22);
+		Building_Construction.setBounds(571, 504, 140, 22);
 		frame.getContentPane().add(Building_Construction);
 		
-		JLabel lblGlassFacing = new JLabel("Glass Facing");
-		lblGlassFacing.setBounds(435, 282, 145, 14);
+		JLabel lblGlassFacing = new JLabel("Glass Facing 1");
+		lblGlassFacing.setBounds(566, 283, 145, 14);
 		frame.getContentPane().add(lblGlassFacing);
 		
 		JLabel lblNewLabel_6 = new JLabel("Fenestration Facing");
-		lblNewLabel_6.setBounds(435, 404, 140, 14);
+		lblNewLabel_6.setBounds(572, 532, 140, 14);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JComboBox Fenestration_Facing = new JComboBox(new String [] {
@@ -1110,7 +1369,7 @@ public class main2 {
 				"SW","WSW","W","WNW","NW","NNW",
 				"HORIZ."	
 			});
-		Fenestration_Facing.setBounds(435, 434, 140, 22);
+		Fenestration_Facing.setBounds(571, 554, 140, 22);
 		frame.getContentPane().add(Fenestration_Facing);
 		
 
@@ -1125,20 +1384,20 @@ public class main2 {
 		Qconv_H_Gain.setColumns(10);
 		
 		JLabel lblNewLabel_7 = new JLabel("Hours After Each Into Space");
-		lblNewLabel_7.setBounds(611, 11, 140, 14);
+		lblNewLabel_7.setBounds(735, 13, 140, 14);
 		frame.getContentPane().add(lblNewLabel_7);
 		
 		Hours_after_each_into_space = new JTextField();
-		Hours_after_each_into_space.setBounds(611, 36, 140, 20);
+		Hours_after_each_into_space.setBounds(735, 38, 140, 20);
 		frame.getContentPane().add(Hours_after_each_into_space);
 		Hours_after_each_into_space.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Total Hours space");
-		lblNewLabel_8.setBounds(611, 73, 140, 14);
+		lblNewLabel_8.setBounds(735, 75, 140, 14);
 		frame.getContentPane().add(lblNewLabel_8);
 		
 		Total_Hours_space = new JTextField();
-		Total_Hours_space.setBounds(611, 99, 140, 20);
+		Total_Hours_space.setBounds(735, 101, 140, 20);
 		frame.getContentPane().add(Total_Hours_space);
 		Total_Hours_space.setColumns(10);
 		
@@ -1174,30 +1433,30 @@ public class main2 {
 		
 		JComboBox x_y = new JComboBox(new String[] {"fixture x^4 hours of operation","fixture y^4 hours of operation"});
 		x_y.addPopupMenuListener( listener );
-		x_y.setBounds(611, 132, 140, 22);
+		x_y.setBounds(735, 134, 140, 22);
 		frame.getContentPane().add(x_y);
 		
 		W_Lihting_Capacity = new JTextField();
 		W_Lihting_Capacity.setColumns(10);
-		W_Lihting_Capacity.setBounds(611, 314, 140, 20);
+		W_Lihting_Capacity.setBounds(735, 316, 140, 20);
 		frame.getContentPane().add(W_Lihting_Capacity);
 		
 		JLabel lblWLihtingCapacity = new JLabel("W Lighting Capacity");
-		lblWLihtingCapacity.setBounds(611, 288, 140, 14);
+		lblWLihtingCapacity.setBounds(735, 290, 140, 14);
 		frame.getContentPane().add(lblWLihtingCapacity);
 		
 		JLabel lblNewLabel_9 = new JLabel("number of hoursr after lights are turned on");
-		lblNewLabel_9.setBounds(611, 225, 239, 14);
+		lblNewLabel_9.setBounds(735, 227, 239, 14);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		number_of_hoursr_after_lights = new JTextField();
-		number_of_hoursr_after_lights.setBounds(611, 256, 140, 20);
+		number_of_hoursr_after_lights.setBounds(735, 258, 140, 20);
 		frame.getContentPane().add(number_of_hoursr_after_lights);
 		number_of_hoursr_after_lights.setColumns(10);
 		
 		
 		JComboBox _10_16 = new JComboBox(new String[] {"10","16"});
-		_10_16.setBounds(611, 161, 140, 22);
+		_10_16.setBounds(735, 163, 140, 22);
 		frame.getContentPane().add(_10_16);
 		
 		QL_quipment = new JTextField();
@@ -1246,19 +1505,19 @@ public class main2 {
 				 "Motors 2000-15000W",
 		} );
 		Application_of_Equipment.addPopupMenuListener( listener );
-		Application_of_Equipment.setBounds(611, 364, 140, 22);
+		Application_of_Equipment.setBounds(735, 366, 140, 22);
 		frame.getContentPane().add(Application_of_Equipment);
 		
 		JLabel lblApplication = new JLabel("Application of Equipment");
-		lblApplication.setBounds(611, 339, 140, 14);
+		lblApplication.setBounds(735, 341, 140, 14);
 		frame.getContentPane().add(lblApplication);
 		
 		JComboBox Hood = new JComboBox(new String[]{"with Hood" ,"without Hood"});
-		Hood.setBounds(611, 400, 140, 22);
+		Hood.setBounds(735, 402, 140, 22);
 		frame.getContentPane().add(Hood);
 		
 
-		JComboBox Glass_direction = new JComboBox(new String []{
+		JComboBox Glass_direction1 = new JComboBox(new String []{
 				"N",
 				"NNE  NNW",
 				"NE  NW",
@@ -1271,31 +1530,31 @@ public class main2 {
 				"Horizontal Roofs"			
 				
 				});
-		Glass_direction.setBounds(220, 269, 140, 22);
-		frame.getContentPane().add(Glass_direction);
+		Glass_direction1.setBounds(219, 469, 140, 22);
+		frame.getContentPane().add(Glass_direction1);
 		
 		JComboBox hooded_un = new JComboBox(new String[]{
 				"hooded","unhooded"
 		});
-		hooded_un.setBounds(435, 472, 140, 22);
+		hooded_un.setBounds(570, 587, 140, 22);
 		frame.getContentPane().add(hooded_un);
 
 		run_hour = new JTextField();
-		run_hour.setBounds(611, 473, 140, 20);
+		run_hour.setBounds(735, 475, 140, 20);
 		frame.getContentPane().add(run_hour);
 		run_hour.setColumns(10);
 		
 		number_of_hour = new JTextField();
-		number_of_hour.setBounds(611, 538, 140, 20);
+		number_of_hour.setBounds(735, 540, 140, 20);
 		frame.getContentPane().add(number_of_hour);
 		number_of_hour.setColumns(10);
 		
 		JLabel lblRunHour = new JLabel("run hour");
-		lblRunHour.setBounds(611, 444, 140, 14);
+		lblRunHour.setBounds(735, 446, 140, 14);
 		frame.getContentPane().add(lblRunHour);
 		
 		JLabel lblNumberofhour = new JLabel("number_of_hour");
-		lblNumberofhour.setBounds(611, 512, 140, 14);
+		lblNumberofhour.setBounds(735, 514, 140, 14);
 		frame.getContentPane().add(lblNumberofhour);
 		
 		JComboBox SNW = new JComboBox(new String []{
@@ -1311,15 +1570,23 @@ public class main2 {
 				"Horizontal Roofs"			
 				
 				});
-		SNW.setBounds(10, 538, 140, 22);
+		SNW.setBounds(131, 524, 19, 22);
+		SNW.addPopupMenuListener( listener );
 		frame.getContentPane().add(SNW);
-			
+		SNW.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+            	
+            	lm.setText( SNW.getSelectedItem()+"," +lm.getText() );
+          		 
+          	 
+          }
+      });
 			JLabel label_1 = new JLabel("month");
-			label_1.setBounds(867, 11, 48, 14);
+			label_1.setBounds(984, 11, 48, 14);
 			frame.getContentPane().add(label_1);
 			
 			JComboBox month2 = new JComboBox(new String []{"","1","2","3","4","5","6","7","8","9","10","11","12"});
-			month2.setBounds(864, 35, 167, 22);
+			month2.setBounds(984, 35, 167, 22);
 			frame.getContentPane().add(month2);
 		  Map<String, Integer> Month2 = new Hashtable<>();  
 		  Month2.put("1", 1);
@@ -1359,6 +1626,16 @@ public class main2 {
 			public void actionPerformed(ActionEvent e) {
 				//1 -----------------------------------------------------
 				 
+				Qcooling_ceiling.setText("");
+				Qcooling_wall.setText("");
+				Qtrans_throng_glass.setText("");
+				Qconv_H_Gain.setText(""); 
+			    QL_people_cooling.setText("" );
+				QS_people_cooling.setText("");
+				Qlighting.setText("");
+				QL_quipment.setText("");
+
+				
 				double   aceiling=0 , C_Tb_cor_c=0 ,  C_Tb=0  , LM=0  , k=0  ,Ti=0 ,T0=0;
 				double qcooling_ceiling=0;
 				int No_C,No_R,solar_time=0;
@@ -1385,33 +1662,63 @@ public class main2 {
 				qcooling_ceiling=Uceiling*aceiling*C_Tb_cor_c;
 				Qcooling_ceiling.setText(String.valueOf(qcooling_ceiling)  );
 				//2 -----------------------------------------------------
-				  
-				   double qcooling_wall=0 , Uwan=0 , Awan=0 , C_Tb_cor_W=0 ,  C_Tb_W=0  ,    k2=0  ;
-			 	 
-				C_Tb_W=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall.getSelectedItem()));
-				 
+				double Qwall_1=0,Qwall_2=0,Qwall_3=0,Qwall_4=0 , Awall_1,Awall_2,Awall_3,Awall_4;
+				   double qcooling_wall=0 , Uwan=0 , Awan=0 , C_Tb_cor_W1=0 ,C_Tb_cor_W2=0 ,C_Tb_cor_W3=0 ,C_Tb_cor_W4=0 , C_Tb_W3=0,C_Tb_W4=0 , C_Tb_W2=0,C_Tb_W1=0  
+						   , LM1=0,LM2=0,LM3=0,LM4=0,   k2=0  ;
+				   int NOR_table9_4=0;
+				   if (color_wall.getSelectedItem().equals("ligth wall color")  ) k2=0.65;
+				   else if (color_wall.getSelectedItem().equals("medaim wall color")) k2=0.83; 
+				   else if (color_wall.getSelectedItem().equals("dark wall color")) k2=1;
+				   Awall_1=Double.valueOf(Awall1.getText());
+				   Awall_2=Double.valueOf(Awall2.getText());
+				   Awall_3=Double.valueOf(Awall3.getText());
+				   Awall_4=Double.valueOf(Awall4.getText());
+				   String llm[]=lm.getText().split(",");
+				 //Qwall 1---------------------------------   
+				NOR_table9_4=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall1.getSelectedItem()));
+				C_Tb_W1=Table_9_4[NOR_table9_4][Integer.valueOf(Solar_time.getText())];
 				No_R= R_9_2.get(String.valueOf( Lat.getSelectedItem()),String.valueOf( month.getSelectedItem()));
-			    LM=Table_9_2[No_R][H_9_2.get(will_direction.getSelectedItem())];
-			    
-				if (color_wall.getSelectedItem().equals("ligth wall color")  )
-			    	k2=0.65;
-			    else if (color_wall.getSelectedItem().equals("medaim wall color"))
-			    	k2=0.83; 
-			    else if (color_wall.getSelectedItem().equals("dark wall color"))
-			    	k2=1;
-				C_Tb_cor_W=(C_Tb_W+LM)*k2+(25.5 - Ti) + (T0-29.4);
-				/*Uwan*Awan not found ?*/
-				qcooling_wall=Uwan*Awan*C_Tb_cor_W;
+			    LM1=Table_9_2[No_R][H_9_2.get(llm[0])];
+			    C_Tb_cor_W1=(C_Tb_W1+LM1)*k2+(25.5 - Ti) + (T0-29.4);
+				Qwall_1=Uwall*Awall_1*C_Tb_cor_W1;
+				
+				//Qwall 2---------------------------------
+				NOR_table9_4=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall2.getSelectedItem()));
+				C_Tb_W2=Table_9_4[NOR_table9_4][Integer.valueOf(Solar_time.getText())];
+				 
+			    LM2=Table_9_2[No_R][H_9_2.get(llm[1])];
+			    C_Tb_cor_W2=(C_Tb_W2+LM2)*k2+(25.5 - Ti) + (T0-29.4);
+				Qwall_2=Uwall*Awall_2*C_Tb_cor_W2;
+				//Qwall 3---------------------------------
+				NOR_table9_4=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall3.getSelectedItem()));
+				C_Tb_W3=Table_9_4[NOR_table9_4][Integer.valueOf(Solar_time.getText())];
+ 			    LM3=Table_9_2[No_R][H_9_2.get(llm[2])];
+			    C_Tb_cor_W3=(C_Tb_W3+LM3)*k2+(25.5 - Ti) + (T0-29.4);
+				Qwall_3=Uwall*Awall_3*C_Tb_cor_W3;
+				//Qwall 4---------------------------------
+				NOR_table9_4=R_9_4.get(String.valueOf(Wall_Group.getSelectedItem()),String.valueOf( North_Latitude_Wall4.getSelectedItem()));
+				C_Tb_W2=Table_9_4[NOR_table9_4][Integer.valueOf(Solar_time.getText())];
+ 			    LM2=Table_9_2[No_R][H_9_2.get(llm[3])];
+			    C_Tb_cor_W4=(C_Tb_W4+LM4)*k2+(25.5 - Ti) + (T0-29.4);
+				Qwall_4=Uwall*Awall_4*C_Tb_cor_W4;
+				
+				qcooling_wall=Qwall_1+Qwall_2+Qwall_3+Qwall_4;
 				Qcooling_wall.setText(String.valueOf(qcooling_wall)  );
 				
 				//3 -----------------------------------------------------
-				double qtrans_throng_glass=0 , aglass=0 , SHG=0 , SC=0 ,  CLF=0 ,Normail ;
+				double qtrans_throng_glass=0   , SHG1=0, SHG2=0, SHG3=0, SHG4=0 , SC=0 ,  CLF1=0,CLF2=0,CLF3=0,CLF4=0 ,Normail ,Qglass1=0,Qglass2=0,Qglass3=0,Qglass4=0;
+				int No_R1,No_R2,No_R3,No_R4;
 				Normail=Double.valueOf( Normail_Thickness2.getText());
-				/* Glass_direction N w .... 
-				 * عكس التحاتا */
-				No_C=C_9_7.get( String.valueOf(month3.getSelectedItem()));
-				No_R=H_9_2.get( String.valueOf(Glass_direction.getSelectedItem()));
-				SHG=Table_9_7[No_R][No_C ];
+			 
+				No_C=C_9_7.get( month3.getSelectedItem());
+				No_R1=H_9_2.get( Glass_direction1.getSelectedItem());
+				No_R2=H_9_2.get( Glass_direction2.getSelectedItem());
+				No_R3=H_9_2.get( Glass_direction3.getSelectedItem());
+				No_R4=H_9_2.get( Glass_direction4.getSelectedItem());
+				SHG1=Table_9_7[No_R1][No_C ];
+				SHG2=Table_9_7[No_R2][No_C ];
+				SHG3=Table_9_7[No_R3][No_C ];
+				SHG4=Table_9_7[No_R4][No_C ];
 				 
                 if (Glass_with.getSelectedItem().equals("Glass with no Shading" )) {
                 	No_C=H_9_8.get( Shading_Conefficient.getSelectedItem());
@@ -1420,47 +1727,21 @@ public class main2 {
                 }else {
                   
             		   				 
-                	if(Type_Glass2.getSelectedItem().equals("Clear, regular") &&
-                			Galss.getSelectedItem().equals("Single Glass")&& 2.5<=Normail && 6.0>Normail ) No_R=0;
-                	
-                	else if(Type_Glass2.getSelectedItem().equals("Claar, plate")
-                			&& Galss.getSelectedItem().equals("Single Glass")&& 6.0<=Normail && 12.0>Normail)No_R=1;
-                	
-                   	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing")
-                   			&& Galss.getSelectedItem().equals("Single Glass")&& 3.0==Normail)No_R=3;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Pattern or Tinted(gray sheet)")
-                    		&& Galss.getSelectedItem().equals("Single Glass")&& 5.0<=Normail && 5.5>Normail)No_R=4;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing plate")
-                    		&& Galss.getSelectedItem().equals("Single Glass")&& 5.0<=Normail && 6.0>Normail)No_R=5;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Pattern or Tinted, gray sheet")
-                    		&& Galss.getSelectedItem().equals("Single Glass")&& 3.0<Normail && 5.5>Normail)No_R=6;
-                	
-                   	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing plate or Pattern Heat Abosrbing")
-                   			&& Galss.getSelectedItem().equals("Single Glass")&& 10==Normail)No_R=7;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing or Pattern")
-                    		&& Galss.getSelectedItem().equals("Single Glass"))No_R=8;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Reflective Coated Glass")
-                    		&& Galss.getSelectedItem().equals("Single Glass"))No_R=9;
-                	
-                  	else if(Type_Glass2.getSelectedItem().equals("Regular")
-                  			&& Galss.getSelectedItem().equals("Double Glass")&& 3==Normail)No_R=10;
-                	
-                  	else if(Type_Glass2.getSelectedItem().equals("Plate")
-                  			&& Galss.getSelectedItem().equals("Double Glass")&& 6==Normail)No_R=11;
-                	
-                    else if(Type_Glass2.getSelectedItem().equals("Reflective")&& 
-                    		Galss.getSelectedItem().equals("Double Glass")&& 6==Normail)No_R=12;
-                    else if(Type_Glass2.getSelectedItem().equals("Clear")
-                    		&& Galss.getSelectedItem().equals("Insulating Glass")&& 2.5<=Normail&& 6.0>Normail)No_R=13;
-                    else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing")
-                    		&& Galss.getSelectedItem().equals("Insulating Glass")&& 5.0<=Normail&& 6.0>Normail)No_R=14;
-                    else if(Type_Glass2.getSelectedItem().equals("Reflective Coated")
-                    		&& Galss.getSelectedItem().equals("Insulating Glass"))No_R=15;
+                	if(Type_Glass2.getSelectedItem().equals("Clear, regular") && Galss.getSelectedItem().equals("Single Glass")&& 2.5<=Normail && 6.0>Normail ) No_R=0;
+                	else if(Type_Glass2.getSelectedItem().equals("Claar, plate") && Galss.getSelectedItem().equals("Single Glass")&& 6.0<=Normail && 12.0>Normail)No_R=1;
+                	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing") && Galss.getSelectedItem().equals("Single Glass")&& 3.0==Normail)No_R=3;
+                	else if(Type_Glass2.getSelectedItem().equals("Pattern or Tinted(gray sheet)")&& Galss.getSelectedItem().equals("Single Glass")&& 5.0<=Normail && 5.5>Normail)No_R=4;
+                	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing plate")&& Galss.getSelectedItem().equals("Single Glass")&& 5.0<=Normail && 6.0>Normail)No_R=5;
+                	else if(Type_Glass2.getSelectedItem().equals("Pattern or Tinted, gray sheet")&& Galss.getSelectedItem().equals("Single Glass")&& 3.0<Normail && 5.5>Normail)No_R=6;
+                	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing plate or Pattern Heat Abosrbing")&& Galss.getSelectedItem().equals("Single Glass")&& 10==Normail)No_R=7;
+                	else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing or Pattern")&& Galss.getSelectedItem().equals("Single Glass"))No_R=8;
+                	else if(Type_Glass2.getSelectedItem().equals("Reflective Coated Glass") && Galss.getSelectedItem().equals("Single Glass"))No_R=9;
+                	else if(Type_Glass2.getSelectedItem().equals("Regular") && Galss.getSelectedItem().equals("Double Glass")&& 3==Normail)No_R=10;
+                	else if(Type_Glass2.getSelectedItem().equals("Plate") && Galss.getSelectedItem().equals("Double Glass")&& 6==Normail)No_R=11;
+                    else if(Type_Glass2.getSelectedItem().equals("Reflective")&& Galss.getSelectedItem().equals("Double Glass")&& 6==Normail)No_R=12;
+                    else if(Type_Glass2.getSelectedItem().equals("Clear") && Galss.getSelectedItem().equals("Insulating Glass")&& 2.5<=Normail&& 6.0>Normail)No_R=13;
+                    else if(Type_Glass2.getSelectedItem().equals("Heat Abosrbing") && Galss.getSelectedItem().equals("Insulating Glass")&& 5.0<=Normail&& 6.0>Normail)No_R=14;
+                    else if(Type_Glass2.getSelectedItem().equals("Reflective Coated") && Galss.getSelectedItem().equals("Insulating Glass"))No_R=15;
                 		
                 	No_C= C_9_9.get(String.valueOf( type_shading.getSelectedItem()), String.valueOf(MLDW.getSelectedItem()));
                 	SC=Table_9_9[No_R][No_C];
@@ -1468,23 +1749,43 @@ public class main2 {
                 	}
                 
                 if(with_no.getSelectedItem().equals("with")) {
-                	No_R=R_9_10.get(String.valueOf(Glass_Facing.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
-                	CLF=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
+                	No_R=R_9_10.get(String.valueOf(Glass_Facing1.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
+                	CLF1=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
+                	No_R=R_9_10.get(String.valueOf(Glass_Facing2.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
+                	CLF2=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
+                	No_R=R_9_10.get(String.valueOf(Glass_Facing3.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
+                	CLF3=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
+                	No_R=R_9_10.get(String.valueOf(Glass_Facing4.getSelectedItem()), String.valueOf(Building_Construction.getSelectedItem()));
+                	CLF4=Table_9_10[No_R][Integer.valueOf(Solar_time.getText())] ;
                 }
                 else {
                 	No_R=R_9_11.get( Fenestration_Facing.getSelectedItem());
-                	CLF=Table_9_11[No_R][Integer.valueOf(Solar_time.getText())] ;
+                	CLF1=Table_9_11[No_R][Integer.valueOf(Solar_time.getText())] ;
                 }	
 				
-				aglass=Double.valueOf( AGlass.getText());
-				qtrans_throng_glass=aglass* SHG * SC * CLF;
+			
+				
+				Qglass1= Double.valueOf( AGlass1.getText())* SHG1 * SC * CLF1;
+				Qglass2= Double.valueOf( AGlass2.getText())* SHG2 * SC * CLF2;
+				Qglass3= Double.valueOf( AGlass3.getText())* SHG3 * SC * CLF3;
+				Qglass4= Double.valueOf( AGlass4.getText())* SHG4 * SC * CLF4;
+				
+				qtrans_throng_glass=Qglass1+Qglass2+Qglass3+Qglass4;
 				Qtrans_throng_glass.setText(String.valueOf(qtrans_throng_glass)  );
 				//4 -----------------------------------------------------
 				 
-					double qconv_H_Gain=0,C_TD_con_win=0 ,C_TD_win=0    ;
+				double qconv_H_Gain=0,C_TD_con_win=0 ,C_TD_win=0 ,Qwin1=0,Qwin2=0,Qwin3=0,Qwin4=0;   ;
 				C_TD_win=Table_9_12[Integer.valueOf(Solar_time.getText())];
 				C_TD_con_win=C_TD_win+(25.5 - Ti) + (T0-29.4);
-				 qconv_H_Gain=Uwin* Awin * C_TD_con_win;
+				
+				 
+				 
+				 Qwin1= Uwin* Double.valueOf(Awin1.getText())  * C_TD_con_win;
+				 Qwin2= Uwin* Double.valueOf(Awin2.getText())  * C_TD_con_win;
+				 Qwin3= Uwin* Double.valueOf(Awin3.getText())  * C_TD_con_win;
+				 Qwin4= Uwin* Double.valueOf(Awin4.getText())  * C_TD_con_win;
+				 
+				 qconv_H_Gain=Qwin1+Qwin2+Qwin3+Qwin4;
 				 Qconv_H_Gain.setText(String.valueOf(qconv_H_Gain)  );
 				//5 -----------------------------------------------------
 				 QL_people_cooling.setText(String.valueOf( output4 * n )  );
@@ -1520,7 +1821,8 @@ public class main2 {
 				   //9 ----------------------------------------------------- 
 				   double qL=0 ;
 					 
-				   qL=Table_9_13[R_9_13.get(Application_of_Equipment.getSelectedItem())][C_9_13.get(String.valueOf(Hood.getSelectedItem()), "Latent")];
+				   qL=Table_9_13[R_9_13.get(Application_of_Equipment.getSelectedItem())]
+						   [C_9_13.get(String.valueOf(Hood.getSelectedItem()), "Latent")];
 				   QL_quipment.setText(String.valueOf(qL) );
 				 
 			}
@@ -1528,17 +1830,7 @@ public class main2 {
 		});
 		btnNewButton.setBounds(1161, 548, 140, 52);
 		frame.getContentPane().add(btnNewButton);
-		
-		JLabel lblDirectionToObtain = new JLabel("Direction to obtain LM");
-		lblDirectionToObtain.setBounds(10, 506, 140, 14);
-		frame.getContentPane().add(lblDirectionToObtain);
-		
-		JLabel lblColor = new JLabel("color");
-		lblColor.setBounds(10, 364, 140, 14);
-		frame.getContentPane().add(lblColor);
-		
-		
-		
+
 		
 		
 
